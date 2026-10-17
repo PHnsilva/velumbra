@@ -13,6 +13,8 @@
 
 Prólogo estático funcional: abertura com ícone e nome, transição para menu, cenário interativo, prévias de baralhos e preferências locais. Essa entrega foi solicitada como preparação separada e não altera a numeração ou conclui nenhuma sprint. Consulte [PROLOGUE.md](PROLOGUE.md).
 
+## Entregas das sprints
+
 | Sprint | Entrega | Critério de conclusão |
 | --- | --- | --- |
 | 01 | Fundação: aplicação, estrutura dos quatro baralhos, navegação e configuração Vercel. | Aplicação navega sem erros e aceita conteúdo dos quatro sistemas. |

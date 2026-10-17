@@ -2,6 +2,8 @@
 
 Entrega preparatória solicitada antes da sprint 1. As 20 sprints continuam pendentes; esta versão valida a abertura, a atmosfera e o menu.
 
+Disponível em [velumbra-hazel.vercel.app](https://velumbra-hazel.vercel.app/). A Vercel confirmou o deploy de produção do commit `790102b` no plano Hobby; o endereço publicado foi aberto para conferir a abertura e o menu. Alterações posteriores de documentação não modificam o código desse prólogo.
+
 ## Implementado
 
 - Abertura com ícone original, nome Velumbra, animação e transição automática. É possível entrar imediatamente ou rever a abertura.

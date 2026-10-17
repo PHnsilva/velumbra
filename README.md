@@ -14,6 +14,8 @@ O nome reúne véu, vela e *umbra* (sombra). A apresentação da experiência, a
 
 O prólogo é uma aplicação estática em HTML, CSS e JavaScript, com build sem dependências externas. Ele valida a identidade e a navegação antes da fundação em Next.js. Escopo e verificações estão em [docs/PROLOGUE.md](docs/PROLOGUE.md).
 
+**[Abrir o prólogo publicado na Vercel](https://velumbra-hazel.vercel.app/)**
+
 O desenvolvimento está organizado em **20 sprints**: testes e mudanças nas sprints **18 e 20**, MVP integrado na sprint **19**. O acompanhamento fica em Markdown no próprio repositório, sem Issues ou GitHub Projects.
 
 ---
