@@ -1,6 +1,6 @@
 # Arquitetura planejada
 
-Este documento descreve decisões propostas para implementação. Nenhum componente executável está implementado neste commit inicial.
+Este documento descreve decisões propostas para a aplicação completa. O [prólogo estático](PROLOGUE.md) é a implementação executável preparatória; ainda não contém motor de tiragens, backend ou IA.
 
 ## Aplicação
 

@@ -10,7 +10,9 @@ O nome reúne véu, vela e *umbra* (sombra). A apresentação da experiência, a
 
 ## Estado e escopo do repositório
 
-**Fase: preparação e planejamento.** Ainda não há aplicação executável, configuração de build, integração de IA ou deploy publicado. O repositório contém documentação técnica, planejamento e o ícone inicial. Todas as sprints estão pendentes.
+**Fase: prólogo funcional anterior à sprint 1.** Já existem abertura animada, cenário interativo, menu, identificação local, prévias dos quatro baralhos e ajustes de som e movimento. O motor de tiragens, o catálogo completo, a personagem animada em camadas e a IA continuam planejados. Todas as 20 sprints permanecem pendentes.
+
+O prólogo é uma aplicação estática em HTML, CSS e JavaScript, com build sem dependências externas. Ele valida a identidade e a navegação antes da fundação em Next.js. Escopo e verificações estão em [docs/PROLOGUE.md](docs/PROLOGUE.md).
 
 O desenvolvimento está organizado em **20 sprints**: testes e mudanças nas sprints **18 e 20**, MVP integrado na sprint **19**. O acompanhamento fica em Markdown no próprio repositório, sem Issues ou GitHub Projects.
 
@@ -136,7 +138,19 @@ As descrições editoriais serão resolvidas no servidor pelos IDs recebidos. O 
 
 ## Desenvolvimento local
 
-A aplicação e o manifesto de dependências serão criados na **sprint 1**. Este commit não oferece comandos de instalação, execução ou build porque eles ainda não existem. As instruções serão adicionadas e verificadas junto com a implementação.
+Pré-requisito do prólogo: Node.js 22 ou superior. A execução foi verificada com Node.js 24.19.0. Não é necessário instalar pacotes ou configurar credenciais.
+
+```sh
+npm run dev
+```
+
+Abra `http://127.0.0.1:4173`. Para gerar os arquivos estáticos de publicação:
+
+```sh
+npm run build
+```
+
+O resultado fica em `dist/`. `vercel.json` configura o build e a pasta de saída. A aplicação completa em Next.js será estruturada na sprint 1; o prólogo não antecipa a conclusão dessa sprint.
 
 ---
 
@@ -146,7 +160,7 @@ A Vercel é o destino previsto para a aplicação e a função de backend. Arte 
 
 O plano Hobby é destinado a uso pessoal e não comercial. Cotas de hospedagem e IA devem ser confirmadas durante a integração. A disponibilização gratuita inicial não representa capacidade ilimitada. Monetização exige reavaliar plano e termos.
 
-As credenciais de IA e a conexão da conta Vercel serão configuradas nas etapas correspondentes; não há deploy ou serviço pago ativado neste estágio.
+O prólogo pode ser publicado como aplicação estática, sem variáveis de ambiente ou funções de servidor. Credenciais e integração de IA serão configuradas nas etapas correspondentes. Nenhum serviço pago é necessário para esta abertura.
 
 ---
 
@@ -176,6 +190,7 @@ Cada sprint inclui verificação proporcional. As sprints 18 e 20 concentram rev
 | [docs/ART_DIRECTION.md](docs/ART_DIRECTION.md) | Direção visual e estados animados. |
 | [docs/ASSETS.md](docs/ASSETS.md) | Ícone inicial, origem e instrução de geração. |
 | [docs/RESEARCH.md](docs/RESEARCH.md) | Pesquisas recuperadas, fontes e limites da verificação. |
+| [docs/PROLOGUE.md](docs/PROLOGUE.md) | Implementação e validação da abertura anterior à sprint 1. |
 
 ---
 
@@ -195,6 +210,12 @@ Cada sprint inclui verificação proporcional. As sprints 18 e 20 concentram rev
 GAME.md                  Experiência e regras previstas
 docs/                    Arquitetura, arte, pesquisa e sprints
 public/brand/            Ícone original recuperado
+public/art/              Cenário original da cabana
+public/fonts/            Fontes locais e respectivas licenças
+src/                     Interface e comportamento do prólogo
+scripts/                 Servidor local e build estático
+index.html               Entrada da abertura
+vercel.json              Configuração de publicação estática
 ```
 
 ## Autoria e contribuição
@@ -205,4 +226,4 @@ O planejamento é mantido nos documentos deste repositório. Contribuições dev
 
 ## Licença
 
-Ainda não foi escolhida uma licença para distribuição e reutilização do projeto. Nenhuma licença de código aberto é declarada nesta etapa.
+Ainda não foi escolhida uma licença para distribuição e reutilização do projeto. Nenhuma licença de código aberto é declarada para o conjunto nesta etapa. Cormorant Garamond e IBM Plex Mono têm licenças SIL OFL próprias, preservadas em `public/fonts/`.

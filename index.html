@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d09">
+  <meta name="description" content="Velumbra: um prólogo interativo de cartomancia em uma cabana de horror pixel art.">
+  <title>Velumbra · A cabana</title>
+  <link rel="icon" type="image/png" href="./public/brand/velumbra-icon.png">
+  <link rel="preload" as="image" href="./public/art/cabin.png">
+  <link rel="stylesheet" href="./src/prologue.css">
+  <script type="module" src="./src/prologue.js"></script>
+</head>
+<body>
+  <div class="scene" aria-hidden="true">
+    <div class="cabin"></div><div class="moonlight"></div><div class="candle-light left"></div><div class="candle-light right"></div>
+    <div class="mist mist-one"></div><div class="mist mist-two"></div>
+    <canvas id="dust"></canvas><div class="vignette"></div><div class="grain"></div>
+  </div>
+  <section class="intro" id="intro" aria-label="Abertura de Velumbra">
+    <div class="intro-mark"><img src="./public/brand/velumbra-icon.png" alt="Uma velha sob um véu, iluminada por uma vela, em uma carta antiga" width="1254" height="1254"></div>
+    <span class="intro-rule" aria-hidden="true"></span>
+    <h1 class="intro-title">VELUMBRA</h1>
+    <p class="intro-caption">CARTOMANCIA · HORROR · MISTÉRIO</p>
+    <button class="skip" id="skip-intro">Entrar na cabana <span aria-hidden="true">↵</span></button>
+  </section>
+  <main class="menu" id="menu" inert hidden>
+    <header class="topbar"><span class="edition"><span class="status-dot" aria-hidden="true"></span> PRÓLOGO INTERATIVO</span><button class="audio-toggle" id="audio-toggle" aria-pressed="false"><span class="audio-bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="audio-label">Ativar som</span></button></header>
+    <div class="menu-layout">
+      <section class="menu-content" aria-labelledby="game-title">
+        <p class="eyebrow"><span aria-hidden="true">✦</span> A CABANA</p>
+        <h1 id="game-title" tabindex="-1">VELUMBRA</h1>
+        <p class="invitation" id="invitation">A velha ergue os olhos.<br>Há um lugar para você à mesa.</p>
+        <nav class="choices" aria-label="Menu principal">
+          <button class="menu-choice primary" data-panel="consult"><span class="choice-number">I</span><span>Sentar à mesa<small>Nome, tratamento e baralho</small></span><span class="choice-arrow" aria-hidden="true">↗</span></button>
+          <button class="menu-choice" data-panel="decks"><span class="choice-number">II</span><span>Os quatro baralhos<small>Conheça as tradições</small></span><span class="choice-arrow" aria-hidden="true">↗</span></button>
+          <button class="menu-choice" data-panel="journal"><span class="choice-number">III</span><span>O diário<small>Memórias das consultas</small></span><span class="choice-arrow" aria-hidden="true">↗</span></button>
+          <button class="menu-choice" data-panel="settings"><span class="choice-number">IV</span><span>Ajustes<small>Som, movimento e abertura</small></span><span class="choice-arrow" aria-hidden="true">↗</span></button>
+        </nav>
+        <div class="menu-foot"><span class="tiny-star" aria-hidden="true">✧</span><p>Rider · Marselha · Thoth · Lenormand<br><span>Leituras simbólicas para reflexão.</span></p></div>
+      </section>
+      <div class="portrait-stage">
+        <div class="orbit" aria-hidden="true"></div>
+        <button class="portrait" id="portrait" aria-label="Ouvir a velha"><img src="./public/brand/velumbra-icon.png" alt="A cartomante misteriosa" width="1254" height="1254"><span class="portrait-sheen" aria-hidden="true"></span></button>
+        <div class="portrait-caption"><span aria-hidden="true">—</span> A CARTOMANTE <span aria-hidden="true">—</span></div>
+        <p class="whisper-hint">Toque a carta. Ela está ouvindo.</p>
+      </div>
+    </div>
+    <footer class="bottom-bar"><span>VELUMBRA <span class="version">/ 0.0.1</span></span><span class="scene-hint">Mova o olhar. A cabana responde.</span><button class="text-button" id="replay">Rever abertura <span aria-hidden="true">↺</span></button></footer>
+  </main>
+  <div class="whisper" id="whisper" role="status" aria-live="polite" hidden><span class="whisper-speaker">A VELHA</span><p id="whisper-text"></p><button id="close-whisper" aria-label="Fechar fala da velha">×</button></div>
+  <dialog id="panel" aria-labelledby="panel-title"><div class="dialog-shell"><header class="dialog-header"><div><p class="eyebrow" id="panel-kicker">A CABANA</p><h2 id="panel-title" tabindex="-1"></h2></div><button id="close-panel" class="close-button" aria-label="Voltar ao menu">×</button></header><div id="panel-content"></div><footer class="dialog-footer"><span aria-hidden="true">✦</span><span>VELUMBRA</span><kbd>ESC para voltar</kbd></footer></div></dialog>
+  <noscript><div class="noscript">Ative o JavaScript do navegador para entrar na cabana e usar o menu de Velumbra.</div></noscript>
+</body>
+</html>
