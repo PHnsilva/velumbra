@@ -1,0 +1,111 @@
+{
+  "recoveredOn": "2026-10-17",
+  "description": "Consultas e URLs recuperadas do registro original de pesquisa. Uma consulta registrada não garante que todo resultado foi lido ou validado.",
+  "searches": [
+    {
+      "q": "site.vercel.com/docs plans hobby non-commercial personal use AI gateway free credits"
+    },
+    {
+      "q": "site.ai.google.dev gemini api pricing free tier rate limits"
+    },
+    {
+      "q": "site.console.groq.com docs free plan rate limits"
+    },
+    {
+      "q": "Vercel AI Gateway free credits valid payment method required",
+      "recency": 180
+    },
+    {
+      "q": "Groq free plan API no credit card rate limits official",
+      "recency": 180
+    },
+    {
+      "q": "Inscryption official act 1 cabin screenshots Daniel Mullins Devolver"
+    },
+    {
+      "q": "Inscryption art direction pixelated 3D Leshy cabin animation GDC"
+    },
+    {
+      "q": "site.vam.ac.uk tarot cards history 78 divination"
+    },
+    {
+      "q": "site.britishmuseum.org tarot cards divination"
+    },
+    {
+      "q": "site.romarchive.eu tarot fortune telling Roma"
+    },
+    {
+      "q": "Lenormand 36 cards combinations history museum"
+    },
+    {
+      "q": "site.usgamesinc.com Rider Waite Smith tarot 78 Pamela Colman Smith 1909 instruction booklet"
+    },
+    {
+      "q": "site.llewellyn.com Lenormand combinations grand tableau 36 cards reversals"
+    },
+    {
+      "q": "site.labyrinthos.co tarot Marseille Thoth Rider Waite differences Celtic cross three card spread"
+    },
+    {
+      "q": "site.sacred-texts.com tarot pictorial key Celtic method divination Waite"
+    },
+    {
+      "q": "site.usgamesinc.com \"Rider-Waite\" \"78\""
+    },
+    {
+      "q": "site.labyrinthos.co \"Marseille\" \"Thoth\""
+    },
+    {
+      "q": "site.llewellyn.com \"Lenormand\" \"combinations\""
+    },
+    {
+      "q": "site.sacred-texts.com/tarot/pkt \"Celtic\""
+    },
+    {
+      "q": "site.personare.com.br baralho cigano 36 cartas significados tarô"
+    },
+    {
+      "q": "site.labyrinthos.co \"Tarot Card Meanings List\""
+    },
+    {
+      "q": "site.labyrinthos.co \"How to Read Lenormand\" \"reversals\""
+    },
+    {
+      "q": "site.labyrinthos.co \"Three Card\" \"Situation\" \"Action\""
+    },
+    {
+      "q": "site.labyrinthos.co \"Lenormand\" \"reversals\""
+    },
+    {
+      "q": "site.labyrinthos.co \"three card tarot spreads\""
+    }
+  ],
+  "openedUrls": [
+    "https://vercel.com/docs/plans/hobby",
+    "https://vercel.com/docs/ai-gateway/pricing",
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://console.groq.com/docs/rate-limits",
+    "https://community.groq.com/t/do-i-get-charged-for-anything-on-the-groq-free-plan/832",
+    "https://console.groq.com/docs/quickstart",
+    "https://vercel.com/docs/functions",
+    "https://www.inscryption.com/",
+    "https://media.gdcvault.com/GDC%2B2022/Speaker%2BSlides/GDC22_Inscryption_Post-Mortem.pdf",
+    "https://www.gdcvault.com/play/1027609/Independent-Games-Summit-Sacrifices-Were",
+    "https://store.steampowered.com/app/1092790/Inscryption/",
+    "https://www.vam.ac.uk/articles/tarot-cards",
+    "https://labyrinthos.co/blogs/learn-tarot-with-labyrinthos-academy/tarot-deck-types-rider-waite-smith-vs-marseille-vs-thoth",
+    "https://llewellyn.com/journal/article/2377",
+    "https://sacred-texts.com/tarot/pkt/pkt0307.htm",
+    "https://www.horniman.ac.uk/object/1970.18/",
+    "https://www.llewellyn.com/journal/print.php?id=2377",
+    "https://www.divinemuses.net/uploads/2/1/6/1/2161377/antiquarian_lenormand_extended_lwb.pdf",
+    "https://www.personare.com.br/conteudo/baralho-cigano-significado-das-cartas-m214131",
+    "https://labyrinthos.co/blogs/tarot-card-meanings-list/tagged/major-arcana",
+    "https://www.llewellyn.com/blog/2012/05/lenormand/"
+  ],
+  "imageSearches": [
+    {
+      "q": "Inscryption act 1 cabin Leshy table cards screenshot"
+    }
+  ]
+}
