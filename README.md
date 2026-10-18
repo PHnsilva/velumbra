@@ -12,7 +12,7 @@ O nome reúne véu, vela e *umbra* (sombra). A apresentação da experiência, a
 
 **Fase: prólogo funcional anterior à sprint 1.** Já existem abertura animada, cenário interativo, menu, identificação local, prévias dos quatro baralhos e ajustes de som e movimento. O motor de tiragens, o catálogo completo, a personagem animada em camadas e a IA continuam planejados. Todas as 20 sprints permanecem pendentes.
 
-O prólogo é uma aplicação estática em HTML, CSS e JavaScript, com build sem dependências externas. Ele valida a identidade e a navegação antes da fundação em Next.js. Escopo e verificações estão em [docs/PROLOGUE.md](docs/PROLOGUE.md).
+O prólogo é uma aplicação estática em HTML, CSS e JavaScript, com build sem dependências externas. A velha aparece como entidade no cenário, com movimento sutil e cochichos preparados. O menu usa objetos desenhados e superfícies de papel e tecido. Essa entrega valida a identidade e a navegação antes da fundação em Next.js. Escopo e verificações estão em [docs/PROLOGUE.md](docs/PROLOGUE.md).
 
 **[Abrir o prólogo publicado na Vercel](https://velumbra-hazel.vercel.app/)**
 
@@ -213,6 +213,7 @@ GAME.md                  Experiência e regras previstas
 docs/                    Arquitetura, arte, pesquisa e sprints
 public/brand/            Ícone original recuperado
 public/art/              Cenário original da cabana
+public/audio/            Cochichos preparados em português
 public/fonts/            Fontes locais e respectivas licenças
 src/                     Interface e comportamento do prólogo
 scripts/                 Servidor local e build estático

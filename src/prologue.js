@@ -26,6 +26,8 @@ let lastTrigger = null;
 let sound = null;
 let soundAllowed = false;
 let soundOperation = 0;
+let ambientWhisperTimer;
+let voiceIndex = 0;
 const panel = $('#panel');
 document.documentElement.dataset.motion = settings.motion;
 
@@ -33,12 +35,13 @@ function intro() {
   clearTimeout(introTimer); clearTimeout(introFinishTimer);
   if (panel.open) panel.close();
   $('#whisper').hidden = true;
+  stopVoice();
   introLeaving = false;
   $('#intro').hidden = false;
   $('#intro').classList.remove('leaving');
   $('#menu').hidden = true; $('#menu').inert = true;
   $('#skip-intro').focus({ preventScroll: true });
-  introTimer = setTimeout(enterCabin, settings.motion === 'reduced' ? 1600 : 4700);
+  introTimer = setTimeout(enterCabin, settings.motion === 'reduced' ? 4500 : 7500);
 }
 function enterCabin() {
   if (introLeaving || $('#intro').hidden) return;
@@ -48,22 +51,25 @@ function enterCabin() {
   introFinishTimer = setTimeout(() => {
     $('#intro').hidden = true;
     $('#game-title').focus({ preventScroll: true });
+    if(soundAllowed) playWhisper(0,true);
+    scheduleAmbientWhisper();
   }, settings.motion === 'reduced' ? 0 : 1050);
 }
-$('#skip-intro').addEventListener('click', enterCabin);
+$('#skip-intro').addEventListener('click', () => { setSound(true); enterCabin(); });
+$('#silent-entry').addEventListener('click', () => { setSound(false); enterCabin(); });
 $('#replay').addEventListener('click', intro);
 
-function whisper(text) {
+function whisper(text, index = null) {
   clearTimeout(whisperTimer);
   $('#whisper-text').textContent = text;
   $('#whisper').hidden = false;
-  playChime();
+  if(index !== null) playWhisper(index);
   whisperTimer = setTimeout(() => { $('#whisper').hidden = true; }, 8500);
 }
 $('#close-whisper').addEventListener('click', () => { $('#whisper').hidden = true; });
-const whispers = ['Você voltou o olhar para mim. Agora escolha onde deseja começar.', 'O mesmo símbolo encontra caminhos diferentes em cada pergunta.', 'Pode conhecer os baralhos antes de sentar. As cartas não têm pressa.', 'Nem toda sombra é uma resposta. Às vezes, ela é uma pergunta.'];
+const whispers = ['Chegue mais perto. Eu já estava esperando.', 'Escolha com calma. As cartas se lembram.', 'Pode olhar. Nada aqui adormece por completo.', 'Seu lugar está à mesa.'];
 let whisperIndex = 0;
-$('#portrait').addEventListener('click', () => whisper(whispers[whisperIndex++ % whispers.length]));
+$('#portrait').addEventListener('click', async () => { if(!soundAllowed) await setSound(true, false); const index=whisperIndex++ % whispers.length; whisper(whispers[index], index); });
 
 function setPanel(title, kicker, content) {
   $('#panel-title').textContent = title;
@@ -80,7 +86,7 @@ panel.addEventListener('close', () => lastTrigger?.focus({ preventScroll: true }
 document.querySelectorAll('[data-panel]').forEach(button => button.addEventListener('click', () => { lastTrigger = button; openPanel(button.dataset.panel); }));
 function openPanel(name) {
   $('#whisper').hidden = true;
-  playChime();
+  playPaper();
   ({ consult: showConsult, decks: () => showDecks('rws'), journal: showJournal, settings: showSettings })[name]?.();
 }
 function showConsult() {
@@ -109,7 +115,8 @@ function updateGreeting() {
 function showWelcome() {
   const { name, treatment, deck } = settings.profile;
   const greeting = { neutral: 'Seu lugar está preparado', feminine: 'Seja bem-vinda', masculine: 'Seja bem-vindo' }[treatment];
-  setPanel('Um lugar à sua espera', 'A VELHA', `<div class="welcome-card"><img src="./public/brand/velumbra-icon.png" alt="A cartomante"><div><h3 id="welcome-name"></h3><p>“Guarde sua pergunta por um instante. Pode conhecer as cartas enquanto preparo a mesa.”</p></div></div><div class="prepared-deck"><span>SEU BARALHO</span><strong>${decks[deck].name}</strong></div><p class="scope-note">O sorteio, a interpretação e O Veredito ainda não estão disponíveis nesta abertura. ${storageAvailable ? 'Sua preferência fica salva somente neste navegador.' : 'O navegador não permitiu salvar suas preferências; elas permanecerão apenas nesta sessão.'}</p><div class="actions"><button class="action-button" id="welcome-decks">Explorar uma prévia <span aria-hidden="true">→</span></button><button class="action-button secondary" id="welcome-back">Voltar à cabana</button></div>`);
+  setPanel('Um lugar à sua espera', 'A VELHA', `<div class="welcome-card"><img src="./public/art/the-elder.png" alt="A velha"><div><h3 id="welcome-name"></h3><p>“Guarde sua pergunta por um instante. Pode conhecer as cartas enquanto preparo a mesa.”</p></div></div><div class="prepared-deck"><span>SEU BARALHO</span><strong>${decks[deck].name}</strong></div><p class="scope-note">O sorteio, a interpretação e O Veredito ainda não estão disponíveis nesta abertura. ${storageAvailable ? 'Sua preferência fica salva somente neste navegador.' : 'O navegador não permitiu salvar suas preferências; elas permanecerão apenas nesta sessão.'}</p><div class="actions"><button class="action-button" id="welcome-decks">Explorar uma prévia <span aria-hidden="true">→</span></button><button class="action-button secondary" id="welcome-back">Voltar à cabana</button></div>`);
+  playWhisper(3);
   $('#welcome-name').textContent = `${greeting}, ${name}.`;
   $('#welcome-decks').addEventListener('click', () => showDecks(deck));
   $('#welcome-back').addEventListener('click', closePanel);
@@ -130,8 +137,9 @@ function showJournal() {
 }
 function showSettings() {
   setPanel('Ajustes', 'O RITMO DA CABANA', `<label class="setting-row" for="setting-sound"><span><h3>Som ambiente</h3><p>Vento baixo e ressonâncias da cabana.</p></span><input class="switch" type="checkbox" id="setting-sound" ${soundAllowed?'checked':''}></label><label class="setting-row" for="setting-volume"><span><h3>Volume</h3><p id="volume-value">${settings.volume}%</p></span><input class="volume-control" type="range" id="setting-volume" min="0" max="100" value="${settings.volume}" aria-label="Volume do ambiente"></label><label class="setting-row" for="setting-motion"><span><h3>Reduzir movimento</h3><p>Desativa partículas, flutuação e paralaxe.</p></span><input class="switch" type="checkbox" id="setting-motion" ${settings.motion==='reduced'?'checked':''}></label><div class="setting-row"><span><h3>Abertura</h3><p>Reveja a chegada à cabana.</p></span><button class="action-button secondary" id="settings-replay">Rever</button></div><p class="setting-info" id="settings-storage">${storageAvailable ? 'Ajustes salvos somente neste navegador. O som começa após sua interação.' : 'O armazenamento local está indisponível. Os ajustes valem para esta sessão.'}</p>`);
-  $('#setting-sound').addEventListener('change', async event => { await setSound(event.target.checked); event.target.checked = soundAllowed; });
-  $('#setting-volume').addEventListener('input', event => { settings.volume = Number(event.target.value); $('#volume-value').textContent = `${settings.volume}%`; if(sound) sound.master.gain.setTargetAtTime(settings.volume / 100 * .2, sound.ctx.currentTime,.12); save(); });
+  const soundDescription = $('#setting-sound').closest('label').querySelector('p'); soundDescription.textContent = 'Vento, madeira e os cochichos da velha.';
+  $('#setting-sound').addEventListener('change', async event => { const input=event.currentTarget; await setSound(input.checked); input.checked = soundAllowed; });
+  $('#setting-volume').addEventListener('input', event => { settings.volume = Number(event.target.value); $('#volume-value').textContent = `${settings.volume}%`; if(sound) sound.master.gain.setTargetAtTime(settings.volume / 100 * .3, sound.ctx.currentTime,.12); save(); });
   $('#setting-motion').addEventListener('change', event => { settings.motion = event.target.checked?'reduced':'full'; document.documentElement.dataset.motion = settings.motion; save(); resizeDust(); });
   const resetRow = document.createElement('div'); resetRow.className = 'setting-row';
   resetRow.innerHTML = '<span><h3>Identificação</h3><p>Esqueça o nome, tratamento e baralho salvos.</p></span><button class="action-button secondary" id="forget-profile">Limpar</button>';
@@ -144,7 +152,7 @@ function createSound() {
   const Audio = window.AudioContext || window.webkitAudioContext;
   if (!Audio) throw new Error('Audio unavailable');
   const ctx = new Audio();
-  const master = ctx.createGain(); master.gain.value = settings.volume / 100 * .2; master.connect(ctx.destination);
+  const master = ctx.createGain(); master.gain.value = settings.volume / 100 * .3; master.connect(ctx.destination);
   const buffer = ctx.createBuffer(1,ctx.sampleRate * 5,ctx.sampleRate);
   const values = buffer.getChannelData(0); let last = 0;
   for(let i=0;i<values.length;i++) { last = (last + Math.random()*.04-.02)/1.02; values[i]=last*4; }
@@ -154,24 +162,71 @@ function createSound() {
   const hum=ctx.createOscillator();hum.type='sine';hum.frequency.value=55;
   const humGain=ctx.createGain();humGain.gain.value=.045;
   hum.connect(humGain).connect(master);hum.start();
-  return {ctx,master};
+  return {ctx,master,voices:[],loading:null,currentVoice:null};
 }
-async function setSound(enabled) {
+function loadWhispers() {
+  if(!sound) return Promise.resolve([]);
+  if(!sound.loading) {
+    const engine=sound;
+    engine.loading=Promise.all([0,1,2,3].map(async index=>{
+      const response=await fetch(`./public/audio/whisper-${index}.wav`);
+      if(!response.ok) throw new Error('Whisper unavailable');
+      return engine.ctx.decodeAudioData(await response.arrayBuffer());
+    })).then(voices=>{engine.voices=voices;return voices;}).catch(()=>{engine.loading=null;return [];});
+  }
+  return sound.loading;
+}
+function stopVoice() {
+  if(sound?.currentVoice) {const active=sound.currentVoice;sound.currentVoice=null;try{active.stop();}catch{}}
+  $('#entity-stage').classList.remove('speaking');
+}
+async function playWhisper(index, showCaption = false) {
+  if(!soundAllowed || !sound || document.hidden) return;
+  const engine=sound;
+  const voices=await loadWhispers();
+  if(!soundAllowed || engine!==sound || engine.ctx.state!=='running' || !voices[index] || document.hidden || !$('#intro').hidden) return;
+  stopVoice();
+  const voice=engine.ctx.createBufferSource();voice.buffer=voices[index];
+  const gain=engine.ctx.createGain();gain.gain.value=3;
+  const pan=engine.ctx.createStereoPanner();pan.pan.value=.18;
+  voice.connect(gain).connect(pan).connect(engine.master);
+  engine.currentVoice=voice;
+  $('#entity-stage').classList.add('speaking');
+  voice.onended=()=>{if(engine.currentVoice===voice){engine.currentVoice=null;$('#entity-stage').classList.remove('speaking');}};
+  voice.start();
+  if(showCaption) {
+    clearTimeout(whisperTimer);$('#whisper-text').textContent=whispers[index];$('#whisper').hidden=false;
+    whisperTimer=setTimeout(()=>{$('#whisper').hidden=true;},(voice.buffer.duration+.5)*1000);
+  }
+}
+function scheduleAmbientWhisper() {
+  clearTimeout(ambientWhisperTimer);
+  if(!soundAllowed || document.hidden) return;
+  ambientWhisperTimer=setTimeout(()=>{
+    if(!panel.open && $('#intro').hidden && !sound?.currentVoice) playWhisper(voiceIndex++%4,true);
+    scheduleAmbientWhisper();
+  },18000+Math.random()*13000);
+}
+async function setSound(enabled, greeting = true) {
   const operation=++soundOperation;
   try {
     if(enabled) { if(!sound) sound=createSound(); await sound.ctx.resume(); } else if(sound) await sound.ctx.suspend();
     if(operation!==soundOperation) return;
     soundAllowed=enabled; settings.sound=enabled; save();
+    if(enabled) { loadWhispers().then(()=>{if(greeting && soundAllowed && !panel.open && $('#intro').hidden)playWhisper(0,true);}); scheduleAmbientWhisper(); }
+    else { clearTimeout(ambientWhisperTimer);stopVoice(); }
   } catch { soundAllowed=false; settings.sound=false; whisper('Seu navegador não liberou o som. Você pode continuar em silêncio.'); }
   $('#audio-toggle').setAttribute('aria-pressed',String(soundAllowed));
-  $('#audio-label').textContent=soundAllowed?'Silenciar':'Ativar som';
+  $('#audio-label').textContent=soundAllowed?'Silenciar a cabana':'Ouvir a cabana';
 }
-function playChime() {
+function playPaper() {
   if(!soundAllowed || !sound || sound.ctx.state!=='running') return;
-  const now=sound.ctx.currentTime, voice=sound.ctx.createOscillator(),gain=sound.ctx.createGain();
-  voice.type='sine';voice.frequency.setValueAtTime(174.61,now);voice.frequency.exponentialRampToValueAtTime(164.81,now+.8);
-  gain.gain.setValueAtTime(.001,now);gain.gain.exponentialRampToValueAtTime(.09,now+.025);gain.gain.exponentialRampToValueAtTime(.001,now+1.5);
-  voice.connect(gain).connect(sound.master);voice.start();voice.stop(now+1.6);
+  const now=sound.ctx.currentTime,noise=sound.ctx.createBuffer(1,sound.ctx.sampleRate*.28,sound.ctx.sampleRate);
+  const data=noise.getChannelData(0);for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1)*Math.exp(-i/data.length*5);
+  const source=sound.ctx.createBufferSource();source.buffer=noise;
+  const filter=sound.ctx.createBiquadFilter();filter.type='bandpass';filter.frequency.value=900;filter.Q.value=.65;
+  const gain=sound.ctx.createGain();gain.gain.setValueAtTime(.1,now);gain.gain.exponentialRampToValueAtTime(.001,now+.27);
+  source.connect(filter).connect(gain).connect(sound.master);source.start();
 }
 $('#audio-toggle').addEventListener('click',()=>setSound(!soundAllowed));
 
@@ -196,7 +251,7 @@ addEventListener('resize',resizeDust);
 addEventListener('pointermove',event=>{pointer.x=event.clientX;pointer.y=event.clientY;if(settings.motion==='full'){document.documentElement.style.setProperty('--px',`${(event.clientX/innerWidth-.5)*25}px`);document.documentElement.style.setProperty('--py',`${(event.clientY/innerHeight-.5)*18}px`);}} ,{passive:true});
 document.addEventListener('pointerleave',()=>{pointer={x:-1000,y:-1000};document.documentElement.style.setProperty('--px','0px');document.documentElement.style.setProperty('--py','0px');});
 document.addEventListener('click',event=>{if(panel.open || !$('#intro').hidden || settings.motion==='reduced' || event.target.closest('button,input,select,label,dialog,a'))return;const ripple=document.createElement('span');ripple.className='table-ripple';ripple.style.left=`${event.clientX-7}px`;ripple.style.top=`${event.clientY-7}px`;document.body.append(ripple);ripple.addEventListener('animationend',()=>ripple.remove(),{once:true});});
-document.addEventListener('visibilitychange',()=>{resizeDust();if(sound){if(document.hidden) sound.ctx.suspend().catch(()=>{});else if(soundAllowed)sound.ctx.resume().catch(()=>{});}});
+document.addEventListener('visibilitychange',()=>{resizeDust();clearTimeout(ambientWhisperTimer);if(document.hidden){stopVoice();if(sound)sound.ctx.suspend().catch(()=>{});}else if(soundAllowed && sound){sound.ctx.resume().then(scheduleAmbientWhisper).catch(()=>{});}});
 mediaMotion.addEventListener('change',event=>{if(event.matches){settings.motion='reduced';document.documentElement.dataset.motion='reduced';save();resizeDust();}});
 document.addEventListener('keydown',event=>{if(!$('#intro').hidden && event.key==='Escape')enterCabin();});
 updateGreeting();resizeDust();intro();

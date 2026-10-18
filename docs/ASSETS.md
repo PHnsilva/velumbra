@@ -36,3 +36,33 @@ Use case: stylized-concept. Asset type: ultra-wide 16:9 background plate for the
 ## Tipografia
 
 Cormorant Garamond, dos autores do Cormorant Project, e IBM Plex Mono, da IBM, obtidas pelo [Google Fonts](https://fonts.google.com/). Arquivos servidos localmente. Licenças SIL Open Font License incluídas em `public/fonts/CormorantGaramond-OFL.txt` e `public/fonts/IBMPlexMono-OFL.txt`.
+
+## A velha como entidade
+
+- Arquivo: `public/art/the-elder.png`, 1086 × 1448, RGBA com transparência real.
+- Origem: ferramenta integrada de geração de imagens, em 18/10/2026. A cabana e o ícone original foram referências de estilo e identidade.
+- Uso: personagem incorporada à cena; respiração e reação visual são aplicadas pelo jogo. A cabana e o ícone originais foram preservados.
+- O recorte da personagem não tem moldura de carta. Ainda não é um modelo corporal com membros animados separadamente.
+
+### Instrução de geração da personagem
+
+```text
+Use case: stylized-concept. Asset type: transparent-background character sprite illustration for the browser horror game VELUMBRA. Input image 1 is reference ONLY for pixel art style, candlelight palette and the perspective of the cabin in which the character will be composited. Input image 2 is reference for the elderly fortune-teller's face and identity ONLY. Create the actual woman out of the card: no card, no card border, no rectangle, no surrounding scene. Depict her as a large, powerful, terrifying yet refined female supernatural elder seated facing the viewer across a table, from the top of her towering headpiece to below the waist including both complete forearms and hands. She has the recognizable deeply wrinkled angular face, long pointed nose, commanding almost still expression, ancient dark eyes with tiny pale cold catchlights. Elegant pitch-black high-collared mourning gown, worn charcoal lace veil and an imposing elongated layered headdress with an antique oxidized-silver diadem, no gold trim. A huge mantle of black cloth rises in solemn sharp shoulder shapes, with ragged smoky edges suggesting her immense supernatural presence. Her thin elegant fingers and long nails extend forward and rest at the bottom of the sprite as though on a table, one hand slightly lifted to invite the player. Upright majestic posture, never hunched or frail, terrifying intelligence, almost regal elegance. Black lace, faded burgundy underlayers, dark oxidized silver jewelry and rings, subtle bone-color details. Candlelight from below left and right warms her face and fingertips; cold moonlit rim at the back. Composition: centered single isolated upper-body character, vertical 3:4 framing, silhouette occupies most of image with safe margins for hands and tall headpiece. Crisp chunky pixel clusters, painterly pixel art, rough woodcut texture, matching the cabin reference. She should feel like an original supernatural sovereign inhabiting this cabin, not a generic wizard or skeleton or cartoon witch. Transparent actual alpha background. No scenery, no table itself, no frame, no text, no watermarks, no extra characters, no floating symbols, no shiny gold jewelry. Preserve old-woman identity and pixel art; do not depict a young glamorous woman.
+```
+
+## Cochichos
+
+Quatro arquivos WAV mono em 22050 Hz, preparados localmente em 18/10/2026. A base foi sintetizada em português com a voz Microsoft Maria do Windows. O processamento espectral suavizou os harmônicos e reconstruiu a voz com excitação ruidosa, para produzir uma textura de cochicho, seguida de reverberação curta e normalização sem saturação digital. Não é uma gravação de pessoa real ou clonagem de voz.
+
+| Arquivo | Frase | Duração |
+| --- | --- | ---: |
+| `public/audio/whisper-0.wav` | Chegue mais perto. Eu já estava esperando. | 7,99 s |
+| `public/audio/whisper-1.wav` | Escolha com calma. As cartas se lembram. | 7,65 s |
+| `public/audio/whisper-2.wav` | Pode olhar. Nada aqui adormece por completo. | 8,31 s |
+| `public/audio/whisper-3.wav` | Seu lugar está à mesa. | 4,57 s |
+
+O navegador mistura esses arquivos com vento, ressonâncias graves e ruídos de papel sintetizados localmente. Não há chamada de API de voz ou consumo de créditos externos durante a consulta.
+
+## Objetos da interface
+
+Cadeira, cartas, diário e aparelho de som são desenhos vetoriais próprios feitos no código. As superfícies gastas, o lacre, a costura e os recortes são construídos com CSS. A direção usa papel, carvão, osso e vinho escuro; o âmbar fica na iluminação do cenário.
