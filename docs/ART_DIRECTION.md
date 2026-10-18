@@ -8,8 +8,8 @@ Velumbra terá personagem, ambiente, cartas e símbolos de interface originais. 
 
 ## Linguagem visual
 
-- Paleta de carvão, madeira escura, pergaminho, âmbar e pequenos acentos de cor.
-- Texturas ásperas, contornos fortes e detalhes legíveis em tamanho reduzido.
+- Paleta de carvão, madeira escura, osso e bordô. Âmbar reservado à luz das velas.
+- Pixels grandes, formas simples, poucas cores e contornos fortes. Evitar ornamentação dourada, textura excessiva e detalhes finos.
 - Mesa iluminada; fundo com formas sugeridas e espaços ocultos.
 - Cartas com papel envelhecido, moldura consistente e arte adaptada a cada tradição.
 - Nomes e símbolos essenciais permanecem legíveis; ampliar uma carta revela sua descrição.
@@ -31,7 +31,11 @@ Animações planejadas:
 
 ## Ambiente e interface
 
-Velas, fumaça e sombras em movimento. Os quatro baralhos, um livro e um diário funcionam como pontos de acesso às escolhas principais. Sons de papel, madeira e pequenos sons de voz reforçam as ações.
+Velas, fumaça, cortina e névoa em movimento. A velha e o cenário são redesenhados em canvas de baixa resolução, a 12 quadros por segundo no modo completo. A personagem tem deslocamentos distintos no rosto, manto e mãos, além de piscadas e reação de boca durante os grunhidos. Esse movimento ainda não inclui manipulação de cartas.
+
+Fonte própria Velumbra, desenhada em uma grade de pixels, com letras maiúsculas, minúsculas e acentos portugueses. Baralhos, diário, ajustes e silêncio ficam pequenos no canto superior. Bordô identifica superfícies e controles. A identificação ocorre pelo campo de nome sobre a mesa ou pelo clique na própria mesa, que leva o foco ao campo. Não há botão visual de sentar, slogan ou subtítulo na cena.
+
+A única fala da velha nesta abertura é o balão “Diga seu nome.”, preso à personagem e exibido apenas ao clicar nela. O áudio usa vocalizações inventadas e grunhidos, sem palavras de uma língua conhecida. Sons ocasionais no ambiente não abrem legendas ou balões.
 
 ## Produção das cartas
 

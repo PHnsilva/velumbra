@@ -1,79 +1,76 @@
 # Prólogo funcional
 
-Entrega preparatória solicitada antes da sprint 1. As 20 sprints continuam pendentes; esta versão valida a abertura, a atmosfera e o menu.
+Entrega preparatória anterior à sprint 1. Todas as 20 sprints continuam pendentes. A versão 0.0.3 revisa arte, interface, animação e áudio conforme o pedido de 18/10/2026.
 
-Disponível em [velumbra-hazel.vercel.app](https://velumbra-hazel.vercel.app/), no plano Hobby da Vercel. A primeira publicação ocorreu em 17/10/2026. O prólogo recebeu uma revisão de arte, interface e áudio em 18/10/2026.
+Publicado em [velumbra-hazel.vercel.app](https://velumbra-hazel.vercel.app/).
 
 ## Implementado
 
-- Abertura com ícone original, nome Velumbra, animação e transição automática. É possível entrar imediatamente ou rever a abertura.
-- Cenário original em pixel art, com paralaxe, luz oscilante, névoa e partículas que reagem ao ponteiro. Cliques no fundo produzem uma ondulação sutil.
-- Velha representada por uma ilustração própria com transparência, incorporada ao cenário, com torso, véu e mãos. Respiração sutil, paralaxe e reação visual durante os cochichos.
-- Escolhas apresentadas como objetos desenhados, papéis gastos, tecido e lacre. Painéis com papel, tinta e encadernação em vinho escuro, substituindo a ornamentação dourada da primeira versão.
-- Menu com preparação de consulta, prévias dos baralhos, diário e ajustes.
-- Nome, forma de tratamento e escolha de uma das quatro tradições, com confirmação contextual e armazenamento local.
-- Três amostras textuais por tradição. A interface identifica explicitamente a coleção como prévia.
-- Diário vazio real, sem criar consultas fictícias.
-- Ambiente sonoro no navegador e quatro cochichos em português, com volume, silêncio, redução de movimento e limpeza de identificação.
-- Fontes, imagens e código servidos localmente. A abertura não depende de serviços de IA, CDNs ou credenciais.
-- Diálogos com foco gerenciado, fechamento por Escape e navegação por teclado nas abas.
+- Abertura com o ícone original, nome na fonte própria e transição. Entrada com som ou em silêncio; repetição pelos ajustes.
+- Cabana e velha redesenhadas com formas mais simples e pixels maiores. Os arquivos anteriores e o ícone original foram preservados.
+- Cena em canvas de baixa resolução, ampliada sem suavização, a 12 quadros por segundo no modo completo.
+- Velha com respiração, movimento distinto de cabeça, manto e mãos, piscadas e reação de boca e cabeça durante as vocalizações.
+- Cenário com chamas e luz oscilantes, fumaça, cortina em movimento, névoa, poeira e reação discreta ao ponteiro.
+- Fonte original Velumbra, com letras minúsculas, maiúsculas e acentos portugueses, usada na interface inteira.
+- Baralhos, diário, ajustes e silêncio em controles compactos no canto superior. Detalhes e superfícies em bordô.
+- Nome informado diretamente sobre a mesa. Clique no tampo leva o foco ao campo; Enter ou a seta confirma. Nenhum botão visual de sentar à mesa.
+- Um único balão, “Diga seu nome.”, ancorado na velha, exibido apenas ao clicar na personagem. Ele desaparece após cinco segundos, ao focar o nome, abrir um painel ou pressionar Escape. Não há slogans, subtítulos ou falas automáticas na cena.
+- Quatro grunhidos sintéticos sem palavras, misturados com vento e ressonância ambiente. Sem síntese de texto, gravação de voz real ou API externa.
+- Preferências de nome, tratamento e tradição, quatro prévias com três amostras textuais cada, e diário vazio.
+- Volume, silêncio, redução de movimento e limpeza da identificação. Reduzir movimento pausa tanto a velha quanto o cenário e as animações da interface.
+- Diálogos com foco gerenciado e fechamento por Escape; abas de baralho navegáveis pelo teclado.
 
 ## Limites
 
-Ainda não há sorteio, leitura de perguntas, veredito ou 270 ilustrações. A velha usa uma ilustração com movimento global e reação sonora; ainda não há animação independente de boca, olhos ou membros. Os quatro cochichos são frases preparadas, sem geração dinâmica de voz.
+Ainda não há tiragem, interpretação, veredito ou coleção de 270 ilustrações. Os movimentos são uma animação procedural do sprite e do cenário em canvas; não incluem um esqueleto corporal, gestos de distribuição ou manipulação de cartas. Os sons são quatro variações preparadas, não uma língua real ou voz gerada dinamicamente.
 
 ## Organização
 
-- `index.html`: estrutura da abertura e menu.
-- `src/prologue.css`: estilos básicos da abertura, controles e painéis.
-- `src/cabin.css`: direção visual da cabana, objetos de menu, entidade e revisão dos painéis.
-- `src/prologue.js`: navegação, prévias, preferências, partículas e áudio.
-- `src/fonts.css` e `public/fonts/`: tipografia local e licenças SIL OFL.
-- `public/art/cabin.png`: cenário gerado para a abertura.
-- `public/art/the-elder.png`: ilustração da velha com canal alfa, incorporada sobre a cabana.
-- `public/audio/whisper-0.wav` a `whisper-3.wav`: cochichos preparados em português.
-- `scripts/dev-server.mjs`: servidor local restrito a `127.0.0.1`.
-- `scripts/build.mjs`: copia somente os recursos públicos da abertura para `dist/`.
+| Caminho | Responsabilidade |
+| --- | --- |
+| `index.html` | Abertura, controles, personagem, campo de nome e diálogos. |
+| `src/cabin.css` | Interface, fonte, bordô, estados e responsividade. |
+| `src/prologue.js` | Navegação, preferências e áudio. |
+| `src/scene.js` | Desenho e animação da cabana e da velha. |
+| `src/decks.js` | Amostras textuais dos quatro baralhos. |
+| `public/art/cabin-pixel.png` | Revisão simplificada da cabana. |
+| `public/art/elder-pixel.png` | Sprite simplificado da velha com transparência. |
+| `public/fonts/velumbra.ttf` | Fonte própria da interface. |
+| `public/audio/murmur-0.wav` a `murmur-3.wav` | Vocalizações sem palavras. |
+| `scripts/make-type.py` | Fonte reproduzível a partir do alfabeto original; requer fontTools somente para regeneração. |
+| `scripts/make-murmurs.py` | Síntese reproduzível dos grunhidos; requer numpy somente para regeneração. |
 
-## Execução e build
+O build e o jogo não executam Python nem precisam dessas dependências de produção de recursos.
+
+## Execução
 
 ```sh
 npm run dev
 npm run build
 ```
 
-Servidor: `http://127.0.0.1:4173`. O build não executa instalação de dependências. O projeto não possui dependências npm externas nesta etapa. O build estático inclui as licenças das fontes.
+Pré-requisito: Node.js 22 ou superior. Servidor local em `http://127.0.0.1:4173`; publicação estática em `dist/`. Sem dependências npm, credenciais ou CDNs.
 
-## Dados e áudio
+## Dados, som e movimento
 
-Nome, tratamento, baralho e ajustes ficam na chave `velumbra.prologue.v1` do armazenamento do navegador. A interface permite esquecer a identificação. Texto informado pelo usuário é inserido como texto, sem execução de HTML. Se o armazenamento estiver bloqueado, a sessão continua em memória.
+Preferências ficam na chave `velumbra.prologue.v1`, somente no navegador. Nomes são normalizados e inseridos como texto seguro. O fluxo continua em memória se o armazenamento estiver indisponível.
 
-O som inicia por interação explícita em “Entrar com som”, “Ouvir a cabana” ou na própria velha. Também é possível entrar em silêncio. Depois da ativação, os cochichos aparecem na chegada, ao tocar a personagem e ocasionalmente durante a permanência na cabana. A emissão periódica não interrompe os painéis nem sobrepõe outra fala. Ao ocultar a aba, áudio, fala atual e partículas são suspensos. Redução de movimento respeita a preferência do sistema na primeira visita e pode ser alterada na própria interface.
+Som só começa por um controle explícito: “Entrar com som”, “Ouvir a cabana” ou o ajuste de som. Clicar na velha respeita o silêncio atual. Com som ativo, o clique emite um grunhido; vocalizações ocasionais também podem ocorrer no ambiente, sem abrir balões. Não se sobrepõem nem interrompem painéis. A aba oculta suspende o áudio e a renderização. Silenciar interrompe a vocalização atual.
 
-Os arquivos de voz foram preparados localmente a partir de síntese em português, com processamento espectral para produzir a textura de cochicho. Nenhuma API paga ou serviço de voz é chamado pelo jogo. A origem dos recursos está em [ASSETS.md](ASSETS.md).
+A preferência de reduzir movimento do sistema vale na primeira visita. O controle local pausa as animações e redesenha a cena imóvel, sem depender de desativar o áudio.
 
 ## Validação
 
-Verificado em 17/10/2026 com Node.js 24.19.0 e Microsoft Edge:
+Sintaxe e build verificados com Node.js 24.19.0. Revisão visual e funcional no Microsoft Edge, em computador e em 390 × 844:
 
-- Sintaxe dos arquivos JavaScript e build estático aprovados.
-- Servidor e cenário respondendo HTTP 200.
-- Transição da abertura e repetição da sequência.
-- Nome e tratamento feminino aplicados corretamente; Lenormand confirmado como escolha.
-- Preferências mantidas após recarregar a página.
-- Navegação entre tradições, incluindo setas do teclado.
-- Controles de som e redução de movimento refletidos na interface.
-- Layout inspecionado em computador e celular de 390 × 844, sem transbordamento horizontal.
-- Imagens carregadas e ausência de erros de JavaScript na inspeção do navegador.
+- Carregamento da arte, transparência e fonte própria.
+- Balão somente após clique, dentro da área da personagem.
+- Nome com apenas espaços rejeitado; nome válido confirmado pela mesa.
+- Tratamento e Lenormand salvos, persistência após recarga e limpeza dos dados de teste.
+- Amostras e navegação por teclado entre os baralhos.
+- Entrada com som, vocalização com reação visual, silêncio e redução de movimento.
+- Comparação de capturas nas regiões da personagem e do cenário: ambas mudam no modo completo e permanecem idênticas no modo reduzido.
+- Sem balão automático após permanência com som ativo; nenhum erro de JavaScript observado nos fluxos conferidos.
+- Layout sem transbordamento horizontal.
 
-Essas verificações se referem ao prólogo. Elas não comprovam funcionamento dos recursos planejados para o jogo completo.
-
-### Revisão de 18/10/2026
-
-- Build e sintaxe aprovados; arquivos de áudio servidos como `audio/wav`.
-- Ilustração RGBA carregada com transparência real. O arquivo original da cabana foi preservado.
-- Entrada com som, legenda e estado de reação da velha verificados juntos no navegador.
-- Silenciar remove a reação de fala; o modo completo mantém a animação de respiração.
-- Nome vazio ou contendo somente espaços rejeitado; confirmação de Lenormand e limpeza dos dados de teste verificadas.
-- Menu e painéis inspecionados em 1365 × 768 e 390 × 844, sem transbordamento horizontal.
-- Nenhum erro de JavaScript observado durante esses fluxos.
+Essas verificações se referem ao prólogo e não comprovam os recursos planejados para o jogo completo.
