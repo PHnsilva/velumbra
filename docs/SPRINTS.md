@@ -8,6 +8,7 @@
 - Sprints **18 e 20** concentram testes amplos e mudanças.
 - O **MVP é a sprint 19**, a penúltima.
 - A integração da IA será validada cedo, com cartas de exemplo, antes da produção de todo o catálogo.
+- Ciclo autorizado em 29/10/2026: PR diário com revisão conjunta no fim de semana. A manutenção de 29/10 não inicia a sprint 1; a progressão começa em 30/10. Ver [PROGRESS.md](PROGRESS.md). PR aberto ou CI verde não representa aceite ou integração.
 
 ## Preparação anterior à sprint 1
 
