@@ -19,6 +19,7 @@ function save() {try {localStorage.setItem(storageKey,JSON.stringify(settings));
 const panel=$('#panel');
 let introTimer,introFinishTimer,bubbleTimer,ambientTimer;
 let introLeaving=false,lastTrigger=null,sound=null,soundAllowed=false,soundOperation=0,voiceIndex=0;
+let consultDraft=null;
 document.documentElement.dataset.motion=settings.motion;
 const scene=createScene({getMotion:()=>settings.motion,getSpeaking:()=>Boolean(sound?.currentVoice)});
 
@@ -45,17 +46,22 @@ $('#portrait').addEventListener('click',()=>{
 });
 $('#table-area').addEventListener('click',()=>{$('#table-name').focus();hideBubble();});
 $('#table-name').addEventListener('focus',hideBubble);
-$('#table-name').addEventListener('input',()=>{$('#name-error').hidden=true;});
+$('#table-name').addEventListener('input',()=>setNameError('#table-name','#name-error'));
 $('#table-form').addEventListener('submit',event=>{
   event.preventDefault();
   const name=normalizeName($('#table-name').value);
-  if(!validName(name)) {$('#name-error').textContent='Use de 2 a 32 caracteres.';$('#name-error').hidden=false;$('#table-name').focus();return;}
+  if(!validName(name)) {setNameError('#table-name','#name-error','Use de 2 a 32 caracteres.');$('#table-name').focus();return;}
   settings.profile={name,treatment:settings.profile?.treatment||'neutral',deck:settings.profile?.deck||'rws'};
   save();updateName();lastTrigger=$('#table-name');showConsult();
 });
 function normalizeName(value) {return value.trim().replace(/\s+/g,' ');}
 function validName(name) {return name.length>=2 && name.length<=32;}
-function updateName() {$('#table-name').value=settings.profile?.name||'';}
+function setNameError(inputSelector,errorSelector,message='') {
+  const input=$(inputSelector),error=$(errorSelector);
+  error.textContent=message;error.hidden=!message;
+  if(message)input.setAttribute('aria-invalid','true');else input.removeAttribute('aria-invalid');
+}
+function updateName() {$('#table-name').value=settings.profile?.name||'';setNameError('#table-name','#name-error');}
 
 function setPanel(title,content) {
   hideBubble();stopVoice();playPaper();
@@ -65,7 +71,7 @@ function setPanel(title,content) {
 }
 function closePanel() {panel.close();}
 $('#close-panel').addEventListener('click',closePanel);
-panel.addEventListener('close',()=>lastTrigger?.focus({preventScroll:true}));
+panel.addEventListener('close',()=>{consultDraft=null;lastTrigger?.focus({preventScroll:true});});
 panel.addEventListener('click',event=>{
   if(event.target!==panel) return;
   const r=panel.getBoundingClientRect();
@@ -75,20 +81,25 @@ document.querySelectorAll('[data-panel]').forEach(button=>button.addEventListene
   lastTrigger=button;
   ({decks:()=>showDecks(settings.profile?.deck||'rws'),journal:showJournal,settings:showSettings})[button.dataset.panel]?.();
 }));
-function showConsult(selected=settings.profile?.deck||'rws') {
+function showConsult(selected=consultDraft?.deck||settings.profile?.deck||'rws') {
+  consultDraft={...(consultDraft||settings.profile||{name:normalizeName($('#table-name').value),treatment:'neutral'}),deck:selected};
   setPanel('Seu lugar',`<form id="consult-form">
     <div class="form-grid"><label class="field" for="visitor-name">Nome<input id="visitor-name" autocomplete="given-name" minlength="2" maxlength="32" required aria-describedby="profile-error"></label><label class="field" for="treatment">Tratamento<select id="treatment"><option value="neutral">Neutro / não informar</option><option value="feminine">Feminino</option><option value="masculine">Masculino</option></select></label></div>
     <fieldset><legend>Baralho</legend><div class="deck-options">${Object.entries(decks).map(([id,deck])=>`<label class="deck-radio"><input type="radio" name="deck" value="${id}" ${id===selected?'checked':''}><span><strong>${deck.short}</strong><small>${deck.count} cartas</small></span></label>`).join('')}</div></fieldset>
     <p id="profile-error" class="error" role="alert" hidden></p><p class="scope-note">O prólogo permite salvar suas preferências e examinar amostras. As tiragens ainda não estão disponíveis.</p>
     <div class="actions"><button class="action-button" type="submit">Salvar</button><button class="action-button secondary" type="button" id="consult-decks">Ver baralhos</button></div></form>`);
-  $('#visitor-name').value=settings.profile?.name||normalizeName($('#table-name').value);
-  $('#treatment').value=settings.profile?.treatment||'neutral';
-  $('#consult-decks').addEventListener('click',()=>showDecks(document.querySelector('input[name="deck"]:checked').value));
+  $('#visitor-name').value=consultDraft.name;
+  $('#treatment').value=consultDraft.treatment;
+  $('#visitor-name').addEventListener('input',()=>setNameError('#visitor-name','#profile-error'));
+  $('#consult-decks').addEventListener('click',()=>{
+    consultDraft={name:$('#visitor-name').value,treatment:$('#treatment').value,deck:document.querySelector('input[name="deck"]:checked').value};
+    showDecks(consultDraft.deck,{returnToConsult:true});
+  });
   $('#consult-form').addEventListener('submit',event=>{
     event.preventDefault();const name=normalizeName($('#visitor-name').value);
-    if(!validName(name)) {$('#profile-error').textContent='Use de 2 a 32 caracteres.';$('#profile-error').hidden=false;$('#visitor-name').focus();return;}
+    if(!validName(name)) {setNameError('#visitor-name','#profile-error','Use de 2 a 32 caracteres.');$('#visitor-name').focus();return;}
     settings.profile={name,treatment:$('#treatment').value,deck:document.querySelector('input[name="deck"]:checked').value};
-    save();updateName();showSaved();
+    consultDraft=null;save();updateName();showSaved();
   });
 }
 function showSaved() {
@@ -96,20 +107,22 @@ function showSaved() {
   $('#saved-name').textContent=settings.profile.name;
   $('#saved-decks').addEventListener('click',()=>showDecks(settings.profile.deck));$('#saved-back').addEventListener('click',closePanel);
 }
-function showDecks(selected) {
+function showDecks(selected,{returnToConsult=false}={}) {
   const deck=decks[selected];
   setPanel('Baralhos',`<div role="tablist" aria-label="Tradições de cartomancia" class="deck-tabs">${Object.entries(decks).map(([id,d])=>`<button role="tab" class="deck-tab" id="tab-${id}" aria-selected="${id===selected}" aria-controls="deck-details" tabindex="${id===selected?'0':'-1'}" data-deck="${id}">${d.short}</button>`).join('')}</div><section role="tabpanel" id="deck-details" aria-labelledby="tab-${selected}" tabindex="0"><p class="deck-description">${deck.description}</p><p class="deck-facts">${deck.facts}</p><h3 class="sample-heading">Amostra: três cartas</h3><div class="card-samples">${deck.cards.map(c=>`<article class="sample-card"><span class="sample-number">${c.n}</span><span class="sample-symbol" aria-hidden="true">${c.symbol}</span><h3>${c.name}</h3><p>${c.text}</p></article>`).join('')}</div><p class="scope-note">A coleção completa e suas ilustrações ainda estão em preparação. O sentido das cartas depende da pergunta e da tiragem.</p></section><div class="actions"><button class="action-button" id="deck-choose">Escolher baralho</button><button class="action-button secondary" id="deck-back">Voltar</button></div>`);
   document.querySelectorAll('[data-deck]').forEach(tab=>{
-    tab.addEventListener('click',()=>{showDecks(tab.dataset.deck);$(`#tab-${tab.dataset.deck}`).focus();});
+    tab.addEventListener('click',()=>{showDecks(tab.dataset.deck,{returnToConsult});$(`#tab-${tab.dataset.deck}`).focus();});
     tab.addEventListener('keydown',event=>{
       const ids=Object.keys(decks);let next;
       if(event.key==='ArrowRight')next=ids[(ids.indexOf(selected)+1)%ids.length];
       if(event.key==='ArrowLeft')next=ids[(ids.indexOf(selected)+ids.length-1)%ids.length];
       if(event.key==='Home')next=ids[0];if(event.key==='End')next=ids.at(-1);
-      if(next){event.preventDefault();showDecks(next);$(`#tab-${next}`).focus();}
+      if(next){event.preventDefault();showDecks(next,{returnToConsult});$(`#tab-${next}`).focus();}
     });
   });
-  $('#deck-choose').addEventListener('click',()=>showConsult(selected));$('#deck-back').addEventListener('click',closePanel);
+  $('#deck-choose').addEventListener('click',()=>showConsult(selected));
+  $('#deck-back').textContent=returnToConsult?'Voltar à identificação':'Voltar';
+  $('#deck-back').addEventListener('click',()=>returnToConsult?showConsult():closePanel());
 }
 function showJournal() {
   setPanel('Diário',`<div class="empty-journal"><h3>Nenhuma leitura registrada.</h3><p>As consultas aparecerão aqui quando as tiragens estiverem disponíveis.</p></div><p class="scope-note">Nome e baralho são preferências, não consultas. Nenhum dado é enviado a um serviço de interpretação nesta versão.</p><div class="actions"><button class="action-button" id="journal-back">Voltar</button></div>`);
@@ -121,7 +134,7 @@ function showSettings() {
   $('#setting-volume').addEventListener('input',event=>{settings.volume=Number(event.target.value);$('#volume-value').textContent=`${settings.volume}%`;if(sound)sound.master.gain.setTargetAtTime(settings.volume/100*.3,sound.ctx.currentTime,.12);save();});
   $('#setting-motion').addEventListener('change',event=>{settings.motion=event.target.checked?'reduced':'full';document.documentElement.dataset.motion=settings.motion;save();scene.refresh();});
   $('#settings-replay').addEventListener('click',intro);
-  $('#forget-profile').addEventListener('click',()=>{settings.profile=null;save();updateName();$('#forget-profile').textContent='Limpo';$('#forget-profile').disabled=true;});
+  $('#forget-profile').addEventListener('click',()=>{settings.profile=null;consultDraft=null;save();updateName();$('#forget-profile').textContent='Limpo';$('#forget-profile').disabled=true;});
 }
 
 function createSound() {
