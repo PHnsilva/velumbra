@@ -41,6 +41,8 @@ PR de manutenção: [#1](https://github.com/PHnsilva/velumbra/pull/1), ainda abe
 
 Branch: `daily/2026-10-30-s01-foundation`. Base: `daily/2026-10-29-prologue-fixes`, do PR #1. Este incremento depende da manutenção; o diff é apenas o trabalho de 30/10 e a integração deve respeitar essa ordem. Estado: implementado na branch e proposto para revisão, ainda sem integração ou aceite da sprint.
 
+PR: [#2](https://github.com/PHnsilva/velumbra/pull/2). Commits da implementação e evidência: `bf3bbc0` e `64910f4`.
+
 Entrega:
 
 - Aplicação Next.js 16.4.3 e React 19.3.1, com rota, layout, metadados e estrutura da cabana em TypeScript estrito. Versões fixadas no lockfile e execução na linha 24 do Node.js.
@@ -56,6 +58,7 @@ Validação local em 30/10/2026, Node.js 24.19.0:
 - O servidor do build real respondeu pela rota e por fonte, imagens, áudio e módulos; o conteúdo dos três módulos publicados corresponde às fontes atuais. Scripts internos, `src/` e arquivos Git não são servidos como recursos públicos.
 - Edge: entrada em silêncio, nome vazio, rascunho de nome/tratamento, navegação até Thoth e Lenormand, confirmação, persistência após recarga e limpeza dos dados de teste conferidos. Balão da velha e fonte própria carregados. Ativação do som produziu o estado de reação da personagem; silêncio e redução de movimento refletidos na interface.
 - Layout inspecionado em 1000 × 597 e 390 × 844, incluindo diário e posição do balão, sem transbordamento horizontal. Nenhum erro ou aviso do jogo observado no console desses fluxos. O viewport temporário foi restaurado e os dados de teste apagados.
+- CI do commit `64910f4`: build, tipos, sintaxe e testes aprovados no GitHub Actions. Preview Vercel gerado com status de sucesso. O acesso externo ao preview redireciona para o login Vercel; a verificação visual desta rodada ocorreu no build local, e a revisão remota requer a sessão de Pedro. A proteção do preview não foi alterada.
 
 Limites e pendências:
 
