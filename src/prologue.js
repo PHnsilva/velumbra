@@ -151,7 +151,7 @@ function createSound() {
 function loadMurmurs() {
   if(!sound) return Promise.resolve([]);
   if(!sound.loading){const engine=sound;engine.loading=Promise.all([0,1,2,3].map(async index=>{
-    const response=await fetch(`./public/audio/murmur-${index}.wav`);if(!response.ok)throw new Error('Murmur unavailable');return engine.ctx.decodeAudioData(await response.arrayBuffer());
+    const response=await fetch(`/audio/murmur-${index}.wav`);if(!response.ok)throw new Error('Murmur unavailable');return engine.ctx.decodeAudioData(await response.arrayBuffer());
   })).then(voices=>{engine.voices=voices;return voices;}).catch(()=>{engine.loading=null;return [];});}
   return sound.loading;
 }
