@@ -5,6 +5,7 @@ import { SourceTextModule, SyntheticModule } from 'node:vm';
 import { JSDOM } from 'jsdom';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { compileDeckCatalog } from '../scripts/compile-decks.mjs';
 import Cabin from '../app/cabin.tsx';
 
 const root = new URL('../', import.meta.url);
@@ -29,7 +30,8 @@ async function openCabin(t) {
   const scene = new SyntheticModule(['createScene'], function () {
     this.setExport('createScene', () => ({ refresh() {} }));
   }, { context });
-  const decks = new SourceTextModule(await readFile(new URL('src/decks.js', root), 'utf8'), {context});
+  const deckSource = await readFile(new URL('src/decks.ts', root), 'utf8');
+  const decks = new SourceTextModule(compileDeckCatalog(deckSource), {context});
   const controller = new SourceTextModule(await readFile(new URL('src/prologue.js', root), 'utf8'), {context});
   await controller.link(specifier => {
     if (specifier === './scene.js') return scene;
@@ -122,4 +124,19 @@ test('rascunho e confirmação tratam o nome como texto, inclusive após visitar
   app.submit('#consult-form');
   assert.equal($('#saved-name').textContent, literal);
   assert.equal($('img[onerror]'), null);
+});
+
+test('a biblioteca renderiza as três amostras de cada sistema sem misturar tradições', async t => {
+  const { $, window } = await openCabin(t);
+  $('[data-panel="decks"]').click();
+  const expected = {
+    rws: ['O Louco', 'A Lua', 'A Morte'],
+    marseille: ['O Louco', 'A Papisa', 'A Justiça'],
+    thoth: ['Ajustamento', 'Arte', 'O Aeon'],
+    lenormand: ['O Cavaleiro', 'O Livro', 'A Lua'],
+  };
+  for (const [id, names] of Object.entries(expected)) {
+    $(`#tab-${id}`).click();
+    assert.deepEqual([...window.document.querySelectorAll('#deck-details .sample-card h3')].map(node => node.textContent), names);
+  }
 });

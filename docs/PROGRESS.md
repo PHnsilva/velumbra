@@ -66,4 +66,29 @@ Limites e pendências:
 - Sprint 1 ainda exige a estrutura compartilhada e tipada dos quatro sistemas, revisão dos limites entre módulos, preview, integração e critério de aceite. Sprints 2–20 permanecem pendentes.
 - A produção continua no commit `06e2029`; nenhum PR recebeu merge ou autoaprovação.
 
-Próxima ação: revisar os PRs na ordem de dependência e continuar a estrutura dos quatro baralhos no próximo incremento diário da sprint 1.
+Próxima ação: revisar os PRs na ordem de dependência e fechar os limites entre módulos da sprint 1 antes de avançar para a sprint 2.
+
+## 31/10/2026: sprint 1, catálogo tipado dos quatro sistemas
+
+Branch: `daily/2026-10-31-s01-deck-types`. Base: `daily/2026-10-30-s01-foundation`, PR #2. Este incremento depende dos PRs #2 e #1; seu diff contém apenas o modelo compartilhado dos baralhos, a adaptação do runtime e a validação correspondente. Proposto para revisão no PR #3, ainda sem integração ou aceite.
+
+Entrega:
+
+- Catálogo compartilhado em TypeScript com identificadores, modelos discriminados e regras estruturais diferentes para os três tarôs e o Petit Lenormand.
+- Rider–Waite–Smith, Marselha e Thoth registram naipes e figuras de corte próprios; Lenormand registra 36 símbolos, combinações e leitura sem inversões.
+- A interface consome `samples`, com exatamente três prévias por sistema. As 270 cartas permanecem como contagens planejadas; não são apresentadas como conteúdo já cadastrado.
+- O preparador compila o catálogo tipado para o módulo JavaScript público, sem expor compilador, scripts ou arquivos TypeScript ao navegador.
+- Testes verificam identidade, contagens, diferenças de estrutura e o limite entre amostras e catálogo.
+
+Validação em 31/10/2026:
+
+- `npm run check` e `npm run build` aprovados localmente; `npm test` passou com 10 testes, incluindo navegação pelas quatro amostras e publicação do runtime compilado.
+- Inspeção visual desktop/celular não executada: o uso de navegador local está desativado nas configurações atuais do Work. O preview da Vercel exige a sessão autenticada de Pedro; registrar a revisão visual como pendência, sem declarar aceite.
+- Produção permanece no commit `06e2029`; nenhum PR foi integrado.
+
+Limites e pendências:
+
+- O modelo tipado não contém as 270 cartas, não implementa sorteio, orientação, combinações ou interpretação. As amostras continuam meramente editoriais.
+- A sprint 1 segue em execução. A revisão dos limites entre módulos, a revisão humana dos PRs #1–#3, integração e aceite do critério da sprint ainda estão pendentes.
+
+Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.

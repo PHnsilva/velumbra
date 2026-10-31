@@ -47,11 +47,11 @@ Prólogo estático funcional: abertura com ícone e nome, transição para menu,
 4. Registrar arquivos alterados, verificações e limitações reais.
 5. Atualizar este plano com o estado correto e publicar o trabalho no GitHub.
 
-## Estado em 30/10/2026
+## Estado em 31/10/2026
 
 | Sprint | Implementação | Revisão e aceite |
 | --- | --- | --- |
-| 01 | Em execução: primeiro incremento com aplicação Next.js/TypeScript e configuração de preview. Estrutura tipada dos quatro sistemas e revisão dos limites entre módulos ainda pendentes. | Proposto em PR dependente da manutenção #1; sem integração ou aceite. |
+| 01 | Em execução: fundação Next.js/TypeScript, preview e modelo tipado que separa Rider–Waite–Smith, Marselha, Thoth e Lenormand. As três cartas da interface estão identificadas como amostras; catálogos completos e motor ainda pendentes. Revisão dos limites entre módulos continua. | PRs #2 e #3 propostos em sequência, dependentes da manutenção #1; sem integração ou aceite. |
 | 02–20 | Pendentes. | Não iniciadas como sprints. |
 
 Os recursos já existentes do prólogo não encerram os critérios das sprints futuras. As verificações e pendências de cada incremento ficam em [PROGRESS.md](PROGRESS.md).

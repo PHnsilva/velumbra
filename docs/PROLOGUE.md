@@ -34,7 +34,8 @@ Ainda não há tiragem, interpretação, veredito ou coleção de 270 ilustraç�
 | `src/cabin.css` | Interface, fonte, bordô, estados e responsividade. |
 | `src/prologue.js` | Navegação, preferências e áudio. |
 | `src/scene.js` | Desenho e animação da cabana e da velha. |
-| `src/decks.js` | Amostras textuais dos quatro baralhos. |
+| `src/decks.js` | Fonte original das amostras, substituída no PR #3. |
+| `src/decks.ts` | Modelo tipado e amostras atuais dos quatro sistemas; compilado no build para o runtime do navegador. |
 | `public/art/cabin-pixel.png` | Revisão simplificada da cabana. |
 | `public/art/elder-pixel.png` | Sprite simplificado da velha com transparência. |
 | `public/fonts/velumbra.ttf` | Fonte própria da interface. |

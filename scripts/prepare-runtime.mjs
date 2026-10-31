@@ -1,6 +1,7 @@
-import { copyFile, mkdir, rm } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { compileDeckCatalog } from './compile-decks.mjs';
 
 // Keep the approved scene running during the incremental React migration.
 // Only these browser modules are published; scripts and project files stay private.
@@ -11,6 +12,8 @@ const target=join(publicRoot,'runtime');
 if(dirname(target)!==publicRoot || basename(target)!=='runtime') throw new Error('Destino do runtime inválido.');
 await rm(target,{recursive:true,force:true});
 await mkdir(target, { recursive: true });
-for (const name of ['prologue.js', 'scene.js', 'decks.js']) {
+for (const name of ['prologue.js', 'scene.js']) {
   await copyFile(join(root,'src',name),join(target,name));
 }
+const catalog = await readFile(join(root, 'src', 'decks.ts'), 'utf8');
+await writeFile(join(target, 'decks.js'), compileDeckCatalog(catalog));
