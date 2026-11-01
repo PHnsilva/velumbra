@@ -55,3 +55,17 @@ Pedido de rotina: diariamente às 6h de America/Sao_Paulo, a partir de 02/11/202
 A sequência existente é [PR #1](https://github.com/PHnsilva/velumbra/pull/1) → [PR #2](https://github.com/PHnsilva/velumbra/pull/2) → [PR #3](https://github.com/PHnsilva/velumbra/pull/3). A issue #6 acompanha manutenção; #7 acompanha o aceite da fundação. Manter bases e diffs restritos e conferir HEAD/checks ao atualizar cada base. Nenhuma sprint é concluída só por PR aberto.
 
 O pedido atual de 01/11 substitui a regra antiga de acompanhamento somente em Markdown. Issues foram ativadas no repositório para atender essa organização. O plano de 20 entregas continua em [SPRINTS.md](SPRINTS.md).
+
+## Decisão de integração MCP e foco das melhorias
+
+Decisão do proprietário em 01/11/2026: Sofiie e Velumbra atuarão como hosts, cada um com seu cliente MCP, consumindo a interface servidora do Sofiie Agents. Não criar servidores próprios nem repositórios adicionais de MCP para esses dois consumidores nesta etapa.
+
+O Sofiie Agents manterá seu servidor MCP como adaptador da própria arquitetura e também poderá atuar como host/cliente de servidores MCP externos quando uma tarefa exigir ferramentas ou recursos deles. Um agente futuro consumir as especializações do Agents usa o lado servidor do Agents; o cliente de saída só é necessário quando o Agents consome algo externo. Não ativar conexões externas sem consumidor, contrato e configuração definidos.
+
+Priorizar nas melhorias diárias especializações com aplicação concreta nos dois produtos:
+
+- Velumbra: interpretação contextual de perguntas e tiragens, conteúdo e diferenças entre tradições, coerência das respostas e avaliação de qualidade; complementar com interface, acessibilidade e testes.
+- Sofiie: interpretação de intenções em português, diálogo por texto/voz, planejamento e seleção de ações estruturadas, integrações desktop/mobile/carro e validação de execução.
+- Compartilhadas: contratos de ferramentas/MCP, QA, acessibilidade e avaliação de regressões.
+
+Cada melhoria deve ter cenário de uso, entrada/saída, limites e evidência comparável. Especialistas novos exigem necessidade concreta; não ampliar o catálogo apenas por quantidade. Esta decisão orienta o backlog, não declara clientes integrados, inferência homologada ou rotinas agendadas.
