@@ -19,3 +19,8 @@
 - A cópia local fica em `D:\Dev\Projetos\velumbra`. Node 24 preservado no D: deve ser identificado por caminho e versão; inventariar antes de baixar novamente.
 - O pedido atual prevê rotina às 6h de America/Sao_Paulo a partir de 02/11/2026. Este documento não ativa o agendamento no aplicativo.
 - Preservar as 20 entregas existentes até decisão explícita sobre o primeiro MVP. Hoje organizar backlog e dependências, sem desenvolver novas funcionalidades.
+
+## Prioridade aprovada para as próximas retomadas
+
+- Ler `docs/DAILY_PLAN.md` e a decisão de hosts/clientes antes de selecionar a próxima entrega. Priorizar especializações aplicáveis ao Sofiie/Velumbra e seus contratos/avaliações, respeitando dependências e as alterações do proprietário no Kanban. Não criar servidores MCP nos consumidores.
+- O cronograma no aplicativo é uma configuração separada; registrar seu identificador e conferir o próximo disparo antes de declarar a rotina ativa.
