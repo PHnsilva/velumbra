@@ -16,7 +16,7 @@ O primeiro incremento da sprint 1 fornece rota e layout em Next.js App Router co
 
 **[Abrir o prólogo publicado na Vercel](https://velumbra-hazel.vercel.app/)**
 
-O desenvolvimento está organizado em **20 sprints**: testes e mudanças nas sprints **18 e 20**, MVP integrado na sprint **19**. O acompanhamento fica em Markdown no próprio repositório, sem Issues ou GitHub Projects.
+O desenvolvimento está organizado em **20 sprints**: testes e mudanças nas sprints **18 e 20**, MVP integrado na sprint **19**. Em 01/11/2026 o proprietário solicitou Issues e Kanban no GitHub. O [planejamento do quadro](docs/KANBAN.md) registra a transição, dependências e pendências de acesso, preservando as 20 entregas existentes.
 
 Em 29/10/2026, foi autorizado o ciclo de PR diário e revisão conjunta no fim de semana. O PR dessa data contém manutenção do prólogo; a progressão das sprints começa em 30/10. Alterações diárias aguardam revisão antes de merge e publicação. Resultados, limites e próximas ações estão em [docs/PROGRESS.md](docs/PROGRESS.md).
 
@@ -236,7 +236,7 @@ vercel.json              Configuração de publicação Next.js
 
 Projeto de [Pedro Henrique Silva Vargas](https://github.com/PHnsilva). O ícone inicial foi gerado com a ferramenta integrada de imagens do ChatGPT; sua origem está registrada em [docs/ASSETS.md](docs/ASSETS.md).
 
-O planejamento é mantido nos documentos deste repositório. Contribuições devem descrever o objetivo da mudança e as verificações realizadas. Não criar Issues ou GitHub Projects neste ciclo, conforme a organização definida para o projeto.
+O planejamento é mantido nos documentos deste repositório. Contribuições devem descrever o objetivo da mudança e as verificações realizadas. O pedido atual de 01/11/2026 autoriza Issues e GitHub Projects; consultar [o fluxo por MCP](docs/AGENT_WORKFLOW.md) e distinguir planejamento de configuração efetivamente salva.
 
 ## Licença
 
