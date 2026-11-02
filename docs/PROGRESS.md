@@ -92,3 +92,24 @@ Limites e pendências:
 - A sprint 1 segue em execução. A revisão dos limites entre módulos, a revisão humana dos PRs #1–#3, integração e aceite do critério da sprint ainda estão pendentes.
 
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
+
+## 02/11/2026: validação atual da fundação
+
+Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). Branch: `daily/2026-11-02-s01-validation`. Base: `daily/2026-10-31-s01-deck-types` (PR #3), ainda aberto e sujeito à revisão dos PRs #1 e #2. A verificação foi executada na cópia ativa em `C:\Users\peecs\Documents\ChatGPT\velumbra`, no commit local `c767028`; os arquivos de aplicação, testes, scripts e lockfile conferem com o HEAD do PR #3, `14fc529e8dd355afeb66afb01d6a7c67734f41e1`. O incremento de hoje registra somente a evidência.
+
+Validação em Node.js 24.19.0 e npm 11.17.0:
+
+- `npm ci`: 66 pacotes instalados; 67 auditados, sem vulnerabilidades encontradas.
+- `npm run build`: aprovado; Next.js compilou, verificou TypeScript e gerou as rotas estáticas.
+- `npm run check`: aprovado; tipos e sintaxe dos controladores conferidos.
+- `npm test`: 10 testes aprovados, incluindo preparação restrita do runtime, quatro estruturas tipadas, amostras e servidor HTTP do build real.
+- O MCP do GitHub confirmou checks verdes nos HEADs de #1, #2 e #3. Nenhum dos três PRs tem review submetido; todos seguem abertos na ordem #1 → #2 → #3.
+
+Limites e pendências:
+
+- A revisão visual em computador e celular não foi executada. A ferramenta de navegador/automação não inicializou (`failed to write kernel assets`, erro 3) nas duas tentativas. A inspeção por Pedro e o aceite da sprint continuam pendentes; build, testes e CI não substituem essa revisão.
+- O teste exercita a aplicação em DOM simulado e o servidor HTTP local. Não valida qualidade de áudio, renderização de animações ou integração externa de interpretação.
+- A preparação gerou somente a saída `public/runtime/` e o build `.next/`, ambos artefatos locais; não houve alteração de produto ou deploy.
+
+Próxima ação: concluir a revisão visual de #1–#3 em desktop/celular, conferir o preview autenticado com Pedro e resolver qualquer lacuna antes de aceitar a sprint 1 ou avançar para a sprint 2. A integração MCP #9 continua bloqueada pelo aceite da fundação #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
+
