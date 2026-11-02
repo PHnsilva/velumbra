@@ -95,7 +95,7 @@ Próxima ação: revisar os PRs encadeados e continuar a separação dos contrat
 
 ## 02/11/2026: validação atual da fundação
 
-Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). Branch: `daily/2026-11-02-s01-validation`. Base: `daily/2026-10-31-s01-deck-types` (PR #3), ainda aberto e sujeito à revisão dos PRs #1 e #2. A verificação foi executada na cópia ativa em `C:\Users\peecs\Documents\ChatGPT\velumbra`, no commit local `c767028`; os arquivos de aplicação, testes, scripts e lockfile conferem com o HEAD do PR #3, `14fc529e8dd355afeb66afb01d6a7c67734f41e1`. O incremento de hoje registra somente a evidência.
+Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). PR: [#10](https://github.com/PHnsilva/velumbra/pull/10). Branch: `daily/2026-11-02-s01-validation`. Base: `daily/2026-10-31-s01-deck-types` (PR #3), ainda aberto e sujeito à revisão dos PRs #1 e #2. A verificação foi executada na cópia ativa em `C:\Users\peecs\Documents\ChatGPT\velumbra`, no commit local `c767028`; os arquivos de aplicação, testes, scripts e lockfile conferem com o HEAD do PR #3, `14fc529e8dd355afeb66afb01d6a7c67734f41e1`. O incremento de hoje registra somente a evidência.
 
 Validação em Node.js 24.19.0 e npm 11.17.0:
 
