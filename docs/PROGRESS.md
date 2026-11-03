@@ -113,3 +113,14 @@ Limites e pendências:
 
 Próxima ação: concluir a revisão visual de #1–#3 em desktop/celular, conferir o preview autenticado com Pedro e resolver qualquer lacuna antes de aceitar a sprint 1 ou avançar para a sprint 2. A integração MCP #9 continua bloqueada pelo aceite da fundação #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
 
+
+
+## 03/11/2026: roteiro para revisão da fundação
+
+Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). Atualização no [PR #10](https://github.com/PHnsilva/velumbra/pull/10), branch `daily/2026-11-02-s01-validation`, base `daily/2026-10-31-s01-deck-types` (PR #3). O trabalho partiu do HEAD anterior do PR #10, `fab689f8e69646fd41f5a1cb5f5aedad509317ee`; o novo roteiro foi criado no commit `5579564777cbc5639e31c3acc623d6c71d0856d9`.
+
+Entrega: `docs/REVIEW_CHECKLIST_S01.md` descreve passos concretos para a revisão manual em desktop (1000 × 597) e celular (390 × 844), usando dados sintéticos. Cobre entrada silenciosa, foco/teclado, erros de nome, preservação ou descarte de rascunho, quatro tradições e três amostras, som, movimento reduzido, diário local, layout e limpeza dos dados de teste. Foi cruzado com os critérios atuais das issues #6/#7 e com os seletores/fluxos já existentes no HEAD #3.
+
+Validação e limites: esta alteração é somente documentação; nenhum teste de produto foi repetido ou apresentado como novo. O roteiro propõe verificações para Pedro executar e não registra resultado visual. A ferramenta de navegador não esteve disponível nesta sessão; preview autenticado, aparência, áudio, animações e comportamento real continuam pendentes.
+
+Próxima ação: Pedro executar o roteiro no preview e registrar Passou/Falhou/Não executada por dispositivo. Corrigir falhas comprovadas antes do aceite da sprint 1; preservar a ordem #1 → #2 → #3. O cliente MCP #9 segue bloqueado por #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
