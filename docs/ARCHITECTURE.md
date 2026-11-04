@@ -6,7 +6,7 @@ Este documento descreve decisões para a aplicação completa e o início da fun
 
 - Next.js e TypeScript, em um repositório.
 - Interface, conteúdo editorial e recursos de arte distribuídos pela Vercel.
-- Função de servidor para interpretação: a chave da IA fica exclusivamente no servidor.
+- Função de servidor como host do cliente MCP de interpretação; credenciais e transporte ficam exclusivamente no servidor.
 - Diário local no navegador, com exportação a considerar posteriormente.
 - Sem necessidade inicial de banco, autenticação, servidor dedicado ou serviços de cobrança.
 
@@ -31,9 +31,21 @@ Este incremento depende do PR #1 de manutenção, ainda pendente de revisão. N�
 | Personagem | Diálogos, expressões, gestos e sincronização da apresentação. |
 | Diário | Persistência e leitura do histórico no navegador. |
 
+## Decisão de arquitetura: host e cliente MCP
+
+Decisão aprovada por Pedro em 01/11/2026 e acompanhada pela [issue #5](https://github.com/PHnsilva/velumbra/issues/5): Sofiie e Velumbra são hosts com clientes MCP; a interface servidora e as especializações permanecem no Sofiie Agents. Os consumidores não terão servidores MCP próprios nem repositórios adicionais nesta etapa. O cliente de saída já existente no Agents só será usado quando uma tarefa concreta exigir ferramenta externa.
+
+No Velumbra, a fronteira do produto será uma porta de interpretação no servidor da aplicação e um adaptador MCP atrás dela. O navegador continua sem SDK MCP, credenciais ou acesso direto à ferramenta. O domínio mantém a responsabilidade pelo sorteio sem reposição, pelas quatro tradições, pelo diário local e pela reserva guiada; uma resposta do especialista não pode escolher nem alterar as cartas sorteadas. O formato exato de entrada e saída depende do contrato de [sofiie-agents#16](https://github.com/PHnsilva/sofiie-agents/issues/16) e não é redefinido aqui.
+
+### Limite de transporte e condição de integração
+
+O servidor MCP conhecido do Agents usa stdio local. Esse transporte exige que o host inicie e alcance o processo no mesmo ambiente; uma função hospedada na Vercel não ganha acesso ao processo que roda no computador de Pedro. Logo, stdio local pode validar o protocolo durante desenvolvimento, mas não comprova conectividade de produção. Um endpoint remoto alcançável, sua autenticação, disponibilidade e elegibilidade de custo ainda precisam ser definidos e validados antes de uma integração Vercel. Não contratar hospedagem, crédito ou fallback pago para remover esse bloqueio.
+
+Até que a topologia e a ferramenta especializada sejam comprovadas, a interpretação permanece opcional e a reserva guiada continua disponível. A integração só será considerada validada após chamada real à ferramenta pelo cliente, validação do contrato e confirmação de que o host do ambiente escolhido alcança o servidor. Mock, SDK instalado, CI verde ou resposta simulada não demonstram interpretação especializada nem aceitação de qualidade. Perguntas pessoais não entram em logs por padrão; conteúdo retornado é validado e exibido como texto seguro.
+
 ## IA com custo inicial zero
 
-Primeira opção a avaliar: Vercel AI Gateway no nível gratuito, com modelo elegível. Alternativa: Groq Free acessada diretamente pela função na Vercel. Provedores e modelos disponíveis devem ser verificados na sprint 6.
+O caminho aprovado para especialização é o cliente MCP do Velumbra consumindo o servidor do Sofiie Agents conforme o contrato #16. Vercel AI Gateway e Groq não estão selecionados como provedores ou fallbacks deste fluxo; qualquer opção futura requer validação de custo, disponibilidade e topologia sem ultrapassar R$ 0 de gasto adicional.
 
 - Uma chamada por consulta para gerar falas das cartas e veredito em conjunto.
 - Enviar apenas referências relevantes para as cartas da tiragem e a pergunta.
