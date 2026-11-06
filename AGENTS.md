@@ -16,7 +16,7 @@ Sofiee está pausado até 21/11; Premium disponível e Mac ausente, com validaç
 # Velumbra
 
 - Ler README.md, GAME.md, docs/SPRINTS.md e docs/PROGRESS.md antes de alterar o sistema. Preservar trabalho existente e verificar base remota, branches e PRs.
-- Manutenção em 29/10/2026: corrigir o prólogo atual. A progressão das 20 sprints começa em 30/10/2026, pela primeira incompleta. Sprints 18 e 20 concentram testes e mudanças; o MVP é a 19.
+- Registro histórico de 29/10/2026: a base usava 20 entregas. O ciclo vigente é S1–S6 em `docs/DELIVERY_PLAN.md`; a correspondência completa está em `docs/SPRINTS.md`. Continuar pela primeira lacuna técnica real, preservando o prólogo e os PRs existentes, com até 3 L equivalentes/dia.
 - Um PR com progresso verificável por data de America/Sao_Paulo, inclusive sábado, domingo e dia da revisão. Evitar duplicatas e não criar PR vazio ou artificial para completar contagem.
 - Branch própria e commits pequenos. Não fazer commit direto em main, autoaprovação ou merge automático. PRs acumulam para revisão de Pedro no fim de semana. Integrar e atualizar produção somente após aprovação explícita dos PRs envolvidos.
 - Preferir PRs independentes; quando depender de PR aberto, usar o branch predecessor como base, declarar a dependência e limitar o diff ao novo incremento.
