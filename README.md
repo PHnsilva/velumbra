@@ -1,10 +1,36 @@
+<!-- BEGIN CURRENT PLAN 2026-11-06 -->
+
+# velumbra
+
+Cartomancia interativa com quatro tradições, 270 cartas, personagem/cabana animadas, tiragens e diário local, com IA opcional.
+
+**Planejamento vigente em 06/11/2026: até 5 sprints de entrega + S6 de validação extra/mudanças.** As issues e a matriz documentam todo o ciclo; não comprovam implementação, treinamento, integração ou aceite. Preservar código e PRs existentes. Somente Pedro revisa/aprova PRs e aceita issues.
+
+- [Requisitos e limites](docs/REQUIREMENTS.md)
+- [Arquitetura e fronteiras](docs/ARCHITECTURE_PLAN.md)
+- [Todas as sprints e issues](docs/DELIVERY_PLAN.md)
+- [Rastreabilidade](docs/TRACEABILITY.md)
+- [Execução semanal por dependências e PRs encadeados](docs/WEEKLY_EXECUTION.md)
+- [Retomada diária](docs/EXECUTION_PLAN.md)
+- [Contribuição](docs/CONTRIBUTION_POLICY.md)
+
+Busca encontra fontes em qualquer lugar pertinente e preserva filtros do usuário; Validação escolhe a base adequada ao tipo de dado e verifica as referências independentemente. Não aplicar uma whitelist científica global ao Busca. O modelo pode ser compartilhado; as ferramentas e critérios de domínio são específicos.
+
+Trabalho exclusivamente no C:, sem serviços pagos obrigatórios. SlothGeo é separado e adiado para 21/11, não um sexto agente desta rotina.
+<!-- END CURRENT PLAN 2026-11-06 -->
+
+**Cadência do Velumbra: até 3 L equivalentes por dia (24 unidades)**, com validação. Catálogo alvo de 270 cartas preservado e decomposto em lotes com aceite próprio.
+
+<details>
+<summary>Descrição anterior da base e propostas — consultar com o estado vivo dos PRs</summary>
+
 <p align="center"><img src="public/brand/velumbra-icon.png" width="160" alt="Ícone do projeto Velumbra" /></p>
 
 # Velumbra
 
 Aplicação web interativa de cartomancia, planejada como um monólito modular full stack com interface animada, catálogo de quatro tradições, motor de tiragens e interpretação contextual opcional por IA.
 
-O nome reúne véu, vela e *umbra* (sombra). A apresentação da experiência, ambientação, personagem e mecânicas está em [GAME.md](GAME.md).
+O nome reúne véu, vela e _umbra_ (sombra). A apresentação da experiência, ambientação, personagem e mecânicas está em [GAME.md](GAME.md).
 
 ---
 
@@ -16,7 +42,7 @@ O primeiro incremento da sprint 1 fornece rota e layout em Next.js App Router co
 
 **[Abrir o prólogo publicado na Vercel](https://velumbra-hazel.vercel.app/)**
 
-O desenvolvimento está organizado em **20 sprints**: testes e mudanças nas sprints **18 e 20**, MVP integrado na sprint **19**. O acompanhamento fica em Markdown no próprio repositório, sem Issues ou GitHub Projects.
+O desenvolvimento está organizado em **20 sprints**: testes e mudanças nas sprints **18 e 20**, MVP integrado na sprint **19**. Em 01/11/2026 o proprietário solicitou Issues e Kanban no GitHub. O [planejamento do quadro](docs/KANBAN.md) registra a transição, dependências e pendências de acesso, preservando as 20 entregas existentes.
 
 Em 29/10/2026, foi autorizado o ciclo de PR diário e revisão conjunta no fim de semana. O PR dessa data contém manutenção do prólogo; a progressão das sprints começa em 30/10. Alterações diárias aguardam revisão antes de merge e publicação. Resultados, limites e próximas ações estão em [docs/PROGRESS.md](docs/PROGRESS.md).
 
@@ -24,29 +50,29 @@ Em 29/10/2026, foi autorizado o ciclo de PR diário e revisão conjunta no fim d
 
 ## Objetivos técnicos
 
-| Objetivo | Abordagem planejada |
-| --- | --- |
-| Um único deploy | Interface, recursos e função de interpretação na Vercel. |
+| Objetivo                       | Abordagem planejada                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------------------- |
+| Um único deploy                | Interface, recursos e função de interpretação na Vercel.                              |
 | Quatro tradições independentes | Catálogo e regras próprios para Rider–Waite–Smith, Marselha, Thoth e Petit Lenormand. |
-| Leitura contextual | Combinar pergunta, intenção, tradição, posições, orientação e relações entre cartas. |
-| Experiência resiliente | Oferecer consultas guiadas quando a IA estiver indisponível. |
-| Custo inicial zero | Operar dentro das cotas gratuitas, sem cobrança ou recarga automática. |
-| Persistência simples | Histórico no navegador, sem conta obrigatória ou banco inicial. |
-| Qualidade visual | Recursos originais, animações controladas e interface responsiva. |
+| Leitura contextual             | Combinar pergunta, intenção, tradição, posições, orientação e relações entre cartas.  |
+| Experiência resiliente         | Oferecer consultas guiadas quando a IA estiver indisponível.                          |
+| Custo inicial zero             | Operar dentro das cotas gratuitas, sem cobrança ou recarga automática.                |
+| Persistência simples           | Histórico no navegador, sem conta obrigatória ou banco inicial.                       |
+| Qualidade visual               | Recursos originais, animações controladas e interface responsiva.                     |
 
 ---
 
 ## Stack planejada
 
-| Camada | Tecnologia ou decisão |
-| --- | --- |
-| Aplicação | Next.js 16.4.3, React 19.3.1 e TypeScript 7.0.2, fixados no lockfile neste incremento da sprint 1. |
-| Renderização | Cena em perspectiva e personagem em camadas; técnica validada nas sprints 2 e 3. |
-| Conteúdo | Dados editoriais versionados e recursos estáticos. |
-| Backend | Função de servidor da aplicação, hospedada na Vercel. |
-| IA | Avaliar Vercel AI Gateway gratuito; Groq Free como alternativa de integração. |
-| Histórico | Armazenamento local no navegador, com validação e versão do esquema. |
-| Publicação | Vercel, respeitando as condições do plano e limites de uso. |
+| Camada       | Tecnologia ou decisão                                                                              |
+| ------------ | -------------------------------------------------------------------------------------------------- |
+| Aplicação    | Next.js 16.4.3, React 19.3.1 e TypeScript 7.0.2, fixados no lockfile neste incremento da sprint 1. |
+| Renderização | Cena em perspectiva e personagem em camadas; técnica validada nas sprints 2 e 3.                   |
+| Conteúdo     | Dados editoriais versionados e recursos estáticos.                                                 |
+| Backend      | Função de servidor da aplicação, hospedada na Vercel.                                              |
+| IA           | Avaliar Vercel AI Gateway gratuito; Groq Free como alternativa de integração.                      |
+| Histórico    | Armazenamento local no navegador, com validação e versão do esquema.                               |
+| Publicação   | Vercel, respeitando as condições do plano e limites de uso.                                        |
 
 ---
 
@@ -70,28 +96,28 @@ A interface apresenta os resultados e controla animações. O domínio define so
 
 ## Módulos e responsabilidades
 
-| Módulo | Responsabilidade |
-| --- | --- |
-| Catálogo | Cartas, identidade, ordem, nomes, símbolos, fontes e arquivos de arte. |
-| Tiragens | Definição de posições, sorteio sem reposição e política de inversões. |
-| Consulta | Pergunta, tema, intenção, cartas e estado da jornada. |
+| Módulo        | Responsabilidade                                                        |
+| ------------- | ----------------------------------------------------------------------- |
+| Catálogo      | Cartas, identidade, ordem, nomes, símbolos, fontes e arquivos de arte.  |
+| Tiragens      | Definição de posições, sorteio sem reposição e política de inversões.   |
+| Consulta      | Pergunta, tema, intenção, cartas e estado da jornada.                   |
 | Interpretação | Contexto editorial, chamada opcional de IA, validação e reserva guiada. |
-| Personagem | Diálogo, expressões, gestos e sincronização com as cartas. |
-| Biblioteca | Inspeção completa, ampliação e descrição das cartas. |
-| Diário | Persistência local, versão de esquema e recuperação de consultas. |
-| Preferências | Áudio, velocidade do texto, tratamento e redução de movimento. |
+| Personagem    | Diálogo, expressões, gestos e sincronização com as cartas.              |
+| Biblioteca    | Inspeção completa, ampliação e descrição das cartas.                    |
+| Diário        | Persistência local, versão de esquema e recuperação de consultas.       |
+| Preferências  | Áudio, velocidade do texto, tratamento e redução de movimento.          |
 
 ---
 
 ## Modelo de conteúdo
 
-| Entidade | Dados principais |
-| --- | --- |
-| Baralho | Identificador de tradição, nome, quantidade, ordem e regras. |
-| Carta | ID estável, nome, número, naipe/corte quando aplicável, símbolos, descrição, arte e fonte editorial. |
-| Tiragem | Identificador, posições nomeadas e quantidade de cartas. |
-| Consulta | Baralho, pergunta, intenção, cartas, posições, orientação e data. |
-| Leitura | Explicações por carta, conexões, veredito, modalidade e versão editorial. |
+| Entidade | Dados principais                                                                                     |
+| -------- | ---------------------------------------------------------------------------------------------------- |
+| Baralho  | Identificador de tradição, nome, quantidade, ordem e regras.                                         |
+| Carta    | ID estável, nome, número, naipe/corte quando aplicável, símbolos, descrição, arte e fonte editorial. |
+| Tiragem  | Identificador, posições nomeadas e quantidade de cartas.                                             |
+| Consulta | Baralho, pergunta, intenção, cartas, posições, orientação e data.                                    |
+| Leitura  | Explicações por carta, conexões, veredito, modalidade e versão editorial.                            |
 
 O escopo previsto é de **270 cartas**: três catálogos de 78 cartas e um de 36. Hoje o código tipa a estrutura dos quatro sistemas e mantém três amostras de cada um; ainda não contém os 270 registros. A equivalência entre cartas de tradições diferentes deve ser explícita; os sistemas não compartilham automaticamente os mesmos significados ou numeração.
 
@@ -99,14 +125,14 @@ O escopo previsto é de **270 cartas**: três catálogos de 78 cartas e um de 36
 
 ## Fluxo de interpretação
 
-| Etapa | Comportamento planejado |
-| --- | --- |
-| Entrada | Validar pergunta, tradição, tiragem e tamanho dos dados. |
-| Sorteio | Selecionar cartas sem reposição, independentemente da pergunta. |
-| Contexto | Reunir apenas conteúdo relevante às cartas e posições selecionadas. |
-| Geração | Uma chamada retorna explicações e veredito da consulta completa. |
-| Validação | Conferir formato, IDs, posições e presença das partes esperadas. |
-| Apresentação | Revelar e apresentar o conteúdo progressivamente com a personagem. |
+| Etapa             | Comportamento planejado                                                    |
+| ----------------- | -------------------------------------------------------------------------- |
+| Entrada           | Validar pergunta, tradição, tiragem e tamanho dos dados.                   |
+| Sorteio           | Selecionar cartas sem reposição, independentemente da pergunta.            |
+| Contexto          | Reunir apenas conteúdo relevante às cartas e posições selecionadas.        |
+| Geração           | Uma chamada retorna explicações e veredito da consulta completa.           |
+| Validação         | Conferir formato, IDs, posições e presença das partes esperadas.           |
+| Apresentação      | Revelar e apresentar o conteúdo progressivamente com a personagem.         |
 | Indisponibilidade | Oferecer consulta guiada; informar quando perguntas livres dependem de IA. |
 
 Checagens de estrutura não asseguram qualidade semântica. Consultas de referência serão revisadas para verificar pertinência, contradições e coerência do veredito.
@@ -117,10 +143,10 @@ Checagens de estrutura não asseguram qualidade semântica. Consultas de referê
 
 A sprint 6 definirá a rota e os tipos finais. Ainda não existe endpoint implementado.
 
-| Operação | Entrada | Saída |
-| --- | --- | --- |
-| Interpretar consulta | Tradição, pergunta, tiragem, IDs e orientação das cartas. | Falas por posição, conexões e veredito estruturado. |
-| Tratar falha | Timeout, limite do provedor ou resposta inválida. | Estado de indisponibilidade ou oferta de modalidade guiada. |
+| Operação             | Entrada                                                   | Saída                                                       |
+| -------------------- | --------------------------------------------------------- | ----------------------------------------------------------- |
+| Interpretar consulta | Tradição, pergunta, tiragem, IDs e orientação das cartas. | Falas por posição, conexões e veredito estruturado.         |
+| Tratar falha         | Timeout, limite do provedor ou resposta inválida.         | Estado de indisponibilidade ou oferta de modalidade guiada. |
 
 As descrições editoriais serão resolvidas no servidor pelos IDs recebidos. O navegador não deve escolher prompts de sistema nem expor credenciais.
 
@@ -128,15 +154,15 @@ As descrições editoriais serão resolvidas no servidor pelos IDs recebidos. O 
 
 ## Segurança e privacidade
 
-| Área | Decisão planejada |
-| --- | --- |
-| Credenciais | Variáveis de ambiente exclusivas do servidor; nunca publicar chaves. |
-| Requisições | Validar tamanho, formato, IDs de cartas e combinações permitidas. |
-| Abuso e cotas | Limites de frequência, duração e saída aplicados no servidor. |
-| Texto gerado | Renderizar como texto seguro; não executar HTML retornado pelo modelo. |
+| Área               | Decisão planejada                                                                   |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| Credenciais        | Variáveis de ambiente exclusivas do servidor; nunca publicar chaves.                |
+| Requisições        | Validar tamanho, formato, IDs de cartas e combinações permitidas.                   |
+| Abuso e cotas      | Limites de frequência, duração e saída aplicados no servidor.                       |
+| Texto gerado       | Renderizar como texto seguro; não executar HTML retornado pelo modelo.              |
 | Perguntas pessoais | Evitar registro do conteúdo em logs; documentar envio ao provedor quando houver IA. |
-| Histórico | Permanecer no dispositivo nesta versão; sem sincronização prometida. |
-| Custos | Sem recarga automática, contratação ou fallback pago. |
+| Histórico          | Permanecer no dispositivo nesta versão; sem sincronização prometida.                |
+| Custos             | Sem recarga automática, contratação ou fallback pago.                               |
 
 ---
 
@@ -176,15 +202,15 @@ A fundação usa a integração GitHub/Vercel com preview por PR e sem variávei
 
 ## Validação e testes
 
-| Área | Verificações previstas |
-| --- | --- |
-| Domínio | Contagens, IDs únicos, ordem, cortes e regras por tradição. |
-| Tiragens | Quantidade, ausência de repetição e orientação permitida. |
-| Interpretação | Contexto em temas distintos, mesmas cartas em perguntas diferentes e veredito coerente. |
-| Resiliência | Timeout, cota esgotada, resposta inválida e modalidade guiada. |
-| Interface | Navegação, biblioteca, histórico, teclado e telas móveis. |
-| Arte e movimento | Legibilidade, consistência, transições e redução de movimento. |
-| Publicação | Build, variáveis de ambiente e jornada completa no ambiente publicado. |
+| Área             | Verificações previstas                                                                  |
+| ---------------- | --------------------------------------------------------------------------------------- |
+| Domínio          | Contagens, IDs únicos, ordem, cortes e regras por tradição.                             |
+| Tiragens         | Quantidade, ausência de repetição e orientação permitida.                               |
+| Interpretação    | Contexto em temas distintos, mesmas cartas em perguntas diferentes e veredito coerente. |
+| Resiliência      | Timeout, cota esgotada, resposta inválida e modalidade guiada.                          |
+| Interface        | Navegação, biblioteca, histórico, teclado e telas móveis.                               |
+| Arte e movimento | Legibilidade, consistência, transições e redução de movimento.                          |
+| Publicação       | Build, variáveis de ambiente e jornada completa no ambiente publicado.                  |
 
 Cada sprint inclui verificação proporcional. As sprints 18 e 20 concentram revisão integrada e correções.
 
@@ -192,26 +218,26 @@ Cada sprint inclui verificação proporcional. As sprints 18 e 20 concentram rev
 
 ## Documentação
 
-| Arquivo | Conteúdo |
-| --- | --- |
-| [GAME.md](GAME.md) | Experiência, ambientação, personagem e escopo do jogo. |
-| [docs/SPRINTS.md](docs/SPRINTS.md) | Plano de execução das 20 sprints e critérios de conclusão. |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Decisões de implementação e dependências externas. |
-| [docs/ART_DIRECTION.md](docs/ART_DIRECTION.md) | Direção visual e estados animados. |
-| [docs/ASSETS.md](docs/ASSETS.md) | Ícone inicial, origem e instrução de geração. |
-| [docs/RESEARCH.md](docs/RESEARCH.md) | Pesquisas recuperadas, fontes e limites da verificação. |
-| [docs/PROLOGUE.md](docs/PROLOGUE.md) | Implementação e validação da abertura anterior à sprint 1. |
-| [docs/PROGRESS.md](docs/PROGRESS.md) | Manutenções, PRs diários, validações e pendências de revisão. |
+| Arquivo                                        | Conteúdo                                                      |
+| ---------------------------------------------- | ------------------------------------------------------------- |
+| [GAME.md](GAME.md)                             | Experiência, ambientação, personagem e escopo do jogo.        |
+| [docs/SPRINTS.md](docs/SPRINTS.md)             | Plano de execução das 20 sprints e critérios de conclusão.    |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)   | Decisões de implementação e dependências externas.            |
+| [docs/ART_DIRECTION.md](docs/ART_DIRECTION.md) | Direção visual e estados animados.                            |
+| [docs/ASSETS.md](docs/ASSETS.md)               | Ícone inicial, origem e instrução de geração.                 |
+| [docs/RESEARCH.md](docs/RESEARCH.md)           | Pesquisas recuperadas, fontes e limites da verificação.       |
+| [docs/PROLOGUE.md](docs/PROLOGUE.md)           | Implementação e validação da abertura anterior à sprint 1.    |
+| [docs/PROGRESS.md](docs/PROGRESS.md)           | Manutenções, PRs diários, validações e pendências de revisão. |
 
 ---
 
 ## Referências técnicas
 
-| Fonte | Uso |
-| --- | --- |
-| [Vercel Hobby](https://vercel.com/docs/plans/hobby) | Elegibilidade e cotas de hospedagem. |
+| Fonte                                                           | Uso                                    |
+| --------------------------------------------------------------- | -------------------------------------- |
+| [Vercel Hobby](https://vercel.com/docs/plans/hobby)             | Elegibilidade e cotas de hospedagem.   |
 | [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/pricing) | Modelos elegíveis, créditos e limites. |
-| [Groq](https://console.groq.com/docs/rate-limits) | Alternativa de integração e limites. |
+| [Groq](https://console.groq.com/docs/rate-limits)               | Alternativa de integração e limites.   |
 
 ---
 
@@ -236,8 +262,10 @@ vercel.json              Configuração de publicação Next.js
 
 Projeto de [Pedro Henrique Silva Vargas](https://github.com/PHnsilva). O ícone inicial foi gerado com a ferramenta integrada de imagens do ChatGPT; sua origem está registrada em [docs/ASSETS.md](docs/ASSETS.md).
 
-O planejamento é mantido nos documentos deste repositório. Contribuições devem descrever o objetivo da mudança e as verificações realizadas. Não criar Issues ou GitHub Projects neste ciclo, conforme a organização definida para o projeto.
+O planejamento é mantido nos documentos deste repositório. Contribuições devem descrever o objetivo da mudança e as verificações realizadas. O pedido atual de 01/11/2026 autoriza Issues e GitHub Projects; consultar [o fluxo por MCP](docs/AGENT_WORKFLOW.md) e distinguir planejamento de configuração efetivamente salva.
 
 ## Licença
 
 Ainda não foi escolhida uma licença para distribuição e reutilização do projeto. Nenhuma licença de código aberto é declarada para o conjunto nesta etapa. Cormorant Garamond e IBM Plex Mono têm licenças SIL OFL próprias, preservadas em `public/fonts/`.
+
+</details>
