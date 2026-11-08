@@ -92,3 +92,9 @@ Limites e pendências:
 - A sprint 1 segue em execução. A revisão dos limites entre módulos, a revisão humana dos PRs #1–#3, integração e aceite do critério da sprint ainda estão pendentes.
 
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
+
+## 08/11/2026: S1, ampliação acessível da biblioteca (issue #14)
+
+Branch `codex/2026-11-08-14-library-enlargement`, baseada provisoriamente no HEAD do PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`), que por sua vez depende de #2 e #1. A biblioteca mantém as três amostras por tradição e agora permite abrir uma carta ampliada com símbolo e descrição. O botão de ampliação tem nome acessível; o retorno restaura a tradição, a lista e o foco na amostra acionada. Nenhum conteúdo de carta ou arte nova foi criado. A implementação e as verificações deste incremento estão em [PROGRESS-2026-11-08-ISSUE-14.md](PROGRESS-2026-11-08-ISSUE-14.md).
+
+Validação em Node 24.19.0/npm 11.17.0: instalação offline pelo lockfile; `npm run check`, `npm run build` e `npm test` passaram (12/12). Os testes novos cobrem rótulo do botão, amostra Lenormand XXXII, descrição, retorno, foco e preservação do rascunho após escolha explícita. A inspeção visual real em desktop/celular não foi concluída porque o controle do navegador encerrou por não conseguir determinar a URL ativa; não se declara aprovação visual. O PR ficará em revisão, sem integração ou aceite de Pedro.
