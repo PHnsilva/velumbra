@@ -6,6 +6,8 @@
 
 - Branch: `codex/2026-11-08-14-library-enlargement`.
 - Base: PR #3, branch `daily/2026-10-31-s01-deck-types`, SHA `14fc529e8dd355afeb66afb01d6a7c67734f41e1`.
+- Commit: `8ac79e0543bab9750455238b53551afa777a1a64`.
+- PR #92: https://github.com/PHnsilva/velumbra/pull/92, aberto para revisão e baseado no branch do PR #3.
 - PR #3 depende de PR #2; PR #2 depende de PR #1. Esta alteração usa provisoriamente o código disponível e validado da cadeia #1 → #2 → #3. Não altera as branches predecessoras.
 - Node `24.19.0`, npm `11.17.0`; dependências do lockfile instaladas em C: usando o cache `C:\DevCache\npm` em modo offline.
 
@@ -22,8 +24,9 @@
 - `npm run check` — aprovado.
 - `npm run build` — aprovado antes dos testes de servidor.
 - `npm test` — 12/12 aprovados; os novos casos conferem tradição, número e descrição, botão acessível, restauração do foco e preservação do rascunho após confirmar a escolha.
+- No HEAD `8ac79e0543bab9750455238b53551afa777a1a64`, CI “Regressões e build” passou (run `42503251839`); Vercel e Vercel Preview Comments também passaram.
 - Inspeção visual real em computador/celular não concluída: não foi possível controlar o navegador pelo ambiente de computador desta execução, que encerrou a operação por não conseguir determinar a URL ativa. O DOM simulado e as regras CSS não são apresentados como aprovação visual.
 
 ## Limites e próxima ação
 
-O incremento fecha a lacuna técnica de ampliação das amostras sobre a identificação e os dados tipados já disponíveis em PRs anteriores. Não inclui cartas completas, arte, sorteio ou consulta. A cadeia #1 → #2 → #3 e a revisão visual de desktop/celular permanecem pendentes; somente Pedro revisa/aprova o PR e aceita a issue. Próxima ação: revisar a interface no navegador real, integrar pela ordem de dependência após aprovação e reavaliar os bloqueios de S1.
+O incremento fecha a lacuna técnica de ampliação das amostras sobre a identificação e os dados tipados já disponíveis em PRs anteriores. Não inclui cartas completas, arte, sorteio ou consulta. A cadeia #1 → #2 → #3 e a revisão visual de desktop/celular permanecem pendentes. CI do PR #92 passou; somente Pedro revisa/aprova o PR e aceita a issue. Próxima ação: revisar a interface no navegador real, integrar pela ordem após aprovação e reavaliar os bloqueios de S1.
