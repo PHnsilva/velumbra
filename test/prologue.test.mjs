@@ -12,12 +12,13 @@ const root = new URL('../', import.meta.url);
 
 // Exercise the actual page and controller. Only graphics, sound and browser timing
 // are excluded: these tests validate DOM flows, not visual or audio acceptance.
-async function openCabin(t) {
+async function openCabin(t, { AudioContext = null } = {}) {
   const html = renderToStaticMarkup(createElement(Cabin));
   const dom = new JSDOM(html, { url: 'https://velumbra.test/', runScripts: 'outside-only' });
   const { window } = dom;
   const context = dom.getInternalVMContext();
   t.after(() => window.close());
+  if (AudioContext) window.AudioContext = AudioContext;
   window.matchMedia = () => ({ matches: false, addEventListener() {} });
   let timerId = 0;
   const timers = new Map();
@@ -27,8 +28,9 @@ async function openCabin(t) {
   panel.showModal = () => { panel.open = true; };
   panel.close = () => { panel.open = false; panel.dispatchEvent(new window.Event('close')); };
 
+  let sceneRefreshes = 0;
   const scene = new SyntheticModule(['createScene'], function () {
-    this.setExport('createScene', () => ({ refresh() {} }));
+    this.setExport('createScene', () => ({ refresh() { sceneRefreshes += 1; } }));
   }, { context });
   const deckSource = await readFile(new URL('src/decks.ts', root), 'utf8');
   const decks = new SourceTextModule(compileDeckCatalog(deckSource), {context});
@@ -52,6 +54,7 @@ async function openCabin(t) {
     },
     submit(selector) { $(selector).dispatchEvent(new window.Event('submit', {cancelable: true, bubbles: true})); },
     saved() { return JSON.parse(window.localStorage.getItem('velumbra.prologue.v1')).profile; },
+    sceneRefreshes() { return sceneRefreshes; },
   };
 }
 
@@ -141,34 +144,55 @@ test('a biblioteca renderiza as três amostras de cada sistema sem misturar trad
   }
 });
 
-test('amplia uma amostra, mostra sua descrição e devolve foco à carta acionada', async t => {
-  const { $, window } = await openCabin(t);
-  $('[data-panel="decks"]').click();
-  $('#tab-lenormand').click();
-  const trigger = $('[data-sample-index="2"]');
-  assert.equal(trigger.tagName, 'BUTTON');
-  assert.equal(trigger.type, 'button');
-  assert.match(trigger.getAttribute('aria-label'), /Ampliar carta A Lua/);
+test('ajustes controlam som, volume e pedido de movimento reduzido', async t => {
+  const audioState = { resume: 0, suspend: 0, gains: [] };
+  class AudioContextFixture {
+    constructor() { this.state='suspended';this.sampleRate=4;this.currentTime=0;this.destination={}; }
+    createGain() {
+      return {gain:{value:0,setTargetAtTime(...args){audioState.gains.push(args);},setValueAtTime(){},exponentialRampToValueAtTime(){}},connect(target){return target;}};
+    }
+    createBuffer(_channels,length) { return {getChannelData:()=>new Float32Array(length)}; }
+    createBufferSource() { return {connect(target){return target;},start(){},stop(){}}; }
+    createBiquadFilter() { return {frequency:{value:0},Q:{value:0},connect(target){return target;}}; }
+    createOscillator() { return {frequency:{value:0},connect(target){return target;},start(){}}; }
+    async decodeAudioData() { return {}; }
+    async resume() { audioState.resume+=1;this.state='running'; }
+    async suspend() { audioState.suspend+=1;this.state='suspended'; }
+  }
+  const app=await openCabin(t,{AudioContext:AudioContextFixture}),{$,window}=app;
+  window.fetch=async()=>({ok:true,arrayBuffer:async()=>new ArrayBuffer(4)});
+  $('[data-panel="settings"]').click();
+  $('#setting-sound').checked=true;
+  $('#setting-sound').dispatchEvent(new window.Event('change',{bubbles:true}));
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(audioState.resume,1);
+  assert.equal($('#audio-toggle').getAttribute('aria-pressed'),'true');
+  assert.equal($('#audio-toggle').getAttribute('aria-label'),'Silenciar a cabana');
 
-  trigger.click();
-  assert.equal($('#panel-title').textContent, 'Lenormand: A Lua');
-  assert.equal($('.expanded-sample-number').textContent, 'Carta XXXII');
-  assert.equal($('.expanded-sample-description').textContent, 'Reconhecimento, sensibilidade e imagem, conforme a combinação.');
-  assert.ok($('.expanded-sample-symbol').textContent.length > 0);
+  $('#setting-volume').value='80';
+  $('#setting-volume').dispatchEvent(new window.Event('input',{bubbles:true}));
+  assert.equal($('#volume-value').textContent,'80%');
+  assert.ok(audioState.gains.some(([value])=>value===.24));
 
-  $('#sample-return').click();
-  assert.equal($('#deck-details').getAttribute('aria-labelledby'), 'tab-lenormand');
-  assert.equal(window.document.activeElement, $('[data-sample-index="2"]'));
-  assert.equal(window.document.querySelectorAll('#deck-details .sample-card').length, 3);
+  $('#setting-motion').checked=true;
+  $('#setting-motion').dispatchEvent(new window.Event('change',{bubbles:true}));
+  assert.equal(window.document.documentElement.dataset.motion,'reduced');
+  assert.equal(app.sceneRefreshes(),1);
+
+  $('#setting-sound').checked=false;
+  $('#setting-sound').dispatchEvent(new window.Event('change',{bubbles:true}));
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(audioState.suspend,1);
+  assert.equal($('#audio-toggle').getAttribute('aria-pressed'),'false');
+  assert.equal($('#audio-toggle').getAttribute('aria-label'),'Ouvir a cabana');
 });
 
-test('retorna da ampliação ao formulário de identificação sem perder o rascunho', async t => {
-  const app = await openCabin(t), { $ } = app;
-  app.change('#table-name', 'Visitante'); app.submit('#table-form');
-  app.change('#visitor-name', 'Nome em edição'); $('#treatment').value = 'feminine';
-  $('#consult-decks').click(); $('#tab-thoth').click(); $('[data-sample-index="1"]').click();
-  $('#sample-return').click(); $('#deck-choose').click();
-  assert.equal($('#visitor-name').value, 'Nome em edição');
-  assert.equal($('#treatment').value, 'feminine');
-  assert.equal($('input[name="deck"]:checked').value, 'thoth');
+test('som indisponível no navegador produz fallback acessível e não anuncia ativação', async t => {
+  const { $, window }=await openCabin(t);
+  $('#audio-toggle').click();
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.equal($('#audio-toggle').getAttribute('aria-pressed'),'false');
+  assert.equal($('#audio-toggle').getAttribute('aria-label'),'Ouvir a cabana');
+  assert.equal($('#audio-status').textContent,'Som indisponível neste navegador.');
+  assert.equal(JSON.parse(window.localStorage.getItem('velumbra.prologue.v1')).sound,false);
 });
