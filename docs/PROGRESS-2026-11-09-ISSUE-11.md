@@ -21,8 +21,11 @@
 
 - C:, Node `24.19.0`, npm `11.17.0`; `npm ci --offline --no-audit --no-fund --cache C:\DevCache\npm` instalou 66 pacotes pelo lockfile. O script opcional do esbuild permaneceu bloqueado por configuração do npm; build/testes passaram com os binários disponíveis.
 - Na árvore combinada com PR #92: `npm run check` — passou; `npm run build` — passou antes dos testes HTTP; `npm test` — 13/13 passaram, incluindo os casos de #14 e os novos casos de movimento, controle/fallback de som e os quatro arquivos WAV; `git diff --check` — passou.
-- Commit da entrega: `19262062d4e95019314e6f1254d3118bcc2386f5`, ainda local nesta atualização do relatório. CI remoto e número do PR serão registrados após publicar.
+- Commit inicial da entrega: `19262062d4e95019314e6f1254d3118bcc2386f5`; relatório e diário foram ajustados na sequência sem alterar o escopo dos testes.
+- PR #93: https://github.com/PHnsilva/velumbra/pull/93, aberto e empilhado sobre #92. CI do HEAD publicado `d7d7853793fe42386b4eaad88f143bd70803dabe` passou: Actions run `42589276480`, Vercel e preview. Essa validação não equivale a revisão/aceite.
 
 ## Limites e próxima ação
 
 Os casos automatizados de som usam um AudioContext simulado e não avaliam qualidade auditiva; a qualidade do áudio não foi re-ouvida hoje. A inspeção manual em Edge e as imagens existentes são evidência histórica de 30/10 sobre os mesmos assets e código de cena, não uma nova inspeção desta rodada. PR #3 e #7 continuam sem aceite de Pedro; manter o bloqueio nativo #7. Próxima ação: Pedro revisar a evidência/testes e concluir a revisão visual/sonora humana que desejar antes de aceitar a issue.
+
+PR #93 e seus predecessores seguem sem aceite de Pedro; o bloqueio nativo #7 foi preservado. Próxima ação: Pedro revisar a evidência/testes e concluir a revisão visual/sonora humana que desejar antes de aceitar a issue.
