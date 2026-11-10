@@ -5,6 +5,7 @@
 ## Base e dependências
 
 - Branch: `codex/2026-11-10-13-character-gestures`.
+- Commit de código após empilhamento: `4b17ed7e1f32da57a5f39761836ebb74aa31d7af`; registro diário: `32d08fe97009e9c31897b1cea2f81d286a7ed351`. PR [#94](https://github.com/PHnsilva/velumbra/pull/94) aberto como rascunho para manter explícito que falta decisão de escopo e integração; CI do HEAD publicado ainda pendente.
 - Pré-requisito nativo: `velumbra#7`. O contrato/código técnico necessário das quatro tradições já existe no PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`); a validação técnica provisória foi documentada no PR #10. Isso não conclui a revisão visual nem o aceite humano de #7.
 - A branch foi empilhada sobre o PR #93 (`761b58eee041957dc08a799644a5e31e5b784e09`) para evitar conflito nos testes `test/prologue.test.mjs` e `test/scene.test.mjs`; #93 por sua vez parte do PR #92 (`57bd00211fdb157ce6679380eea0ff5cccaa4fdf`), que parte do PR #3. Ordem de revisão: #13 → #93 → #92 → #3 → #2 → #1. O empilhamento resolve sobreposição de testes, não altera as dependências de produto.
 
@@ -30,4 +31,4 @@ A validação visual em Edge foi tentada, mas o controle do navegador interrompe
 
 **Pontos contados para a meta diária: 0/8.** Houve alteração e testes novos, mas a issue L não cumpre ainda a integração do gesto de distribuição nem a inspeção visual em execução. Manter o bloqueio nativo #7 e o status de revisão sem tratá-los como aceite.
 
-Próxima ação: definir o evento que chama o gesto de entrega e validar a animação em navegador desktop/celular; então concluir a issue e recalcular pontos pelo tamanho existente, sem fracionamento artificial.
+Próxima ação: Pedro definir o evento que chama o gesto de entrega e validar a animação em navegador desktop/celular; então concluir a issue e recalcular pontos pelo tamanho existente, sem fracionamento artificial.
