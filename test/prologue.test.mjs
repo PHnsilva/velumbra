@@ -29,8 +29,12 @@ async function openCabin(t, { AudioContext = null } = {}) {
   panel.close = () => { panel.open = false; panel.dispatchEvent(new window.Event('close')); };
 
   let sceneRefreshes = 0;
+  const sceneGestures = [];
   const scene = new SyntheticModule(['createScene'], function () {
-    this.setExport('createScene', () => ({ refresh() { sceneRefreshes += 1; } }));
+    this.setExport('createScene', () => ({
+      refresh() { sceneRefreshes += 1; },
+      performGesture(name) { sceneGestures.push(name); return true; },
+    }));
   }, { context });
   const deckSource = await readFile(new URL('src/decks.ts', root), 'utf8');
   const decks = new SourceTextModule(compileDeckCatalog(deckSource), {context});
@@ -48,6 +52,7 @@ async function openCabin(t, { AudioContext = null } = {}) {
 
   return {
     $, window,
+    sceneGestures,
     change(selector, value) {
       $(selector).value = value;
       $(selector).dispatchEvent(new window.Event('input', { bubbles: true }));
@@ -116,6 +121,15 @@ test('sair do formulário descarta só o rascunho e mantém a identificação co
   $('#close-panel').click(); $('[data-panel="decks"]').click(); $('#deck-choose').click();
   assert.equal($('#visitor-name').value, 'Confirmado');
   assert.equal(app.saved().name, 'Confirmado');
+});
+
+test('clicar na velha mantém o balão curto e aciona uma reação da personagem', async t => {
+  const app = await openCabin(t), { $ } = app;
+  assert.equal($('#whisper').hidden, true);
+  $('#portrait').click();
+  assert.equal($('#whisper').hidden, false);
+  assert.equal($('#whisper').textContent, 'Diga seu nome.');
+  assert.deepEqual(app.sceneGestures, ['reaction']);
 });
 
 test('rascunho e confirmação tratam o nome como texto, inclusive após visitar os baralhos', async t => {
