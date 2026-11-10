@@ -5,7 +5,7 @@
 ## Base e dependências
 
 - Branch: `codex/2026-11-10-13-character-gestures`.
-- Commit de código após empilhamento: `4b17ed7e1f32da57a5f39761836ebb74aa31d7af`; registro diário: `32d08fe97009e9c31897b1cea2f81d286a7ed351`. PR [#94](https://github.com/PHnsilva/velumbra/pull/94) aberto como rascunho para manter explícito que falta decisão de escopo e integração; CI do HEAD publicado ainda pendente.
+- Commit de código após empilhamento: `4b17ed7e1f32da57a5f39761836ebb74aa31d7af`; registro diário: `32d08fe97009e9c31897b1cea2f81d286a7ed351`; atualização do registro/PR: `8161492823e8d73e944f0b65aef1afb7ec10fec5`. PR [#94](https://github.com/PHnsilva/velumbra/pull/94) aberto como rascunho para manter explícito que falta decisão de escopo e integração. No HEAD `8161492`, CI e preview passaram: workflow Regressões e build, Vercel e Vercel Preview Comments.
 - Pré-requisito nativo: `velumbra#7`. O contrato/código técnico necessário das quatro tradições já existe no PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`); a validação técnica provisória foi documentada no PR #10. Isso não conclui a revisão visual nem o aceite humano de #7.
 - A branch foi empilhada sobre o PR #93 (`761b58eee041957dc08a799644a5e31e5b784e09`) para evitar conflito nos testes `test/prologue.test.mjs` e `test/scene.test.mjs`; #93 por sua vez parte do PR #92 (`57bd00211fdb157ce6679380eea0ff5cccaa4fdf`), que parte do PR #3. Ordem de revisão: #13 → #93 → #92 → #3 → #2 → #1. O empilhamento resolve sobreposição de testes, não altera as dependências de produto.
 
