@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">As Nuvens — rascunho</title><desc id="desc">Duas massas de nuvens cobrem parcialmente uma abertura de luz no horizonte.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">VI</text>
+  <rect x="70" y="107" width="40" height="20" fill="#707b7b"/><rect x="58" y="127" width="76" height="32" fill="#707b7b"/><rect x="82" y="99" width="28" height="8" fill="#707b7b"/><rect x="50" y="139" width="12" height="20" fill="#707b7b"/>
+  <rect x="126" y="151" width="40" height="20" fill="#4c1b2b"/><rect x="108" y="171" width="80" height="32" fill="#4c1b2b"/><rect x="146" y="143" width="28" height="8" fill="#4c1b2b"/><rect x="184" y="183" width="12" height="20" fill="#4c1b2b"/>
+  <path d="M93 224h54v7H93zM84 240h72v7H84zM69 257h102v6H69z" fill="#cb8e3c"/><rect x="116" y="209" width="8" height="8" fill="#e4d2ad"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">AS NUVENS</text>
+</svg>

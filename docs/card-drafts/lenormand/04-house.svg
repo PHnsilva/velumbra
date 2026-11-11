@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Casa — rascunho</title><desc id="desc">Uma casa com luz nas janelas aparece sobre um terreno firme.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">IV</text>
+  <path d="M54 165l66-57 66 57v81H54z" fill="#4c1b2b"/><path d="M69 167l51-44 51 44v63H69z" fill="#cb8e3c"/>
+  <rect x="85" y="183" width="25" height="25" fill="#707b7b"/><rect x="130" y="183" width="25" height="25" fill="#707b7b"/><rect x="108" y="191" width="24" height="39" fill="#211c1b"/>
+  <path d="M42 251h156v8H42zM64 267h112v6H64z" fill="#778265"/><rect x="39" y="275" width="162" height="5" fill="#211c1b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">A CASA</text>
+</svg>
