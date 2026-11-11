@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Serpente — rascunho</title><desc id="desc">Uma serpente percorre um caminho sinuoso entre folhas escuras.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">VII</text>
+  <path d="M72 236h18v-30h27v-29h27v-28h27" fill="none" stroke="#778265" stroke-width="16" stroke-linejoin="miter"/>
+  <path d="M161 135h27v18h-12l-9 8h-9v-8h-7v-10h10z" fill="#778265"/><rect x="179" y="140" width="4" height="4" fill="#cb8e3c"/>
+  <path d="M188 146h13v3h-11l-7 5v-4zM65 242h18v-14h8v22H65zM144 250h18v-14h8v22h-26zM93 124h18v-12h8v20H93z" fill="#4c1b2b"/>
+  <path d="M73 270h94v5H73zM81 280h78v4H81z" fill="#cb8e3c"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">A SERPENTE</text>
+</svg>
