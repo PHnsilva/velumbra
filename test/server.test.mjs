@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises';
 import net from 'node:net';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { compileDeckCatalog } from '../scripts/compile-decks.mjs';
 
 test('build Next.js serve a cabana e os módulos corretos sem publicar arquivos do projeto', {timeout:30000}, async t => {
   const socket=net.createServer();
@@ -34,7 +35,10 @@ test('build Next.js serve a cabana e os módulos corretos sem publicar arquivos 
   for(const name of ['prologue.js','scene.js','decks.js']) {
     const resource=await fetch(`${origin}/runtime/${name}`);
     assert.equal(resource.status,200,name);
-    assert.equal(await resource.text(),await readFile(new URL(`../src/${name}`,import.meta.url),'utf8'));
+    const expected=name==='decks.js'
+      ? compileDeckCatalog(await readFile(new URL('../src/decks.ts',import.meta.url),'utf8'))
+      : await readFile(new URL(`../src/${name}`,import.meta.url),'utf8');
+    assert.equal(await resource.text(),expected);
   }
   for(const path of ['/fonts/velumbra.ttf','/art/cabin-pixel.png','/art/elder-pixel.png','/audio/murmur-0.wav','/brand/velumbra-icon.png']) {
     const resource=await fetch(origin+path);

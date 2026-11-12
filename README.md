@@ -93,7 +93,7 @@ A interface apresenta os resultados e controla animações. O domínio define so
 | Consulta | Baralho, pergunta, intenção, cartas, posições, orientação e data. |
 | Leitura | Explicações por carta, conexões, veredito, modalidade e versão editorial. |
 
-São **270 registros**: três catálogos de 78 cartas e um de 36. A equivalência entre cartas de tradições diferentes deve ser explícita; os sistemas não compartilham automaticamente os mesmos significados ou numeração.
+O escopo previsto é de **270 cartas**: três catálogos de 78 cartas e um de 36. Hoje o código tipa a estrutura dos quatro sistemas e mantém três amostras de cada um; ainda não contém os 270 registros. A equivalência entre cartas de tradições diferentes deve ser explícita; os sistemas não compartilham automaticamente os mesmos significados ou numeração.
 
 ---
 
@@ -158,7 +158,7 @@ npm test
 npm start
 ```
 
-O build fica em `.next/`, servido em `127.0.0.1:4173` por `npm start`. A configuração Vercel usa Next.js, `npm ci` e `npm run build`. Antes do desenvolvimento ou build, o preparador recria somente `public/runtime/` e copia os três módulos compatíveis da cabana; essa pasta é gerada, ignorada no Git e não deve ser editada. Os caminhos partem da localização do script, preservando a correção de artefatos obsoletos do PR #1. Arte e fontes são servidas por `/art/`, `/fonts/`, `/audio/` e `/brand/`.
+O build fica em `.next/`, servido em `127.0.0.1:4173` por `npm start`. A configuração Vercel usa Next.js, `npm ci` e `npm run build`. Antes do desenvolvimento ou build, o preparador recria somente `public/runtime/`, copia os módulos de compatibilidade e compila o catálogo tipado para JavaScript; essa pasta é gerada, ignorada no Git e não deve ser editada. Os caminhos partem da localização do script, preservando a correção de artefatos obsoletos do PR #1. Arte e fontes são servidas por `/art/`, `/fonts/`, `/audio/` e `/brand/`.
 
 Os testes de DOM agora renderizam o mesmo componente usado pela aplicação, sem um HTML paralelo de teste. Preservam as regressões de identificação do PR #1, verificam a publicação restrita do runtime e iniciam o servidor Next.js para conferir a rota, recursos e respostas HTTP. Esse último teste requer o build prévio. jsdom e tsx são dependências apenas de desenvolvimento. Esses testes não substituem revisão visual, áudio ou animação em navegador real. O workflow executa instalação pelo lockfile, build, tipos, sintaxe e testes.
 
