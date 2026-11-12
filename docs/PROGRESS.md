@@ -92,3 +92,35 @@ Limites e pendências:
 - A sprint 1 segue em execução. A revisão dos limites entre módulos, a revisão humana dos PRs #1–#3, integração e aceite do critério da sprint ainda estão pendentes.
 
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
+
+## 02/11/2026: validação atual da fundação
+
+Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). PR: [#10](https://github.com/PHnsilva/velumbra/pull/10). Branch: `daily/2026-11-02-s01-validation`. Base: `daily/2026-10-31-s01-deck-types` (PR #3), ainda aberto e sujeito à revisão dos PRs #1 e #2. A verificação foi executada na cópia ativa em `C:\Users\peecs\Documents\ChatGPT\velumbra`, no commit local `c767028`; os arquivos de aplicação, testes, scripts e lockfile conferem com o HEAD do PR #3, `14fc529e8dd355afeb66afb01d6a7c67734f41e1`. O incremento de hoje registra somente a evidência.
+
+Validação em Node.js 24.19.0 e npm 11.17.0:
+
+- `npm ci`: 66 pacotes instalados; 67 auditados, sem vulnerabilidades encontradas.
+- `npm run build`: aprovado; Next.js compilou, verificou TypeScript e gerou as rotas estáticas.
+- `npm run check`: aprovado; tipos e sintaxe dos controladores conferidos.
+- `npm test`: 10 testes aprovados, incluindo preparação restrita do runtime, quatro estruturas tipadas, amostras e servidor HTTP do build real.
+- O MCP do GitHub confirmou checks verdes nos HEADs de #1, #2 e #3. Nenhum dos três PRs tem review submetido; todos seguem abertos na ordem #1 → #2 → #3.
+
+Limites e pendências:
+
+- A revisão visual em computador e celular não foi executada. A ferramenta de navegador/automação não inicializou (`failed to write kernel assets`, erro 3) nas duas tentativas. A inspeção por Pedro e o aceite da sprint continuam pendentes; build, testes e CI não substituem essa revisão.
+- O teste exercita a aplicação em DOM simulado e o servidor HTTP local. Não valida qualidade de áudio, renderização de animações ou integração externa de interpretação.
+- A preparação gerou somente a saída `public/runtime/` e o build `.next/`, ambos artefatos locais; não houve alteração de produto ou deploy.
+
+Próxima ação: concluir a revisão visual de #1–#3 em desktop/celular, conferir o preview autenticado com Pedro e resolver qualquer lacuna antes de aceitar a sprint 1 ou avançar para a sprint 2. A integração MCP #9 continua bloqueada pelo aceite da fundação #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
+
+
+
+## 03/11/2026: roteiro para revisão da fundação
+
+Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). Atualização no [PR #10](https://github.com/PHnsilva/velumbra/pull/10), branch `daily/2026-11-02-s01-validation`, base `daily/2026-10-31-s01-deck-types` (PR #3). O trabalho partiu do HEAD anterior do PR #10, `fab689f8e69646fd41f5a1cb5f5aedad509317ee`; o novo roteiro foi criado no commit `5579564777cbc5639e31c3acc623d6c71d0856d9`.
+
+Entrega: `docs/REVIEW_CHECKLIST_S01.md` descreve passos concretos para a revisão manual em desktop (1000 × 597) e celular (390 × 844), usando dados sintéticos. Cobre entrada silenciosa, foco/teclado, erros de nome, preservação ou descarte de rascunho, quatro tradições e três amostras, som, movimento reduzido, diário local, layout e limpeza dos dados de teste. Foi cruzado com os critérios atuais das issues #6/#7 e com os seletores/fluxos já existentes no HEAD #3.
+
+Validação: GitHub Actions do PR #10 no HEAD `4406b9377b5553fbb0eb1abb613f48e87a3011b8` (run `41642203579`) aprovou `npm ci`, `npm run build`, `npm run check` e `npm test`; 10 testes passaram. Isto verifica o estado do código, não oferece evidência visual nem comportamento novo de produto. O roteiro propõe verificações para Pedro executar e não registra resultado visual. A revisão visual segue pendente após a ferramenta de navegador falhar ao iniciar na sessão anterior; preview autenticado, aparência, áudio, animações e comportamento real continuam sem evidência nova.
+
+Próxima ação: Pedro executar o roteiro no preview e registrar Passou/Falhou/Não executada por dispositivo. Corrigir falhas comprovadas antes do aceite da sprint 1; preservar a ordem #1 → #2 → #3. O cliente MCP #9 segue bloqueado por #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
