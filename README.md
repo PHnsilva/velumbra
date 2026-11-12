@@ -18,6 +18,8 @@ O prólogo é uma aplicação estática em HTML, CSS e JavaScript, com build sem
 
 O desenvolvimento está organizado em **20 sprints**: testes e mudanças nas sprints **18 e 20**, MVP integrado na sprint **19**. O acompanhamento fica em Markdown no próprio repositório, sem Issues ou GitHub Projects.
 
+Em 29/10/2026, foi autorizado o ciclo de PR diário e revisão conjunta no fim de semana. O PR dessa data contém manutenção do prólogo; a progressão das sprints começa em 30/10. Alterações diárias aguardam revisão antes de merge e publicação. Resultados, limites e próximas ações estão em [docs/PROGRESS.md](docs/PROGRESS.md).
+
 ---
 
 ## Objetivos técnicos
@@ -154,6 +156,15 @@ npm run build
 
 O resultado fica em `dist/`. `vercel.json` configura o build e a pasta de saída. A aplicação completa em Next.js será estruturada na sprint 1; o prólogo não antecipa a conclusão dessa sprint.
 
+O build recria a pasta gerada `dist/` para remover artefatos obsoletos e resolve caminhos pela raiz do projeto. Para executar as regressões:
+
+```sh
+npm ci
+npm test
+```
+
+Os testes usam Node.js 24.15 ou superior da linha 24 e jsdom, somente como dependência de desenvolvimento. Exercitam o HTML e o controlador do prólogo com DOM simulado e verificam a preparação dos arquivos. Não substituem revisão visual, reprodução de áudio ou renderização das animações em navegador real. O runtime e o build continuam sem dependências npm externas. O workflow de PR executa os testes, a sintaxe do controlador e o build.
+
 ---
 
 ## Deploy e operação
@@ -193,6 +204,7 @@ Cada sprint inclui verificação proporcional. As sprints 18 e 20 concentram rev
 | [docs/ASSETS.md](docs/ASSETS.md) | Ícone inicial, origem e instrução de geração. |
 | [docs/RESEARCH.md](docs/RESEARCH.md) | Pesquisas recuperadas, fontes e limites da verificação. |
 | [docs/PROLOGUE.md](docs/PROLOGUE.md) | Implementação e validação da abertura anterior à sprint 1. |
+| [docs/PROGRESS.md](docs/PROGRESS.md) | Manutenções, PRs diários, validações e pendências de revisão. |
 
 ---
 
