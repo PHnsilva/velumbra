@@ -140,3 +140,35 @@ test('a biblioteca renderiza as três amostras de cada sistema sem misturar trad
     assert.deepEqual([...window.document.querySelectorAll('#deck-details .sample-card h3')].map(node => node.textContent), names);
   }
 });
+
+test('amplia uma amostra, mostra sua descrição e devolve foco à carta acionada', async t => {
+  const { $, window } = await openCabin(t);
+  $('[data-panel="decks"]').click();
+  $('#tab-lenormand').click();
+  const trigger = $('[data-sample-index="2"]');
+  assert.equal(trigger.tagName, 'BUTTON');
+  assert.equal(trigger.type, 'button');
+  assert.match(trigger.getAttribute('aria-label'), /Ampliar carta A Lua/);
+
+  trigger.click();
+  assert.equal($('#panel-title').textContent, 'Lenormand: A Lua');
+  assert.equal($('.expanded-sample-number').textContent, 'Carta XXXII');
+  assert.equal($('.expanded-sample-description').textContent, 'Reconhecimento, sensibilidade e imagem, conforme a combinação.');
+  assert.ok($('.expanded-sample-symbol').textContent.length > 0);
+
+  $('#sample-return').click();
+  assert.equal($('#deck-details').getAttribute('aria-labelledby'), 'tab-lenormand');
+  assert.equal(window.document.activeElement, $('[data-sample-index="2"]'));
+  assert.equal(window.document.querySelectorAll('#deck-details .sample-card').length, 3);
+});
+
+test('retorna da ampliação ao formulário de identificação sem perder o rascunho', async t => {
+  const app = await openCabin(t), { $ } = app;
+  app.change('#table-name', 'Visitante'); app.submit('#table-form');
+  app.change('#visitor-name', 'Nome em edição'); $('#treatment').value = 'feminine';
+  $('#consult-decks').click(); $('#tab-thoth').click(); $('[data-sample-index="1"]').click();
+  $('#sample-return').click(); $('#deck-choose').click();
+  assert.equal($('#visitor-name').value, 'Nome em edição');
+  assert.equal($('#treatment').value, 'feminine');
+  assert.equal($('input[name="deck"]:checked').value, 'thoth');
+});
