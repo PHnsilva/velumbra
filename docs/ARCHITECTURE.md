@@ -1,6 +1,6 @@
 # Arquitetura planejada
 
-Este documento descreve decisões propostas para a aplicação completa. O [prólogo estático](PROLOGUE.md) é a implementação executável preparatória; ainda não contém motor de tiragens, backend ou IA.
+Este documento descreve decisões para a aplicação completa e o início da fundação da sprint 1. A rota e o layout passam a usar Next.js App Router com TypeScript, preservando o runtime aprovado do [prólogo](PROLOGUE.md). O motor de tiragens, backend de interpretação e IA ainda não existem.
 
 ## Aplicação
 
@@ -9,6 +9,16 @@ Este documento descreve decisões propostas para a aplicação completa. O [pró
 - Função de servidor para interpretação: a chave da IA fica exclusivamente no servidor.
 - Diário local no navegador, com exportação a considerar posteriormente.
 - Sem necessidade inicial de banco, autenticação, servidor dedicado ou serviços de cobrança.
+
+## Fundação em revisão
+
+`app/layout.tsx` concentra idioma, metadados, recursos e CSS global. `app/cabin.tsx` fornece a estrutura da cabana; o mesmo componente é renderizado nos testes de DOM. `app/page.tsx` compõe essa estrutura com o carregamento do controlador por Next Script depois da hidratação.
+
+Os módulos `prologue.js`, `scene.js` e `decks.js` continuam em JavaScript durante a transição. `scripts/prepare-runtime.mjs` resolve a raiz pela própria localização e recria exclusivamente `public/runtime/`, verificando o destino antes de remover os arquivos gerados. Somente esses três módulos são copiados. Arte, fontes, fontes de código e arquivos privados fora dessa pasta não são removidos. O script é executado antes do desenvolvimento e do build. A camada de compatibilidade evita reescrever a navegação e a animação ao mesmo tempo que se muda a hospedagem; não representa migração completa do domínio para TypeScript.
+
+Dependências e Node.js da linha 24 são fixados para execução reproduzível. O CI constrói a aplicação, confere tipos e sintaxe e executa regressões. O teste de servidor inicia o build real, verifica a rota e o conteúdo exato dos módulos servidos e confere que scripts e arquivos do repositório não são publicados como recursos públicos.
+
+Este incremento depende do PR #1 de manutenção, ainda pendente de revisão. Não duplica suas correções nem as considera integradas. A produção permanece no prólogo 0.0.3 até aprovação explícita e integração na ordem dos PRs.
 
 ## Separação de responsabilidades
 

@@ -3,13 +3,16 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { SourceTextModule, SyntheticModule } from 'node:vm';
 import { JSDOM } from 'jsdom';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import Cabin from '../app/cabin.tsx';
 
 const root = new URL('../', import.meta.url);
 
 // Exercise the actual page and controller. Only graphics, sound and browser timing
 // are excluded: these tests validate DOM flows, not visual or audio acceptance.
 async function openCabin(t) {
-  const html = await readFile(new URL('index.html', root), 'utf8');
+  const html = renderToStaticMarkup(createElement(Cabin));
   const dom = new JSDOM(html, { url: 'https://velumbra.test/', runScripts: 'outside-only' });
   const { window } = dom;
   const context = dom.getInternalVMContext();

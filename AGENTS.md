@@ -8,6 +8,7 @@
 - Não criar Issues ou GitHub Projects. Registrar resultados, testes e pendências em Markdown. Diferenciar implementado em PR, revisado e integrado/aceito; CI verde não encerra aceite.
 - Preservar pixels grandes, fonte própria, bordô, velha e fundo animados, grunhidos sem palavras, balão curto somente ao clicar na velha, nome na mesa e controles pequenos.
 - Manter quatro tradições independentes, sorteio sem reposição independente da pergunta, diário local e interpretação contextual opcional com reserva guiada.
-- npm ci instala dependências de testes; o runtime e o build estático não usam dependências npm externas. npm test executa regressões de DOM e build; não comprova aparência, áudio ou renderização das animações em navegador.
+- Usar Node.js 24.15 ou superior da linha 24. npm ci instala o lockfile. npm run build, npm run check e npm test verificam build Next.js, tipos, sintaxe, DOM, runtime e servidor HTTP. Executar o build antes dos testes de servidor; eles não comprovam aparência, áudio ou renderização das animações em navegador.
+- Não editar public/runtime, gerado por scripts/prepare-runtime.mjs. O controlador e a animação continuam em src/ durante a migração. Preservar as correções de rascunho, retorno e acessibilidade do PR #1 e a restrição da limpeza à saída gerada.
 - Executar verificações proporcionais. Mudanças de interface exigem revisão visual em computador e celular; se a ferramenta estiver indisponível, registrar a pendência em vez de alegar aprovação.
 - Gasto adicional autorizado R$ 0. Não contratar planos, créditos, serviços ou fallback pago e não publicar segredos. Credenciais, CAPTCHA e aceites pessoais ficam com Pedro.

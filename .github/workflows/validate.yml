@@ -1,4 +1,4 @@
-name: Validar prólogo
+name: Validar aplicação
 
 on:
   pull_request:
@@ -19,6 +19,8 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - run: npm test
-      - run: node --check src/prologue.js
       - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+      - run: npm run check
+      - run: npm test

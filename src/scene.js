@@ -16,7 +16,7 @@ export function createScene({ getMotion, getSpeaking }) {
   function load(image, source) {
     return new Promise(resolve => { image.onload = () => resolve(true); image.onerror = () => resolve(false); image.src = source; });
   }
-  Promise.all([load(cabinImage,'./public/art/cabin-pixel.png'),load(elderImage,'./public/art/elder-pixel.png')]).then(results => {
+  Promise.all([load(cabinImage,'/art/cabin-pixel.png'),load(elderImage,'/art/elder-pixel.png')]).then(results => {
     if (!roomContext || !elderContext || !bodyContext) return;
     ready = results.every(Boolean);
     if (!ready) return;

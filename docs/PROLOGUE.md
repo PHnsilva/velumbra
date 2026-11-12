@@ -1,5 +1,7 @@
 # Prólogo funcional
 
+Este é o registro histórico do prólogo 0.0.3, integrado no commit `06e2029`. A fundação Next.js começou a ser proposta em 30/10/2026. Para executar a versão em desenvolvimento, use o README atual; caminhos e comandos abaixo descrevem aquela entrega estática.
+
 Entrega preparatória anterior à sprint 1. Todas as 20 sprints continuam pendentes. A versão 0.0.3 revisa arte, interface, animação e áudio conforme o pedido de 18/10/2026.
 
 Publicado em [velumbra-hazel.vercel.app](https://velumbra-hazel.vercel.app/).
