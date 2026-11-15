@@ -5,6 +5,7 @@
 ## Base e dependências
 
 - Branch `codex/2026-11-15-79-lenormand-lot33-36`, baseada provisoriamente no PR #99 @ `071866a`; #99 parte do PR #98 @ `782e0cf`, sobre `main` @ `2ae7f27`.
+- Commit de implementação `bdb43fe9c0d6e561d72a804c9eaf59a7c4af02f7`; PR [#100](https://github.com/PHnsilva/velumbra/pull/100) aberto em rascunho para revisão, sem merge ou aceite.
 - Empilhamento apenas para testar sequência 19–36 e manter o registro diário. Os lotes não são pré-requisitos funcionais entre si. #36 e #37 integradas em `main` por #89 e #90.
 
 ## Trabalho produzido

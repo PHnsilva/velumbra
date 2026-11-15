@@ -111,4 +111,4 @@ Sete registros de texto e arte originais preparados para revisão, sem integraç
 
 Mais sete rascunhos para as posições 26–32 da issue #78 foram empilhados sobre o PR #98 para manter a cronologia do relatório e cobrir as posições 19–32 em um teste combinado. O incremento está em [PROGRESS-2026-11-15-ISSUE-78.md](PROGRESS-2026-11-15-ISSUE-78.md); licença, revisão e aceite continuam pendentes.
 
-Mais quatro rascunhos para as posições 33–36 da issue #79 foram empilhados após #78. O teste agregado cobre agora a sequência rascunhada 19–36, que segue sem licença, revisão ou aceite e não é catálogo pronto. Relatório em [PROGRESS-2026-11-15-ISSUE-79.md](PROGRESS-2026-11-15-ISSUE-79.md).
+Mais quatro rascunhos para as posições 33–36 da issue #79 foram empilhados após #78 no PR #100. O teste agregado cobre agora a sequência rascunhada 19–36, que segue sem licença, revisão ou aceite e não é catálogo pronto. Relatório em [PROGRESS-2026-11-15-ISSUE-79.md](PROGRESS-2026-11-15-ISSUE-79.md).
