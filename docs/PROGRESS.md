@@ -104,3 +104,7 @@ Validação em Node 24.19.0/npm 11.17.0: instalação offline pelo lockfile; `np
 Issue L (8 unidades), sobre assets e comportamento já existentes. A rodada acrescenta teste do controlador de som/volume/movimento reduzido, fallback acessível sem AudioContext, execução do renderizador com movimento reduzido e checagem dos quatro WAV no servidor. Nenhum asset ou código de produto foi refeito. O incremento foi empilhado sobre o PR #92 para preservar o diário cronológico; a base combinada é documentada em [PROGRESS-2026-11-09-ISSUE-11.md](PROGRESS-2026-11-09-ISSUE-11.md).
 
 A árvore combinada parte do PR #92, cujo predecessor é PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`). Os resultados finais locais estão no relatório diário. A cena, CSS e assets de áudio/arte continuam sem alterações desde a evidência visual histórica do PR #2. Não é uma inspeção visual/escuta nova em 09/11. Revisão e aceite de Pedro continuam pendentes.
+
+## 15/11/2026: S2, rascunho do lote Lenormand 19–25 (issue #77)
+
+Sete registros de texto e arte originais preparados para revisão, sem integração pública. A licença e atribuição de distribuição continuam pendentes de decisão de Pedro. A branch `codex/2026-11-15-77-lenormand-lot19-25` parte de `main` após os PRs #89 e #90 já integrados; não depende dos PRs #95–#97, que permanecem abertos para revisão. O relatório com base, validação e limites está em [PROGRESS-2026-11-15-ISSUE-77.md](PROGRESS-2026-11-15-ISSUE-77.md).
