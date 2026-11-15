@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">As Estrelas — rascunho</title><desc id="desc">Estrelas geométricas apontam um rumo sobre uma linha de horizonte clara.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">XVI</text>
+  <path d="M112 104h16v20h20v16h-20v20h-16v-20H92v-16h20zM62 161h10v13h13v10H72v13H62v-13H49v-10h13zM166 164h8v11h11v8h-11v11h-8v-11h-11v-8h11zM148 104h6v8h8v6h-8v8h-6v-8h-8v-6h8z" fill="#cb8e3c"/>
+  <path d="M58 232h124v7H58zM70 247h100v5H70z" fill="#4c1b2b"/><path d="M105 221l15-25 15 25h-8l-7-11-7 11z" fill="#778265"/><rect x="116" y="218" width="8" height="18" fill="#778265"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">AS ESTRELAS</text>
+</svg>
