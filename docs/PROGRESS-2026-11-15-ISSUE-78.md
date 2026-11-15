@@ -9,10 +9,10 @@
 
 ## Trabalho produzido
 
-- Sete resumos editoriais originais e sete SVGs originais nas posições 26–32: Livro, Carta, Homem, Mulher, Lírios, Sol e Lua.
+- Sete resumos editoriais originais, sete SVGs e sete exemplos de combinações nas posições 26–32: Livro, Carta, Homem, Mulher, Lírios, Sol e Lua.
 - IDs, símbolos e trilhas separadas de proveniência de texto/arte; licença de distribuição e revisão estão explicitamente pendentes.
 - Arte guardada apenas em `docs/card-drafts/`; nenhuma carta foi publicada ou ligada ao runtime.
-- Teste estrutural confere os sete registros e a sequência/IDs das posições 19–32, orientação Lenormand sem inversões, validação não pronta e exclusão dos assets do caminho público.
+- Teste estrutural confere os sete registros e exemplos combinatórios, a sequência/IDs das posições 19–32, orientação Lenormand sem inversões, validação não pronta e exclusão dos assets do caminho público.
 
 ## Validação
 

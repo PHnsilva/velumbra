@@ -3,8 +3,8 @@ import { access, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import test from 'node:test';
-import { lenormandFifthSevenArtwork, lenormandFifthSevenDraft } from '../src/card-catalog-drafts/lenormand-fifth-seven.ts';
-import { lenormandFourthSevenDraft } from '../src/card-catalog-drafts/lenormand-fourth-seven.ts';
+import { lenormandFifthSevenArtwork, lenormandFifthSevenCombinations, lenormandFifthSevenDraft } from '../src/card-catalog-drafts/lenormand-fifth-seven.ts';
+import { lenormandFourthSevenCombinations, lenormandFourthSevenDraft } from '../src/card-catalog-drafts/lenormand-fourth-seven.ts';
 import { validateCardCatalogBatch } from '../src/card-catalog.ts';
 import { decks } from '../src/decks.ts';
 
@@ -19,10 +19,19 @@ test('lote Lenormand 26–32 tem registros únicos e mantém licença/revisão p
   assert.deepEqual(records.map(record => record.name), ['O Livro', 'A Carta', 'O Homem', 'A Mulher', 'Os Lírios', 'O Sol', 'A Lua']);
   assert.equal(new Set(records.map(record => record.id)).size, 7);
   const combined = [...lenormandFourthSevenDraft.records, ...records];
+  const combinedCombinations = [...lenormandFourthSevenCombinations, ...lenormandFifthSevenCombinations];
   assert.equal(new Set(combined.map(record => record.id)).size, 14);
   assert.deepEqual(combined.map(record => record.position), Array.from({ length: 14 }, (_, i) => i + 19));
+  assert.equal(combinedCombinations.length, 14);
   assert.equal(decks.lenormand.orientation, 'upright-only');
   assert.equal(decks.lenormand.reading, 'symbol-combinations');
+  assert.equal(lenormandFifthSevenCombinations.length, 7);
+  assert.equal(new Set(lenormandFifthSevenCombinations.map(pair => pair.leftId)).size, 7);
+  for (const pair of lenormandFifthSevenCombinations) {
+    assert.ok(pair.reading.length > 25);
+    assert.match(pair.leftId, /^lenormand:/);
+    assert.match(pair.rightId, /^lenormand:/);
+  }
 
   for (const [index, record] of records.entries()) {
     assert.equal(record.deckId, 'lenormand');

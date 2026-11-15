@@ -22,3 +22,17 @@ Sete textos originais e sete rascunhos de arte para as posições editoriais 26�
 | 32 | `lenormand:moon` — A Lua | `32-moon.svg` | reconhecimento e imaginação | pendente |
 
 O teste comprova formato e sequência, mas não exatidão histórica, direitos autorais, qualidade editorial ou legibilidade final. Revisão individual e decisão de licença são pré-requisitos para marcar o lote como pronto.
+
+## Exemplos de combinações (rascunho editorial)
+
+As frases são pares de trabalho, sujeitos a contexto e revisão; não são regras universais ou previsões.
+
+| Par | Leitura de trabalho |
+| --- | --- |
+| Livro + Carta | Uma mensagem ou documento guarda informação ainda não conhecida. |
+| Carta + Cavaleiro | Uma notícia chega por mensagem ou documento. |
+| Homem + Mulher | Duas figuras importantes interagem; a pergunta define quem representam. |
+| Mulher + Buquê | Um gesto de apreço ou convite se dirige à figura representada. |
+| Lírios + Jardim | Um encontro público transcorre com calma ou maturidade. |
+| Sol + Nuvens | A clareza pode surgir depois de um período confuso. |
+| Lua + Estrelas | Reconhecimento ou imaginação se conecta a uma visão de futuro. |
