@@ -110,3 +110,5 @@ A árvore combinada parte do PR #92, cujo predecessor é PR #3 (`14fc529e8dd355a
 Sete registros de texto e arte originais preparados para revisão, sem integração pública. A licença e atribuição de distribuição continuam pendentes de decisão de Pedro. A branch `codex/2026-11-15-77-lenormand-lot19-25` parte de `main` após os PRs #89 e #90 já integrados; não depende dos PRs #95–#97, que permanecem abertos para revisão. O PR #98 está aberto em rascunho; o relatório com base, validação e limites está em [PROGRESS-2026-11-15-ISSUE-77.md](PROGRESS-2026-11-15-ISSUE-77.md).
 
 Mais sete rascunhos para as posições 26–32 da issue #78 foram empilhados sobre o PR #98 para manter a cronologia do relatório e cobrir as posições 19–32 em um teste combinado. O incremento está em [PROGRESS-2026-11-15-ISSUE-78.md](PROGRESS-2026-11-15-ISSUE-78.md); licença, revisão e aceite continuam pendentes.
+
+Mais quatro rascunhos para as posições 33–36 da issue #79 foram empilhados após #78. O teste agregado cobre agora a sequência rascunhada 19–36, que segue sem licença, revisão ou aceite e não é catálogo pronto. Relatório em [PROGRESS-2026-11-15-ISSUE-79.md](PROGRESS-2026-11-15-ISSUE-79.md).
