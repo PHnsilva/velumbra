@@ -113,4 +113,4 @@ Sete registros e exemplos de combinações para as posições 19–25 foram prep
 
 Sete registros e exemplos de combinações para as posições 26–32 foram preparados no PR #99 sobre o #98. A branch inclui o HEAD atualizado do #98 e o teste combinado cobre posições 19–32. Relatório em [PROGRESS-2026-11-15-ISSUE-78.md](PROGRESS-2026-11-15-ISSUE-78.md).
 
-Quatro registros e exemplos de combinações para as posições 33–36 foram preparados no PR #100 sobre o #99. O teste combinado cobre as posições 19–36. Os três lotes permanecem sem licença final, revisão ou aceite e não formam catálogo pronto. Relatório em [PROGRESS-2026-11-15-ISSUE-79.md](PROGRESS-2026-11-15-ISSUE-79.md).
+Quatro registros e exemplos de combinações para as posições 33–36 foram preparados no PR #100 sobre o #99. O teste combinado cobre as posições 19–36. Os três lotes permanecem sem licença final, revisão ou aceite e não formam catálogo pronto. Fechamento da rodada: 0/20 unidades em #75–#79; déficit de 8 à meta mínima por critérios humanos pendentes, não por falta de alteração local. Relatório em [PROGRESS-2026-11-15-ISSUE-79.md](PROGRESS-2026-11-15-ISSUE-79.md).
