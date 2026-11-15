@@ -5,6 +5,7 @@
 ## Base e dependências
 
 - Branch: `codex/2026-11-15-77-lenormand-lot19-25`, iniciada em `main` no SHA `2ae7f27`.
+- Commit de implementação: `6ea9f6a2ed70ad8c8f1efe99efaef996864e0fd8`. PR [#98](https://github.com/PHnsilva/velumbra/pull/98) aberto em rascunho para revisão; não foi aprovado nem integrado.
 - Os artefatos necessários de schema e guia editorial estão integrados em `main` pelos PRs #89 e #90. A issue #77 não depende funcionalmente dos PRs abertos #95–#97; a base é independente para evitar empilhar lotes que não são pré-requisitos entre si.
 - Lenormand mantém orientação somente em pé e leitura por combinações, conforme `src/decks.ts`.
 
