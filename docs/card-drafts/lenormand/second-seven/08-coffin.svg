@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Caixão — rascunho</title><desc id="desc">Um baú fechado repousa num espaço silencioso, sugerindo encerramento sem figura humana.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">VIII</text>
+  <path d="M65 168h110v74H65zM55 155h130v18H55z" fill="#4c1b2b"/><path d="M76 181h88v47H76z" fill="#211c1b"/><rect x="111" y="184" width="18" height="21" fill="#cb8e3c"/><rect x="117" y="190" width="6" height="15" fill="#211c1b"/>
+  <path d="M44 250h152v8H44zM62 267h116v5H62z" fill="#778265"/><rect x="111" y="114" width="18" height="5" fill="#707b7b"/><rect x="117" y="103" width="6" height="11" fill="#707b7b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O CAIXÃO</text>
+</svg>
