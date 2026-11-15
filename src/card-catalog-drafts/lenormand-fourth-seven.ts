@@ -39,3 +39,13 @@ export const lenormandFourthSevenDraft: CardCatalogBatch = {
 export const lenormandFourthSevenArtwork = [
   '19-tower.svg', '20-garden.svg', '21-mountain.svg', '22-crossroads.svg', '23-mice.svg', '24-heart.svg', '25-ring.svg',
 ] as const;
+
+export const lenormandFourthSevenCombinations = [
+  { leftId: 'lenormand:tower', rightId: 'lenormand:house', reading: 'Uma estrutura ou limite institucional influencia a vida doméstica.' },
+  { leftId: 'lenormand:garden', rightId: 'lenormand:bouquet', reading: 'Um convite ou gesto agradável acontece em um encontro social.' },
+  { leftId: 'lenormand:mountain', rightId: 'lenormand:rider', reading: 'Uma notícia ou avanço encontra demora ou um obstáculo.' },
+  { leftId: 'lenormand:crossroads', rightId: 'lenormand:clover', reading: 'Uma oportunidade breve pode surgir entre alternativas.' },
+  { leftId: 'lenormand:mice', rightId: 'lenormand:house', reading: 'Desgaste gradual pede atenção a recursos e tarefas da casa.' },
+  { leftId: 'lenormand:heart', rightId: 'lenormand:ring', reading: 'Um vínculo afetivo ou compromisso emocional ganha destaque.' },
+  { leftId: 'lenormand:ring', rightId: 'lenormand:letter', reading: 'Um compromisso ou acordo é comunicado por escrito.' },
+] as const;

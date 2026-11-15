@@ -3,7 +3,7 @@ import { access, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import test from 'node:test';
-import { lenormandFourthSevenArtwork, lenormandFourthSevenDraft } from '../src/card-catalog-drafts/lenormand-fourth-seven.ts';
+import { lenormandFourthSevenArtwork, lenormandFourthSevenCombinations, lenormandFourthSevenDraft } from '../src/card-catalog-drafts/lenormand-fourth-seven.ts';
 import { validateCardCatalogBatch } from '../src/card-catalog.ts';
 import { decks } from '../src/decks.ts';
 
@@ -20,6 +20,13 @@ test('lote Lenormand 19–25 mantém sequência, leitura própria e pendências 
   assert.equal(decks.lenormand.orientation, 'upright-only');
   assert.equal(decks.lenormand.reading, 'symbol-combinations');
   assert.equal(lenormandFourthSevenArtwork.length, 7);
+  assert.equal(lenormandFourthSevenCombinations.length, 7);
+  assert.equal(new Set(lenormandFourthSevenCombinations.map(pair => pair.leftId)).size, 7);
+  for (const pair of lenormandFourthSevenCombinations) {
+    assert.ok(pair.reading.length > 25);
+    assert.match(pair.leftId, /^lenormand:/);
+    assert.match(pair.rightId, /^lenormand:/);
+  }
 
   for (const [index, record] of records.entries()) {
     assert.equal(record.deckId, 'lenormand');

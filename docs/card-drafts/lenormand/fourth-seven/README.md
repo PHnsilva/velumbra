@@ -23,3 +23,17 @@ As fontes abaixo serviram para conferir nomes, ordem e vocabulário geral. Texto
 | 25 | `lenormand:ring` — O Anel | `25-ring.svg` | acordo, compromisso e ciclo | autoria registrada; licença e revisão pendentes |
 
 O teste confirma estrutura e sequência, não correção histórica, qualidade editorial, direitos ou legibilidade final. Antes de integrar, Pedro precisa definir licença/atribuição e revisar os sete registros e arquivos individualmente.
+
+## Exemplos de combinações (rascunho editorial)
+
+Estas frases são leituras de trabalho para testar a composição por pares; não são interpretações canônicas ou garantias. A ordem e a pergunta continuam importantes.
+
+| Par | Leitura de trabalho |
+| --- | --- |
+| Torre + Casa | Uma estrutura ou limite institucional influencia a vida doméstica. |
+| Jardim + Buquê | Um convite ou gesto agradável acontece em um encontro social. |
+| Montanha + Cavaleiro | Uma notícia ou avanço encontra demora ou um obstáculo. |
+| Caminhos + Trevo | Uma oportunidade breve pode surgir entre alternativas. |
+| Ratos + Casa | Desgaste gradual pede atenção a recursos e tarefas da casa. |
+| Coração + Anel | Um vínculo afetivo ou compromisso emocional ganha destaque. |
+| Anel + Carta | Um compromisso ou acordo é comunicado por escrito. |

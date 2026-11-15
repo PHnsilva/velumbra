@@ -29,3 +29,13 @@ export const lenormandFifthSevenDraft: CardCatalogBatch = {
 };
 
 export const lenormandFifthSevenArtwork = ['26-book.svg', '27-letter.svg', '28-man.svg', '29-woman.svg', '30-lilies.svg', '31-sun.svg', '32-moon.svg'] as const;
+
+export const lenormandFifthSevenCombinations = [
+  { leftId: 'lenormand:book', rightId: 'lenormand:letter', reading: 'Uma mensagem ou documento guarda informação ainda não conhecida.' },
+  { leftId: 'lenormand:letter', rightId: 'lenormand:rider', reading: 'Uma notícia chega por mensagem ou documento.' },
+  { leftId: 'lenormand:man', rightId: 'lenormand:woman', reading: 'Duas figuras importantes interagem; a pergunta define quem representam.' },
+  { leftId: 'lenormand:woman', rightId: 'lenormand:bouquet', reading: 'Um gesto de apreço ou convite se dirige à figura representada.' },
+  { leftId: 'lenormand:lilies', rightId: 'lenormand:garden', reading: 'Um encontro público transcorre com calma ou maturidade.' },
+  { leftId: 'lenormand:sun', rightId: 'lenormand:clouds', reading: 'A clareza pode surgir depois de um período confuso.' },
+  { leftId: 'lenormand:moon', rightId: 'lenormand:stars', reading: 'Reconhecimento ou imaginação se conecta a uma visão de futuro.' },
+] as const;

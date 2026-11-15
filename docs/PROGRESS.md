@@ -109,6 +109,8 @@ A árvore combinada parte do PR #92, cujo predecessor é PR #3 (`14fc529e8dd355a
 
 Sete registros de texto e arte originais preparados para revisão, sem integração pública. A licença e atribuição de distribuição continuam pendentes de decisão de Pedro. A branch `codex/2026-11-15-77-lenormand-lot19-25` parte de `main` após os PRs #89 e #90 já integrados; não depende dos PRs #95–#97, que permanecem abertos para revisão. O PR #98 está aberto em rascunho; o relatório com base, validação e limites está em [PROGRESS-2026-11-15-ISSUE-77.md](PROGRESS-2026-11-15-ISSUE-77.md).
 
-Mais sete rascunhos para as posições 26–32 da issue #78 foram empilhados sobre o PR #98 para manter a cronologia do relatório e cobrir as posições 19–32 em um teste combinado. O incremento está em [PROGRESS-2026-11-15-ISSUE-78.md](PROGRESS-2026-11-15-ISSUE-78.md); licença, revisão e aceite continuam pendentes.
+Sete registros e exemplos de combinações para as posições 19–25 foram preparados no PR #98, sem integração pública. O relatório está em [PROGRESS-2026-11-15-ISSUE-77.md](PROGRESS-2026-11-15-ISSUE-77.md).
 
-Mais quatro rascunhos para as posições 33–36 da issue #79 foram empilhados após #78 no PR #100. O teste agregado cobre agora a sequência rascunhada 19–36, que segue sem licença, revisão ou aceite e não é catálogo pronto. Relatório em [PROGRESS-2026-11-15-ISSUE-79.md](PROGRESS-2026-11-15-ISSUE-79.md).
+Sete registros e exemplos de combinações para as posições 26–32 foram preparados no PR #99 sobre o #98. A branch inclui o HEAD atualizado do #98 e o teste combinado cobre posições 19–32. Relatório em [PROGRESS-2026-11-15-ISSUE-78.md](PROGRESS-2026-11-15-ISSUE-78.md).
+
+Quatro registros e exemplos de combinações para as posições 33–36 foram preparados no PR #100 sobre o #99. O teste combinado cobre as posições 19–36. Os três lotes permanecem sem licença final, revisão ou aceite e não formam catálogo pronto. Relatório em [PROGRESS-2026-11-15-ISSUE-79.md](PROGRESS-2026-11-15-ISSUE-79.md).

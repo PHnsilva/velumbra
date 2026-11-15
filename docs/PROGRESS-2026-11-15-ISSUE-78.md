@@ -5,14 +5,15 @@
 ## Base e dependências
 
 - Branch `codex/2026-11-15-78-lenormand-lot26-32`, baseada provisoriamente no PR #98, HEAD `782e0cf`; o predecessor do PR #98 é `main` @ `2ae7f27`. A pilha registra cronologia em `docs/PROGRESS.md` e testa lotes 19–32 combinados; não há dependência funcional de #77.
+- PR [#99](https://github.com/PHnsilva/velumbra/pull/99) está aberto em rascunho; commit do lote #78 `f940722`, seguido da atualização técnica do predecessor #77 `0065578` (merge de pilha `02fbb21`).
 - PR #98 inclui as cartas 19–25; o schema #36 e guia #37 estão integrados em `main` por #89 e #90.
 
 ## Trabalho produzido
 
-- Sete resumos editoriais originais e sete SVGs originais nas posições 26–32: Livro, Carta, Homem, Mulher, Lírios, Sol e Lua.
+- Sete resumos editoriais originais, sete SVGs e sete exemplos de combinações nas posições 26–32: Livro, Carta, Homem, Mulher, Lírios, Sol e Lua.
 - IDs, símbolos e trilhas separadas de proveniência de texto/arte; licença de distribuição e revisão estão explicitamente pendentes.
 - Arte guardada apenas em `docs/card-drafts/`; nenhuma carta foi publicada ou ligada ao runtime.
-- Teste estrutural confere os sete registros e a sequência/IDs das posições 19–32, orientação Lenormand sem inversões, validação não pronta e exclusão dos assets do caminho público.
+- Teste estrutural confere os sete registros e exemplos combinatórios, a sequência/IDs das posições 19–32, orientação Lenormand sem inversões, validação não pronta e exclusão dos assets do caminho público.
 
 ## Validação
 
