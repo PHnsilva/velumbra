@@ -11,10 +11,10 @@
 
 ## Trabalho produzido
 
-- Sete resumos editoriais em português e ilustrações SVG originais de rascunho para as posições 19–25: Torre, Jardim, Montanha, Caminhos, Ratos, Coração e Anel.
+- Sete resumos editoriais em português, sete ilustrações SVG e sete exemplos de combinações Lenormand de rascunho para as posições 19–25: Torre, Jardim, Montanha, Caminhos, Ratos, Coração e Anel.
 - Registros tipados usam IDs estáveis e campos distintos de conteúdo, arte e revisão. Origem e referências consultadas estão documentadas; licença de distribuição, atribuição final e revisão humana permanecem pendentes.
 - Os SVGs ficam sob `docs/card-drafts/`, fora de `public/` e do runtime. Nenhuma integração ao catálogo público foi feita.
-- Adicionado teste estrutural do lote: sequência/numeração, IDs únicos, conteúdo, regras Lenormand, validação explícita como não pronto e ausência dos arquivos no caminho público.
+- Adicionado teste estrutural do lote e de seus sete exemplos de combinação: sequência/numeração, IDs únicos, conteúdo, regras Lenormand, validação explícita como não pronto e ausência dos arquivos no caminho público.
 
 ## Validação
 
