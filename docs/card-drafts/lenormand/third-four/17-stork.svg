@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Cegonha — rascunho</title><desc id="desc">Uma cegonha de pernas longas leva um ramo novo sobre um campo aberto.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">XVII</text>
+  <path d="M100 133h44v42h-44zM133 122h20v20h-20zM151 127h25v6h-25z" fill="#707b7b"/><path d="M104 173h9v51h-9zM132 173h9v51h-9zM97 220h24v7H97zM126 220h24v7h-24z" fill="#4c1b2b"/><rect x="108" y="147" width="7" height="6" fill="#211c1b"/>
+  <path d="M53 248h134v7H53zM82 236h5v-20h6v20zM146 236h5v-28h6v28z" fill="#778265"/><path d="M84 217h12v-8h-12zM151 205h12v-8h-12z" fill="#cb8e3c"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">A CEGONHA</text>
+</svg>
