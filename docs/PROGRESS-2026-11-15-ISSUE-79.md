@@ -10,7 +10,7 @@
 
 ## Trabalho produzido
 
-- Quatro resumos originais e quatro SVGs originais de rascunho para Chave, Peixes, Âncora e Cruz, posições 33–36.
+- Quatro resumos originais, quatro SVGs e quatro exemplos de combinações de rascunho para Chave, Peixes, Âncora e Cruz, posições 33–36.
 - Registros tipados mantêm IDs e posições estáveis, trilhas separadas de texto/arte, licença pendente e checklist de revisão sem aceite.
 - Teste agregado confere os 18 registros das posições 19–36, IDs únicos, Lenormand sem inversões, proveniência pendente e ausência da arte em `public/`.
 - Todo o material fica em documentação/código-fonte tipado, fora do runtime público.

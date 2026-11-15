@@ -26,3 +26,10 @@ export const lenormandLastFourDraft: CardCatalogBatch = {
 };
 
 export const lenormandLastFourArtwork = ['33-key.svg', '34-fish.svg', '35-anchor.svg', '36-cross.svg'] as const;
+
+export const lenormandLastFourCombinations = [
+  { leftId: 'lenormand:key', rightId: 'lenormand:book', reading: 'Uma solução abre caminho para estudo ou informação reservada.' },
+  { leftId: 'lenormand:fish', rightId: 'lenormand:ring', reading: 'Recursos ou trocas se vinculam a um acordo recorrente.' },
+  { leftId: 'lenormand:anchor', rightId: 'lenormand:ship', reading: 'Uma jornada ou mudança pode avançar com planejamento e continuidade.' },
+  { leftId: 'lenormand:cross', rightId: 'lenormand:mice', reading: 'Deveres acumulados podem aumentar o desgaste; o contexto aponta onde buscar apoio.' },
+] as const;

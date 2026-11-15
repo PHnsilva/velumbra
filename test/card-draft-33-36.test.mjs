@@ -3,9 +3,9 @@ import { access, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import test from 'node:test';
-import { lenormandLastFourArtwork, lenormandLastFourDraft } from '../src/card-catalog-drafts/lenormand-last-four.ts';
-import { lenormandFifthSevenDraft } from '../src/card-catalog-drafts/lenormand-fifth-seven.ts';
-import { lenormandFourthSevenDraft } from '../src/card-catalog-drafts/lenormand-fourth-seven.ts';
+import { lenormandLastFourArtwork, lenormandLastFourCombinations, lenormandLastFourDraft } from '../src/card-catalog-drafts/lenormand-last-four.ts';
+import { lenormandFifthSevenCombinations, lenormandFifthSevenDraft } from '../src/card-catalog-drafts/lenormand-fifth-seven.ts';
+import { lenormandFourthSevenCombinations, lenormandFourthSevenDraft } from '../src/card-catalog-drafts/lenormand-fourth-seven.ts';
 import { validateCardCatalogBatch } from '../src/card-catalog.ts';
 import { decks } from '../src/decks.ts';
 
@@ -23,6 +23,13 @@ test('lote Lenormand 33–36 fecha as posições 19–36 sem declarar o deck pro
   assert.deepEqual(combined.map(record => record.position), Array.from({ length: 18 }, (_, i) => i + 19));
   assert.equal(decks.lenormand.orientation, 'upright-only');
   assert.equal(decks.lenormand.reading, 'symbol-combinations');
+  const combinations = [...lenormandFourthSevenCombinations, ...lenormandFifthSevenCombinations, ...lenormandLastFourCombinations];
+  assert.equal(combinations.length, 18);
+  for (const pair of combinations) {
+    assert.ok(pair.reading.length > 25);
+    assert.match(pair.leftId, /^lenormand:/);
+    assert.match(pair.rightId, /^lenormand:/);
+  }
 
   for (const [index, record] of records.entries()) {
     assert.equal(record.deckId, 'lenormand');
