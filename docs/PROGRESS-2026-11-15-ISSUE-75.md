@@ -5,7 +5,7 @@
 ## Base e dependências
 
 - Branch: `codex/2026-11-15-75-lenormand-lot2`; commit de implementação `6301e332512d6f114868d3d098ca526c96b075f2`.
-- PR [#96](https://github.com/PHnsilva/velumbra/pull/96), rascunho aberto para revisão. A CI deste HEAD deve executar no GitHub.
+- PR [#96](https://github.com/PHnsilva/velumbra/pull/96), rascunho aberto para revisão.
 - PR empilhado sobre PR #95, HEAD `982c18ca57715cea20e1b4e51ee34039ad28b371`. #75 não depende funcionalmente de #74; o empilhamento mantém o diário cronológico e os testes de lotes comuns na mesma árvore. A base técnica para ambas continua PR #90, HEAD `b7a355318e07305556e02ef0aedfe9027635e7cc` → PR #89, `42f7020c48a58cec730d2e1e16e53af93099c9b3` → PR #3, `14fc529e8dd355afeb66afb01d6a7c67734f41e1` → #2 → #1. Actions e Vercel passaram nos HEADs registrados de #90, #89 e #95.
 - A issue #75 depende de #37. O guia de #37 está disponível e tecnicamente validado em PR #90 e é consumido provisoriamente; #37, #36 e #7 não têm aceite humano registrado. A relação nativa da issue permanece, sem remoção de bloqueio.
 - Ordem proposta de revisão desta cadeia: PR #96 → #95 → #90 → #89 → #3 → #2 → #1. A pilha de PR é para compartilhar os testes/diário; não declara #74 como dependência de produto para #75.
