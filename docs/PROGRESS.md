@@ -93,6 +93,20 @@ Limites e pendências:
 
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
 
+## 16/11/2026: uniformização documental (issue #101)
+
+Issue S6, tamanho L (8 unidades). Branch `codex/2026-11-16-101-doc-audience`, baseada em `main` (`2ae7f27c7621c3bc725a67b448b71cf3f9bc7d1c`). Commit principal `e8d080ce0e66ac922874421754b07af5e4657696`. PR [#102](https://github.com/PHnsilva/velumbra/pull/102) aberto em rascunho para revisão de Pedro.
+
+O incremento concentra instruções de trabalho em `AGENTS.md`, converte README, especificações e políticas para documentação voltada a pessoas desenvolvedoras, substitui o antigo guia de operação por interfaces de engenharia e retira os planos de retomada diária/semanal duplicados. As regras de dependência e estados foram consolidadas na política de contribuição. A nova issue foi incluída no plano S6 e na rastreabilidade N01/N07. Nenhum critério de domínio ou estado de outras issues foi alterado.
+
+Validação documental: `git diff --check` passou; todos os links Markdown relativos resolvem; busca por referências aos três documentos operacionais removidos não encontrou ocorrências. Ambiente inventariado: Node.js 24.19.0. Nenhuma dependência foi instalada e não houve custo adicional. Não foram executados testes funcionais, revisão visual/áudio ou deploy por se tratar de alteração documental.
+
+No HEAD `9edcd6305e8e98e85e9536aada656a0f16e0362a`, o workflow de regressões/build concluiu com sucesso e o preview Vercel estava verde. Esses checks confirmam o build e a suíte automatizada da árvore, mas não representam revisão do conteúdo documental, qualidade funcional, revisão ou aceite humano. O relatório diário é um incremento documental posterior.
+
+Resultado diário: 8 de até 24 unidades; déficit de 16. A consulta ao Project #7 não encontrou outra issue em `Pronto`. As próximas entregas de produto permanecem bloqueadas conforme o quadro, incluindo #15 por #7, #9 por #35 e `sofiee-agent-communication#8`, #34 por #15 e #80 por #27/#34. O rascunho documental não foi contado novamente.
+
+Próxima ação: aguardar a revisão de Pedro do PR #102 e reavaliar a primeira issue de produto quando seus artefatos dependentes estiverem tecnicamente disponíveis e validados.
+
 ## 08/11/2026: S1, ampliação acessível da biblioteca (issue #14)
 
 Branch `codex/2026-11-08-14-library-enlargement`, baseada provisoriamente no HEAD do PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`), que por sua vez depende de #2 e #1. A biblioteca mantém as três amostras por tradição e agora permite abrir uma carta ampliada com símbolo e descrição. O botão de ampliação tem nome acessível; o retorno restaura a tradição, a lista e o foco na amostra acionada. Nenhum conteúdo de carta ou arte nova foi criado. A implementação e as verificações deste incremento estão em [PROGRESS-2026-11-08-ISSUE-14.md](PROGRESS-2026-11-08-ISSUE-14.md).
