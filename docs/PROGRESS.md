@@ -101,7 +101,7 @@ O incremento concentra instruções de trabalho em `AGENTS.md`, converte README,
 
 Validação documental: `git diff --check` passou; todos os links Markdown relativos resolvem; busca por referências aos três documentos operacionais removidos não encontrou ocorrências. Ambiente inventariado: Node.js 24.19.0. Nenhuma dependência foi instalada e não houve custo adicional. Não foram executados testes funcionais, revisão visual/áudio ou deploy por se tratar de alteração documental.
 
-No momento do registro, o workflow de regressões/build do PR #102 estava em andamento; o status do preview Vercel era verde, sem representar validação funcional nem aceite. Revisão e aceite humano permanecem pendentes.
+No HEAD `9edcd6305e8e98e85e9536aada656a0f16e0362a`, o workflow de regressões/build concluiu com sucesso e o preview Vercel estava verde. Esses checks confirmam o build e a suíte automatizada da árvore, mas não representam revisão do conteúdo documental, qualidade funcional, revisão ou aceite humano. O relatório diário é um incremento documental posterior.
 
 Resultado diário: 8 de até 24 unidades; déficit de 16. A consulta ao Project #7 não encontrou outra issue em `Pronto`. As próximas entregas de produto permanecem bloqueadas conforme o quadro, incluindo #15 por #7, #9 por #35 e `sofiee-agent-communication#8`, #34 por #15 e #80 por #27/#34. O rascunho documental não foi contado novamente.
 
