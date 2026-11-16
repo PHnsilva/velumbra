@@ -1,21 +1,23 @@
-# Arquitetura e fronteiras do ciclo
+# Arquitetura e fronteiras do produto
 
-Preservar a fundação Next.js/TypeScript e módulos do prólogo conforme PRs reais. Domínio do sorteio e conteúdo editorial pertencem ao produto. Clientes MCP só alcançam servidores efetivamente disponíveis; backend Vercel não alcança stdio no PC por suposição. Interpretação usa contexto editorial do Velumbra e agente adequado, sem criar especialista de tarô no SlothEngineer. Plano de 20 entregas vira mapa de seis sprints, com todos os conteúdos preservados e issues de produção separadas de aceite agregado.
+## Componentes
 
-## Execução e capacidades
+Velumbra é uma aplicação Next.js com TypeScript. A interface apresenta a jornada e as animações; o domínio do produto mantém as regras de cada tradição, a seleção sem reposição, as posições das tiragens e o contexto editorial das cartas. A consulta guiada fornece uma modalidade de reserva quando a interpretação por IA não está disponível.
 
-Escolher dependências/modelos após inventário, licença, compatibilidade e medição. Operações estruturadas que não exigem modelo devem funcionar sem inferência desnecessária. Este produto é host/cliente das capacidades externas. Não criar treinamento de pesos ou especialistas próprios por copiar a infraestrutura dos agentes; inferência e ferramentas de domínio permanecem nos provedores definidos. MCP não substitui raciocínio nem implementação do domínio. Não usar nuvem paga como fallback silencioso.
+A arquitetura de destino mantém o cliente de interpretação no lado servidor da aplicação. Velumbra atua como host e cliente das capacidades apropriadas do Sofiie Agents, conforme contrato e disponibilidade reais. O produto não contém um servidor MCP próprio. O transporte deve ser alcançável a partir do ambiente implantado; uma função da Vercel não alcança por suposição um processo stdio no computador local.
 
-A implementação deve manter contratos de entradas/saídas/erros e limites de tempo/memória. Contexto, documentos e respostas de ferramentas/modelos são dados não confiáveis; não concedem acesso a disco/rede/contas ou execução. O consumidor mantém as decisões de autorização.
+## Fronteiras e dados
 
-Para integração, primeiro contrato e ferramenta implementada, depois cliente/servidor reais e cenários negativos. Teste entre componentes do próprio repo não prova comunicação com outro agente. Versão/retorno mock não comprova homologação.
+O cliente envia dados de consulta limitados ao contrato: tradição, cartas selecionadas, posições, orientação permitida e pergunta. O domínio do produto permanece responsável pelo sorteio e pelo conteúdo editorial. A resposta externa é validada antes de ser apresentada como texto seguro.
 
-## Dados e validação do consumidor
+Contexto, documentos e respostas de ferramentas/modelos são dados não confiáveis. Não concedem acesso a disco, rede, contas ou execução. Decisões de autorização permanecem no consumidor. Perguntas e dados de consulta não são registrados em logs por padrão.
 
-Validar contratos, permissões, privacidade, estados de erro e resultado percebido no produto com dados sanitizados. Separar testes de contrato, integração real e homologação em dispositivo/conta. Registrar quais componentes e versões foram usados; um mock não comprova operação real.
+## Integrações e falhas
 
-Curadoria de datasets, especialização e eventual treinamento de pesos pertencem aos projetos de agentes. O consumidor pode fornecer casos sanitizados e feedback autorizado, sem recolher conversas privadas automaticamente nem treinar modelos por conta própria. A integração precisa funcionar com erros claros e fallback previsto quando o provedor não estiver disponível.
+Contratos definem entradas, saídas, erros e limites de execução. A disponibilidade de um serviço, a conexão com uma ferramenta e a qualidade de interpretação são propriedades distintas e exigem evidências próprias. Testes locais, simulações e mocks não comprovam uma comunicação externa.
 
-Execução semanal: ler [WEEKLY_EXECUTION.md](WEEKLY_EXECUTION.md). Espera de revisão/merge não deve impedir PRs dependentes sobre artefatos já disponíveis e tecnicamente validados, com base/ordem explícitas.
+Falha, timeout, retorno inválido ou indisponibilidade do agente levam a uma reserva guiada claramente identificada. Serviços pagos não são fallback implícito. Inferência, ferramentas especializadas e eventual curadoria de modelos permanecem nas fronteiras dos projetos responsáveis por essas capacidades.
 
-Cadência atual do Velumbra: avançar até 3 L equivalentes por dia (24 unidades), sem inflar estimativas ou dispensar validação.
+## Validação
+
+Testes de contrato, integração entre cliente e servidor reais, validação de dados, privacidade, estados de erro e homologação em ambiente alvo são evidências separadas. Relatórios identificam componentes, versões, ambiente e limitações. A experiência final também requer validação editorial e visual por pessoa responsável.

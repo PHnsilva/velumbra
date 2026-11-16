@@ -1,50 +1,16 @@
-<!-- BEGIN CURRENT PLAN 2026-11-06 -->
-
-# velumbra
-
-Cartomancia interativa com quatro tradições, 270 cartas, personagem/cabana animadas, tiragens e diário local, com IA opcional.
-
-**Planejamento vigente em 06/11/2026: até 5 sprints de entrega + S6 de validação extra/mudanças.** As issues e a matriz documentam todo o ciclo; não comprovam implementação, treinamento, integração ou aceite. Preservar código e PRs existentes. Somente Pedro revisa/aprova PRs e aceita issues.
-
-- [Requisitos e limites](docs/REQUIREMENTS.md)
-- [Arquitetura e fronteiras](docs/ARCHITECTURE_PLAN.md)
-- [Todas as sprints e issues](docs/DELIVERY_PLAN.md)
-- [Rastreabilidade](docs/TRACEABILITY.md)
-- [Execução semanal por dependências e PRs encadeados](docs/WEEKLY_EXECUTION.md)
-- [Retomada diária](docs/EXECUTION_PLAN.md)
-- [Contribuição](docs/CONTRIBUTION_POLICY.md)
-
-Busca encontra fontes em qualquer lugar pertinente e preserva filtros do usuário; Validação escolhe a base adequada ao tipo de dado e verifica as referências independentemente. Não aplicar uma whitelist científica global ao Busca. O modelo pode ser compartilhado; as ferramentas e critérios de domínio são específicos.
-
-Trabalho exclusivamente no C:, sem serviços pagos obrigatórios. SlothGeo é separado e adiado para 21/11, não um sexto agente desta rotina.
-<!-- END CURRENT PLAN 2026-11-06 -->
-
-**Cadência do Velumbra: até 3 L equivalentes por dia (24 unidades)**, com validação. Catálogo alvo de 270 cartas preservado e decomposto em lotes com aceite próprio.
-
-<details>
-<summary>Descrição anterior da base e propostas — consultar com o estado vivo dos PRs</summary>
-
-<p align="center"><img src="public/brand/velumbra-icon.png" width="160" alt="Ícone do projeto Velumbra" /></p>
-
 # Velumbra
 
-Aplicação web interativa de cartomancia, planejada como um monólito modular full stack com interface animada, catálogo de quatro tradições, motor de tiragens e interpretação contextual opcional por IA.
+Velumbra é uma experiência interativa de cartomancia ambientada em uma cabana de horror. O jogador escolhe uma tradição, faz uma tiragem, recebe uma leitura contextual e pode guardar a consulta no diário local. A experiência prevê quatro tradições e 270 cartas, uma personagem animada e interpretações guiadas de reserva.
 
-O nome reúne véu, vela e _umbra_ (sombra). A apresentação da experiência, ambientação, personagem e mecânicas está em [GAME.md](GAME.md).
+O nome reúne véu, vela e _umbra_ (sombra). A ambientação e as mecânicas estão em [GAME.md](GAME.md). Requisitos, arquitetura, plano de entregas e rastreabilidade estão documentados em [REQUIREMENTS.md](docs/REQUIREMENTS.md), [ARCHITECTURE_PLAN.md](docs/ARCHITECTURE_PLAN.md), [DELIVERY_PLAN.md](docs/DELIVERY_PLAN.md) e [TRACEABILITY.md](docs/TRACEABILITY.md). A política de contribuição está em [CONTRIBUTION_POLICY.md](docs/CONTRIBUTION_POLICY.md); os registros de implementação e validação estão em [PROGRESS.md](docs/PROGRESS.md).
 
----
+**[Abrir a experiência publicada](https://velumbra-hazel.vercel.app/)**
 
-## Estado e escopo do repositório
+## Implementação e estado
 
-**Produção: prólogo 0.0.3. Desenvolvimento: sprint 1 em execução, com a fundação Next.js proposta para revisão.** Já existem abertura animada, cenário e velha animados em baixa resolução, identificação pela mesa, prévias dos quatro baralhos e ajustes de som e movimento. O motor de tiragens, o catálogo completo, as animações de manipulação de cartas e a IA continuam planejados. Nenhuma sprint foi aceita como concluída.
+O repositório contém uma aplicação Next.js com TypeScript e módulos de compatibilidade para o prólogo. O estado de implementação, validações, limitações e decisões pendentes é mantido em [docs/PROGRESS.md](docs/PROGRESS.md). O plano de entregas descreve o escopo pretendido e não comprova, por si só, implementação ou aceite.
 
-O primeiro incremento da sprint 1 fornece rota e layout em Next.js App Router com TypeScript, mantendo o controlador, a animação e o áudio aprovados como módulos de compatibilidade. A velha respira, pisca e acompanha os grunhidos sem palavras com movimentos da cabeça e da boca. O cenário tem velas, cortina, fumaça e névoa em movimento. A interface preserva fonte própria, bordô e identificação pela mesa. O registro histórico do prólogo está em [docs/PROLOGUE.md](docs/PROLOGUE.md) e o estado atual em [docs/PROGRESS.md](docs/PROGRESS.md).
-
-**[Abrir o prólogo publicado na Vercel](https://velumbra-hazel.vercel.app/)**
-
-O desenvolvimento está organizado em **20 sprints**: testes e mudanças nas sprints **18 e 20**, MVP integrado na sprint **19**. Em 01/11/2026 o proprietário solicitou Issues e Kanban no GitHub. O [planejamento do quadro](docs/KANBAN.md) registra a transição, dependências e pendências de acesso, preservando as 20 entregas existentes.
-
-Em 29/10/2026, foi autorizado o ciclo de PR diário e revisão conjunta no fim de semana. O PR dessa data contém manutenção do prólogo; a progressão das sprints começa em 30/10. Alterações diárias aguardam revisão antes de merge e publicação. Resultados, limites e próximas ações estão em [docs/PROGRESS.md](docs/PROGRESS.md).
+O desenvolvimento do produto está organizado em cinco sprints de entrega e uma sprint de validação extra e mudanças. As vinte entregas históricas e seu mapeamento estão em [docs/SPRINTS.md](docs/SPRINTS.md) e [docs/HISTORICAL_20_SPRINTS.md](docs/HISTORICAL_20_SPRINTS.md). O estado vivo das entregas está no [Project #7](https://github.com/users/PHnsilva/projects/7/views/1) e nas [issues do repositório](https://github.com/PHnsilva/velumbra/issues).
 
 ---
 
@@ -66,11 +32,11 @@ Em 29/10/2026, foi autorizado o ciclo de PR diário e revisão conjunta no fim d
 
 | Camada       | Tecnologia ou decisão                                                                              |
 | ------------ | -------------------------------------------------------------------------------------------------- |
-| Aplicação    | Next.js 16.4.3, React 19.3.1 e TypeScript 7.0.2, fixados no lockfile neste incremento da sprint 1. |
+| Aplicação    | Next.js 16.4.3, React 19.3.1 e TypeScript 7.0.2, fixados no lockfile.
 | Renderização | Cena em perspectiva e personagem em camadas; técnica validada nas sprints 2 e 3.                   |
 | Conteúdo     | Dados editoriais versionados e recursos estáticos.                                                 |
 | Backend      | Função de servidor da aplicação, hospedada na Vercel.                                              |
-| IA           | Avaliar Vercel AI Gateway gratuito; Groq Free como alternativa de integração.                      |
+| IA           | Interpretação opcional no servidor; o provedor depende de contrato, disponibilidade e custo verificados.                      |
 | Histórico    | Armazenamento local no navegador, com validação e versão do esquema.                               |
 | Publicação   | Vercel, respeitando as condições do plano e limites de uso.                                        |
 
@@ -119,7 +85,7 @@ A interface apresenta os resultados e controla animações. O domínio define so
 | Consulta | Baralho, pergunta, intenção, cartas, posições, orientação e data.                                    |
 | Leitura  | Explicações por carta, conexões, veredito, modalidade e versão editorial.                            |
 
-O escopo previsto é de **270 cartas**: três catálogos de 78 cartas e um de 36. Hoje o código tipa a estrutura dos quatro sistemas e mantém três amostras de cada um; ainda não contém os 270 registros. A equivalência entre cartas de tradições diferentes deve ser explícita; os sistemas não compartilham automaticamente os mesmos significados ou numeração.
+O escopo previsto é de **270 cartas**: três catálogos de 78 cartas e um de 36. Cada tradição mantém identidade, numeração, símbolos e regras próprios. A equivalência entre cartas de tradições diferentes é explícita; os sistemas não compartilham automaticamente os mesmos significados ou numeração. O estado do catálogo está registrado em PROGRESS.md e nas issues editoriais.
 
 ---
 
@@ -141,14 +107,14 @@ Checagens de estrutura não asseguram qualidade semântica. Consultas de referê
 
 ## Contrato de API proposto
 
-A sprint 6 definirá a rota e os tipos finais. Ainda não existe endpoint implementado.
+O contrato de API abaixo é uma especificação proposta. O estado de implementação está registrado em PROGRESS.md e nas issues correspondentes.
 
 | Operação             | Entrada                                                   | Saída                                                       |
 | -------------------- | --------------------------------------------------------- | ----------------------------------------------------------- |
 | Interpretar consulta | Tradição, pergunta, tiragem, IDs e orientação das cartas. | Falas por posição, conexões e veredito estruturado.         |
 | Tratar falha         | Timeout, limite do provedor ou resposta inválida.         | Estado de indisponibilidade ou oferta de modalidade guiada. |
 
-As descrições editoriais serão resolvidas no servidor pelos IDs recebidos. O navegador não deve escolher prompts de sistema nem expor credenciais.
+As descrições editoriais são resolvidas no servidor pelos IDs recebidos. O navegador não contém prompts de sistema nem credenciais do provedor.
 
 ---
 
@@ -194,9 +160,9 @@ Os testes de DOM agora renderizam o mesmo componente usado pela aplicação, sem
 
 A Vercel é o destino previsto para a aplicação e a função de backend. Arte e animações serão preparadas previamente; não haverá geração de imagens ou vídeos a cada consulta.
 
-O plano Hobby é destinado a uso pessoal e não comercial. Cotas de hospedagem e IA devem ser confirmadas durante a integração. A disponibilização gratuita inicial não representa capacidade ilimitada. Monetização exige reavaliar plano e termos.
+Cotas e elegibilidade de hospedagem e IA dependem das condições vigentes dos provedores. A disponibilização gratuita não representa capacidade ilimitada; monetização exige rever os planos e termos aplicáveis.
 
-A fundação usa a integração GitHub/Vercel com preview por PR e sem variáveis de ambiente nesta etapa. O servidor é Next.js, mas o jogo ainda não possui API de interpretação. Credenciais e integração de IA serão tratadas nas sprints correspondentes. Nenhum serviço pago foi adicionado. A produção só recebe os PRs após revisão e aprovação de Pedro.
+A aplicação Next.js usa a integração GitHub/Vercel para builds e previews. A função de interpretação e suas credenciais pertencem à fronteira de servidor. O estado de implementação e implantação está em PROGRESS.md; releases dependem dos critérios e da política de contribuição.
 
 ---
 
@@ -212,7 +178,7 @@ A fundação usa a integração GitHub/Vercel com preview por PR e sem variávei
 | Arte e movimento | Legibilidade, consistência, transições e redução de movimento.                          |
 | Publicação       | Build, variáveis de ambiente e jornada completa no ambiente publicado.                  |
 
-Cada sprint inclui verificação proporcional. As sprints 18 e 20 concentram revisão integrada e correções.
+Cada sprint inclui validação proporcional. A sprint S6 complementa a verificação contínua com validação extra e mudanças.
 
 ---
 
@@ -221,13 +187,16 @@ Cada sprint inclui verificação proporcional. As sprints 18 e 20 concentram rev
 | Arquivo                                        | Conteúdo                                                      |
 | ---------------------------------------------- | ------------------------------------------------------------- |
 | [GAME.md](GAME.md)                             | Experiência, ambientação, personagem e escopo do jogo.        |
-| [docs/SPRINTS.md](docs/SPRINTS.md)             | Plano de execução das 20 sprints e critérios de conclusão.    |
+| [docs/SPRINTS.md](docs/SPRINTS.md)             | Correspondência entre as 20 entregas históricas e o ciclo atual. |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)   | Decisões de implementação e dependências externas.            |
 | [docs/ART_DIRECTION.md](docs/ART_DIRECTION.md) | Direção visual e estados animados.                            |
 | [docs/ASSETS.md](docs/ASSETS.md)               | Ícone inicial, origem e instrução de geração.                 |
 | [docs/RESEARCH.md](docs/RESEARCH.md)           | Pesquisas recuperadas, fontes e limites da verificação.       |
 | [docs/PROLOGUE.md](docs/PROLOGUE.md)           | Implementação e validação da abertura anterior à sprint 1.    |
-| [docs/PROGRESS.md](docs/PROGRESS.md)           | Manutenções, PRs diários, validações e pendências de revisão. |
+| [docs/PROGRESS.md](docs/PROGRESS.md)           | Registro de alterações, validações, limites e pendências.    |
+| [docs/CONTRIBUTION_POLICY.md](docs/CONTRIBUTION_POLICY.md) | Processo de contribuição, revisão e aceite. |
+| [docs/KANBAN.md](docs/KANBAN.md)               | Significado dos estados e campos do Project.                  |
+| [docs/ENGINEERING_INTERFACES.md](docs/ENGINEERING_INTERFACES.md) | Interfaces de engenharia e gestão do repositório. |
 
 ---
 
@@ -262,10 +231,8 @@ vercel.json              Configuração de publicação Next.js
 
 Projeto de [Pedro Henrique Silva Vargas](https://github.com/PHnsilva). O ícone inicial foi gerado com a ferramenta integrada de imagens do ChatGPT; sua origem está registrada em [docs/ASSETS.md](docs/ASSETS.md).
 
-O planejamento é mantido nos documentos deste repositório. Contribuições devem descrever o objetivo da mudança e as verificações realizadas. O pedido atual de 01/11/2026 autoriza Issues e GitHub Projects; consultar [o fluxo por MCP](docs/AGENT_WORKFLOW.md) e distinguir planejamento de configuração efetivamente salva.
+O planejamento é mantido nos documentos deste repositório. Contribuições descrevem o objetivo da mudança, os critérios e as verificações realizadas. Issues e o Project vinculam o trabalho a seus critérios e ao estado atual.
 
 ## Licença
 
 Ainda não foi escolhida uma licença para distribuição e reutilização do projeto. Nenhuma licença de código aberto é declarada para o conjunto nesta etapa. Cormorant Garamond e IBM Plex Mono têm licenças SIL OFL próprias, preservadas em `public/fonts/`.
-
-</details>
