@@ -147,3 +147,10 @@ Validação executada hoje: `npm ci` instalou 66 pacotes e auditou 67; `npm run 
 A revisão visual em desktop/celular não foi executada: o navegador integrado não permite abrir nova aba nesta sessão. Não reutilizei a aba pessoal existente. O roteiro manual em `docs/REVIEW_CHECKLIST_S01.md` permanece pendente para inspeção real. Não há evidência de aceite humano. GitHub Actions passou no HEAD `b0c9033820d6a5f2a6057e182b13c5f0b5d0ff67` (run `44144927916`), e o preview Vercel ficou pronto. Esses checks não substituem inspeção visual nem aceite humano.
 
 Resultado do incremento: evidência atualizada e reproduzível da base técnica; a issue #7 permanece em revisão, sem aceite. Pontos da issue creditados nesta rodada: 0/8, pois falta a revisão visual e a decisão de Pedro sobre o pin vulnerável. Próximo passo: Pedro definir a atualização segura do Next.js e executar a revisão visual guiada; depois, repetir build e testes na base atualizada.
+### Complemento de 17/11/2026: correção autorizada do Next.js
+
+Após a revisão da evidência, Pedro autorizou atualizar o pin de `next` 16.4.3 para 16.4.5 na issue #7. O `package.json` e o lockfile agora fixam a versão corrigida; a alteração permanece no PR #10 e não muda React, os contratos do jogo ou a sequência #1 → #2 → #3.
+
+Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes; `npm audit` passou sem vulnerabilidades; `npm run build` e `npm run check` passaram; `npm test` passou com 20/20, inclusive o teste HTTP após o build. A versão 16.4.5 está documentada como corrigida para [GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h) e [GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8); a auditoria atual não reporta vulnerabilidades.
+
+A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. O CI da alteração de dependência será registrado após sua execução no novo HEAD.
