@@ -154,3 +154,11 @@ Após a revisão da evidência, Pedro autorizou atualizar o pin de `next` 16.4.3
 Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes; `npm audit` passou sem vulnerabilidades; `npm run build` e `npm run check` passaram; `npm test` passou com 20/20, inclusive o teste HTTP após o build. A versão 16.4.5 está documentada como corrigida para [GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h) e [GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8); a auditoria atual não reporta vulnerabilidades.
 
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
+
+## 18/11/2026: S2, domínio de tiragem e diário local (issue #15)
+
+Implementação parcial estimada em 4/8 unidades da issue #15 (L). O sorteio criptográfico sem reposição, a orientação por tradição e o diário local versionado estão detalhados em [PROGRESS-2026-11-18-ISSUE-15.md](PROGRESS-2026-11-18-ISSUE-15.md). O PR será empilhado no HEAD tecnicamente validado do PR #10; issue #7 segue em revisão, sem aceite.
+
+Validação local em Node.js 24.19.0/npm 11.17.0: `npm ci` (66 pacotes, 0 vulnerabilidades), `npm run build`, `npm run check` e `npm test` (27/27) passaram no worktree da branch de issue #15. Fixtures completas são sintéticas e exclusivas dos testes. O código falha fechado enquanto os catálogos completos e editorialmente revisados não existirem.
+
+Limites: a tela e o armazenamento do navegador ainda não estão conectados aos módulos; faltam os dados editoriais das 270 cartas e a inspeção visual real desktop/celular. A issue #15 não está concluída nem aceita. Próximo passo: publicar PR empilhado e continuar a integração visual e a validação de recuperação com armazenamento real.
