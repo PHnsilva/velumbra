@@ -4,7 +4,7 @@ Issue #15, tamanho L (8 unidades). Esta rodada implementa e valida uma parte do 
 
 ## Base e dependência
 
-Branch `codex/2026-11-18-15-draw-diary`, empilhada provisoriamente sobre o HEAD `fbbb939e8c508819c9cdc631d7b41a3f34f5b9fb` do PR #10, cuja base é `main` em `2ae7f27c7621c3bc725a67b448b71cf3f9bc7d1c`. A issue #7 segue em revisão e sem aceite de Pedro. O HEAD predecessor do PR #10 passou build, tipos, 20 testes, `npm audit` sem vulnerabilidades e CI `44149697212`; este uso técnico não representa integração nem aceite.
+Branch `codex/2026-11-18-15-draw-diary`, commit de implementação `c22387bf68a3ad460bb72c944f0cc0f7bf05cd7a`, no [PR #103](https://github.com/PHnsilva/velumbra/pull/103) draft, empilhado provisoriamente sobre o HEAD `fbbb939e8c508819c9cdc631d7b41a3f34f5b9fb` do PR #10, cuja base é `main` em `2ae7f27c7621c3bc725a67b448b71cf3f9bc7d1c`. A issue #7 segue em revisão e sem aceite de Pedro. O HEAD predecessor do PR #10 passou build, tipos, 20 testes, `npm audit` sem vulnerabilidades e CI `44149697212`; este uso técnico não representa integração nem aceite.
 
 ## Alterações
 
@@ -29,4 +29,4 @@ O aplicativo ainda não integra estes módulos à tela de revelação ou ao `loc
 
 **Pontos desta rodada:** 4/8 em #15; saldo do escopo da issue: 4 unidades. Nenhum aceite registrado.
 
-**Próximo passo:** publicar o incremento como PR empilhado no PR #10 e, em continuação, trabalhar na integração visual/persistência e nos catálogos editoriais somente com conteúdo autorizado e revisado.
+**Próximo passo:** aguardar CI e revisão do PR #103; continuar a integração visual/persistência e os catálogos editoriais somente com conteúdo autorizado e revisado.

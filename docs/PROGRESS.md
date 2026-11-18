@@ -157,8 +157,8 @@ A inspeção visual em navegador continua pendente pela restrição da sessão i
 
 ## 18/11/2026: S2, domínio de tiragem e diário local (issue #15)
 
-Implementação parcial estimada em 4/8 unidades da issue #15 (L). O sorteio criptográfico sem reposição, a orientação por tradição e o diário local versionado estão detalhados em [PROGRESS-2026-11-18-ISSUE-15.md](PROGRESS-2026-11-18-ISSUE-15.md). O PR será empilhado no HEAD tecnicamente validado do PR #10; issue #7 segue em revisão, sem aceite.
+Implementação parcial estimada em 4/8 unidades da issue #15 (L), no [PR #103](https://github.com/PHnsilva/velumbra/pull/103), draft. O commit de implementação `c22387bf68a3ad460bb72c944f0cc0f7bf05cd7a` está empilhado no HEAD tecnicamente validado do PR #10; issue #7 segue em revisão, sem aceite.
 
 Validação local em Node.js 24.19.0/npm 11.17.0: `npm ci` (66 pacotes, 0 vulnerabilidades), `npm run build`, `npm run check` e `npm test` (27/27) passaram no worktree da branch de issue #15. Fixtures completas são sintéticas e exclusivas dos testes. O código falha fechado enquanto os catálogos completos e editorialmente revisados não existirem.
 
-Limites: a tela e o armazenamento do navegador ainda não estão conectados aos módulos; faltam os dados editoriais das 270 cartas e a inspeção visual real desktop/celular. A issue #15 não está concluída nem aceita. Próximo passo: publicar PR empilhado e continuar a integração visual e a validação de recuperação com armazenamento real.
+Limites: a tela e o armazenamento do navegador ainda não estão conectados aos módulos; faltam os dados editoriais das 270 cartas e a inspeção visual real desktop/celular. A issue #15 não está concluída nem aceita. Próximo passo: acompanhar CI/revisão do PR #103 e continuar a integração visual e a validação de recuperação com armazenamento real.
