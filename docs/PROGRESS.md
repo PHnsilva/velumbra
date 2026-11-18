@@ -162,3 +162,9 @@ Implementação parcial estimada em 4/8 unidades da issue #15 (L), no [PR #103](
 Validação local em Node.js 24.19.0/npm 11.17.0: `npm ci` (66 pacotes, 0 vulnerabilidades), `npm run build`, `npm run check` e `npm test` (27/27) passaram no worktree da branch de issue #15. Fixtures completas são sintéticas e exclusivas dos testes. O código falha fechado enquanto os catálogos completos e editorialmente revisados não existirem.
 
 Limites: a tela e o armazenamento do navegador ainda não estão conectados aos módulos; faltam os dados editoriais das 270 cartas e a inspeção visual real desktop/celular. A issue #15 não está concluída nem aceita. Próximo passo: acompanhar CI/revisão do PR #103 e continuar a integração visual e a validação de recuperação com armazenamento real.
+
+### Complemento de 18/11/2026: resiliência e recuperação do diário (issue #33)
+
+Incremento M (4 unidades), no [PR #104](https://github.com/PHnsilva/velumbra/pull/104), baseado provisoriamente no artefato da issue #15 disponível no PR #103, HEAD `b563e8d895e2e6699a2c701ba73fae2aaec2babb`, tecnicamente validado em build, check, 27 testes e CI. O diário agora expõe resultados sem exceção para armazenamento indisponível, dados incompatíveis e recuperação; quatro novos cenários verificam leitura bloqueada, falha de quota sem sobrescrita, preservação de versão futura e exclusão limitada à chave própria. Relatório: [PROGRESS-2026-11-18-ISSUE-33.md](PROGRESS-2026-11-18-ISSUE-33.md).
+
+Validação combinada no worktree da issue #33, com o PR #103 como predecessor: build Next.js 16.4.5, `npm run check` e `npm test` (31/31) passaram; instalação offline pelo lockfile auditou 67 pacotes sem vulnerabilidades. A integração à tela e os testes reais no navegador ainda faltam. O esquema desconhecido é preservado e exportável, sem migração automática. Sem aceite humano.
