@@ -23,3 +23,5 @@ Autoria e licença ainda precisam de revisão e decisão do proprietário; os ca
 **Pontos desta issue:** 4/4. **Total de hoje até este lote:** 8/24 (issues #38 e #39, M cada), sem crédito de aceite.
 
 PR draft #106: https://github.com/PHnsilva/velumbra/pull/106, criado a partir do commit edda3ee1dbf4e14d3a70bbb667109acc1b1061da e direcionado à branch do PR #10. CI remoto aguarda execução; a issue permanece em revisão e não foi fechada.
+
+Estado final do PR: head 9329de2ab5dff7e51975745fc91c6be3ae9bb2ae. Actions run 44818805264 passou (Regressões e build); Vercel e Preview Comments passaram. Draft aberto, aguardando revisão humana.
