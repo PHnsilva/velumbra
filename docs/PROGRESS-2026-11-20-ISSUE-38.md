@@ -25,3 +25,5 @@ A tentativa inicial na base antiga com Next.js 16.4.3 foi bloqueada pela proteç
 Permanecem pendentes revisão humana de nomes, resumos, símbolos, arte e licenças; integração/publicação; revisão do PR e aceite da issue. Não foi feita inspeção em navegador do produto, pois o incremento não altera a interface. Próxima ação: abrir PR draft empilhado sobre #10 e aguardar revisão de Pedro; os próximos lotes #39/#40 são issues independentes, mas cada um requer sua própria implementação e validação.
 
 **Pontos desta issue:** 4/4. **Total da rodada até este registro:** 4/24; abaixo da meta de 8, portanto seguirei para a próxima issue desbloqueada, se a validação mantiver qualidade.
+
+PR draft #105: https://github.com/PHnsilva/velumbra/pull/105. Commit do lote: 5396c857b061588b732c223f94052460d5db59dd. O PR foi aberto contra daily/2026-11-02-s01-validation e está em revisão pendente; CI remoto ainda não foi verificado nesta rodada.

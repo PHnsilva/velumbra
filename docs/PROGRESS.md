@@ -160,3 +160,5 @@ A inspeção visual em navegador continua pendente pela restrição da sessão i
 Issue #38, S3, M (4 unidades): sete rascunhos textuais e vetoriais para as posições 1–7 foram registrados com proveniência separada, licença/revisão pendentes e artes mantidas em docs/, fora do runtime público. A entrega não declara cartas aceitas ou prontas para sorteio. Evidência detalhada, base provisória no PR #10/Next.js 16.4.5, validações e limites: [PROGRESS-2026-11-20-ISSUE-38.md](PROGRESS-2026-11-20-ISSUE-38.md).
 
 Validação local: build, tipos/sintaxe, testes 23/23 e git diff --check passaram; sete SVGs XML válidos e prévias raster inspecionadas. Produzido: 4/4 unidades da issue; sujeito a revisão e aceite de Pedro.
+
+PR draft #105 aberto contra daily/2026-11-02-s01-validation; commit inicial do lote 5396c857b061588b732c223f94052460d5db59dd. CI remoto aguarda execução e a issue permanece sem aceite.
