@@ -21,3 +21,5 @@ C:, Node 24.19.0/npm 11.17.0, instalação pelo lockfile: npm ci instalou 66 pac
 Autoria e licença ainda precisam de revisão e decisão do proprietário; os campos permanecem pendentes, e as cartas não estão liberadas para publicação ou sorteio. Falta comparação acumulada dos lotes por Pedro, integração no catálogo utilizável e aceite da issue. Próxima ação: PR draft para revisão humana, preservando issue aberta.
 
 **Pontos desta issue:** 4/4. **Total de hoje até este lote:** 8/24 (issues #38 e #39, M cada), sem crédito de aceite.
+
+PR draft #106: https://github.com/PHnsilva/velumbra/pull/106, criado a partir do commit edda3ee1dbf4e14d3a70bbb667109acc1b1061da e direcionado à branch do PR #10. CI remoto aguarda execução; a issue permanece em revisão e não foi fechada.

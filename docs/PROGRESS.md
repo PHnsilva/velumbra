@@ -158,3 +158,5 @@ A inspeção visual em navegador continua pendente pela restrição da sessão i
 ## 20/11/2026: RWS, segundo lote editorial (issue #39)
 
 Issue #39, S3, M (4 unidades): sete rascunhos de cartas para posições 8–14, com textos e arte originais, proveniência e licença/revisão pendentes; assets mantidos fora do runtime. Evidência, base provisória no PR #10/Next.js 16.4.5, testes e limites: [PROGRESS-2026-11-20-ISSUE-39.md](PROGRESS-2026-11-20-ISSUE-39.md). Build e check passaram; testes 23/23; SVGs analisados como XML e prévia raster inspecionada. A issue permanece aberta para revisão e aceite de Pedro.
+
+PR draft #106 aberto para a issue #39 contra daily/2026-11-02-s01-validation; commit inicial do lote edda3ee1dbf4e14d3a70bbb667109acc1b1061da. CI remoto aguarda execução e aceite de Pedro.
