@@ -27,3 +27,5 @@ Permanecem pendentes revisão humana de nomes, resumos, símbolos, arte e licen�
 **Pontos desta issue:** 4/4. **Total da rodada até este registro:** 4/24; abaixo da meta de 8, portanto seguirei para a próxima issue desbloqueada, se a validação mantiver qualidade.
 
 PR draft #105: https://github.com/PHnsilva/velumbra/pull/105. Commit do lote: 5396c857b061588b732c223f94052460d5db59dd. O PR foi aberto contra daily/2026-11-02-s01-validation e está em revisão pendente; CI remoto ainda não foi verificado nesta rodada.
+
+PR draft #105: https://github.com/PHnsilva/velumbra/pull/105, head 1974779067939168e3914ccfefb1dd2c73de3dbe. GitHub Actions run 44817884148 (build/regressions) passou; Vercel e preview passaram. Estado: PR aberto em revisão; sem aceite.
