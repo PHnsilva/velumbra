@@ -164,3 +164,5 @@ Validação local: build, tipos/sintaxe, testes 23/23 e git diff --check passara
 PR draft #105 aberto contra daily/2026-11-02-s01-validation; commit inicial do lote 5396c857b061588b732c223f94052460d5db59dd. CI remoto aguarda execução e a issue permanece sem aceite.
 
 Atualização: o PR #105 (HEAD 1974779067939168e3914ccfefb1dd2c73de3dbe) passou Actions run 44817884148, Vercel e Preview. Continua draft e aguarda revisão/aceite de Pedro.
+
+PR #105 atualizado: HEAD 20940d920d1f10645458f0db8555d728321bb1c validado pelo Actions run 44818807287; Vercel e Preview passaram. Continua aberto/draft aguardando Pedro.
