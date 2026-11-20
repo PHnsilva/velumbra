@@ -154,3 +154,9 @@ Após a revisão da evidência, Pedro autorizou atualizar o pin de `next` 16.4.3
 Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes; `npm audit` passou sem vulnerabilidades; `npm run build` e `npm run check` passaram; `npm test` passou com 20/20, inclusive o teste HTTP após o build. A versão 16.4.5 está documentada como corrigida para [GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h) e [GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8); a auditoria atual não reporta vulnerabilidades.
 
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
+
+## 20/11/2026: RWS, terceiro lote editorial (issue #40)
+
+Issue #40, S3, M (4 unidades): sete rascunhos originais para posições 15–21, com proveniência/licença/revisão pendentes e SVGs fora do runtime. Validação no Node 24.19/npm 11.17: build, check e suíte 23/23 passaram; XML e prévia raster conferidos. Detalhes e limites: [PROGRESS-2026-11-20-ISSUE-40.md](PROGRESS-2026-11-20-ISSUE-40.md). Pedro mantém revisão e aceite.
+PR draft #107 aberto para a issue #40, contra PR #10 (daily/2026-11-02-s01-validation); commit inicial do lote 94ded848eaef65d32916de467485d37eb12e307c. CI aguarda.
+PR #107: Actions run 44819975625, Vercel e Preview Comments passaram no HEAD 28f0df7fffbdc4cb7089b38dda209abb65730db6. Resultado técnico somente; PR draft e issue #40 aguardam Pedro.
