@@ -154,3 +154,15 @@ Após a revisão da evidência, Pedro autorizou atualizar o pin de `next` 16.4.3
 Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes; `npm audit` passou sem vulnerabilidades; `npm run build` e `npm run check` passaram; `npm test` passou com 20/20, inclusive o teste HTTP após o build. A versão 16.4.5 está documentada como corrigida para [GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h) e [GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8); a auditoria atual não reporta vulnerabilidades.
 
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
+
+## 20/11/2026: RWS, primeiro lote editorial (issue #38)
+
+Issue #38, S3, M (4 unidades): sete rascunhos textuais e vetoriais para as posições 1–7 foram registrados com proveniência separada, licença/revisão pendentes e artes mantidas em docs/, fora do runtime público. A entrega não declara cartas aceitas ou prontas para sorteio. Evidência detalhada, base provisória no PR #10/Next.js 16.4.5, validações e limites: [PROGRESS-2026-11-20-ISSUE-38.md](PROGRESS-2026-11-20-ISSUE-38.md).
+
+Validação local: build, tipos/sintaxe, testes 23/23 e git diff --check passaram; sete SVGs XML válidos e prévias raster inspecionadas. Produzido: 4/4 unidades da issue; sujeito a revisão e aceite de Pedro.
+
+PR draft #105 aberto contra daily/2026-11-02-s01-validation; commit inicial do lote 5396c857b061588b732c223f94052460d5db59dd. CI remoto aguarda execução e a issue permanece sem aceite.
+
+Atualização: o PR #105 (HEAD 1974779067939168e3914ccfefb1dd2c73de3dbe) passou Actions run 44817884148, Vercel e Preview. Continua draft e aguarda revisão/aceite de Pedro.
+
+PR #105 atualizado: HEAD 20940d920d1f10645458f0db8555d728321bb1c validado pelo Actions run 44818807287; Vercel e Preview passaram. Continua aberto/draft aguardando Pedro.
