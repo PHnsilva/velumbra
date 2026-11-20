@@ -159,3 +159,4 @@ A inspeção visual em navegador continua pendente pela restrição da sessão i
 
 Issue #40, S3, M (4 unidades): sete rascunhos originais para posições 15–21, com proveniência/licença/revisão pendentes e SVGs fora do runtime. Validação no Node 24.19/npm 11.17: build, check e suíte 23/23 passaram; XML e prévia raster conferidos. Detalhes e limites: [PROGRESS-2026-11-20-ISSUE-40.md](PROGRESS-2026-11-20-ISSUE-40.md). Pedro mantém revisão e aceite.
 PR draft #107 aberto para a issue #40, contra PR #10 (daily/2026-11-02-s01-validation); commit inicial do lote 94ded848eaef65d32916de467485d37eb12e307c. CI aguarda.
+PR #107: Actions run 44819975625, Vercel e Preview Comments passaram no HEAD 28f0df7fffbdc4cb7089b38dda209abb65730db6. Resultado técnico somente; PR draft e issue #40 aguardam Pedro.

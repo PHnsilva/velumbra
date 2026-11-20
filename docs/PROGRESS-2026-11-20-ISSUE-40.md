@@ -22,3 +22,4 @@ Próximo passo: PR draft e revisão de Pedro. O lote não está pronto para sort
 
 **Pontos da issue:** 4/4. **Total de implementação nesta rodada:** 12/24 (issues #38, #39 e #40, M cada).
 PR draft #107: https://github.com/PHnsilva/velumbra/pull/107; branch codex/2026-11-20-40-rws-major-3, commit do lote 94ded848eaef65d32916de467485d37eb12e307c. PR contra daily/2026-11-02-s01-validation; CI remoto pendente na criação. Issue aberta e registrada em Em andamento no Kanban.
+Validação remota observada antes deste adendo: no HEAD 28f0df7fffbdc4cb7089b38dda209abb65730db6, Actions run 44819975625 passou (Regressões e build); Vercel e Preview Comments passaram. O PR segue draft sem revisão/aceite.
