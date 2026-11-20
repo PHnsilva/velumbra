@@ -154,3 +154,11 @@ Após a revisão da evidência, Pedro autorizou atualizar o pin de `next` 16.4.3
 Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes; `npm audit` passou sem vulnerabilidades; `npm run build` e `npm run check` passaram; `npm test` passou com 20/20, inclusive o teste HTTP após o build. A versão 16.4.5 está documentada como corrigida para [GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h) e [GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8); a auditoria atual não reporta vulnerabilidades.
 
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
+
+## 20/11/2026: RWS, segundo lote editorial (issue #39)
+
+Issue #39, S3, M (4 unidades): sete rascunhos de cartas para posições 8–14, com textos e arte originais, proveniência e licença/revisão pendentes; assets mantidos fora do runtime. Evidência, base provisória no PR #10/Next.js 16.4.5, testes e limites: [PROGRESS-2026-11-20-ISSUE-39.md](PROGRESS-2026-11-20-ISSUE-39.md). Build e check passaram; testes 23/23; SVGs analisados como XML e prévia raster inspecionada. A issue permanece aberta para revisão e aceite de Pedro.
+
+PR draft #106 aberto para a issue #39 contra daily/2026-11-02-s01-validation; commit inicial do lote edda3ee1dbf4e14d3a70bbb667109acc1b1061da. CI remoto aguarda execução e aceite de Pedro.
+
+PR #106: HEAD 9329de2ab5dff7e51975745fc91c6be3ae9bb2ae validado pelo Actions run 44818805264; Vercel e Preview passaram. Continua aberto/draft aguardando Pedro.
