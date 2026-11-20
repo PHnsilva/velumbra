@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Louco — rascunho original</title><desc id="desc">Uma pessoa viajante diante de uma bifurcação, com uma pequena lanterna e caminho aberto ao fundo.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">0</text>
+  <path d="M44 101h48v8H44zM151 102h45v8h-45zM62 117h31v7H62zM151 119h27v7h-27z" fill="#778265"/>
+  <path d="M91 144h58v9h-58zM79 154h81v8H79zM68 164h100v7H68z" fill="#cb8e3c"/>
+  <path d="M112 180h20v18h-20zM105 197h34v12h-34zM98 208h48v35h-48zM91 239h62v13h-62z" fill="#4c1b2b"/>
+  <path d="M102 250h16v31h-16zM135 250h16v31h-16zM92 279h27v9H92zM132 279h27v9h-27z" fill="#211c1b"/>
+  <path d="M106 173h30v7h-30zM97 186h14v7H97z" fill="#211c1b"/><rect x="119" y="213" width="7" height="7" fill="#e4d2ad"/>
+  <path d="M84 289h31v6H84zM134 289h31v6h-31zM119 166h5v14h-5zM127 170h13v5h-13z" fill="#cb8e3c"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O LOUCO</text>
+</svg>

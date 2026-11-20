@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">Os Enamorados — rascunho original</title><desc id="desc">Duas pessoas chegam por caminhos diferentes a uma ponte e conversam antes de atravessá-la.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">VI</text>
+  <path d="M54 98h37v8H54zM149 98h37v8h-37zM62 106h8v55h-8zM169 106h8v55h-8z" fill="#778265"/>
+  <path d="M83 157h74v8H83zM93 165h54v8H93z" fill="#cb8e3c"/>
+  <path d="M75 237h90v8H75zM65 245h110v8H65zM74 253h92v8H74z" fill="#211c1b"/>
+  <path d="M84 177h19v17H84zM78 194h31v12H78zM74 206h38v26H74zM69 232h47v10H69z" fill="#4c1b2b"/>
+  <path d="M84 242h13v29H84zM103 242h13v29h-13zM78 270h24v8H78zM100 270h23v8h-23z" fill="#211c1b"/>
+  <path d="M137 177h19v17h-19zM131 194h31v12h-31zM126 206h39v26h-39zM121 232h48v10h-48z" fill="#778265"/>
+  <path d="M132 242h13v29h-13zM151 242h13v29h-13zM126 270h24v8h-24zM148 270h23v8h-23z" fill="#211c1b"/>
+  <path d="M99 195h42v7H99zM109 186h22v7h-22z" fill="#cb8e3c"/>
+  <path d="M104 203h8v8h-8zM128 203h8v8h-8z" fill="#e4d2ad"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="12">OS ENAMORADOS</text>
+</svg>

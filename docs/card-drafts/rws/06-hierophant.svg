@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Hierofante — rascunho original</title><desc id="desc">Uma pessoa compartilha um diagrama com um pequeno grupo reunido para aprender em conjunto.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">V</text>
+  <path d="M48 88h144v8H48zM53 96h8v78h-8zM179 96h8v78h-8z" fill="#4c1b2b"/>
+  <path d="M70 107h100v58H70z" fill="#211c1b"/><path d="M78 115h84v42H78z" fill="#778265"/>
+  <path d="M93 137h20v6H93zM111 125h7v30h-7zM120 129h22v6h-22zM137 135h7v18h-7z" fill="#e4d2ad"/>
+  <path d="M107 171h26v16h-26zM100 187h40v13h-40zM94 200h52v23H94zM90 223h60v12H90z" fill="#4c1b2b"/>
+  <path d="M98 235h16v26H98zM132 235h16v26h-16zM91 261h26v8H91zM129 261h26v8h-26z" fill="#211c1b"/>
+  <path d="M45 223h36v7H45zM160 221h36v7h-36zM59 241h39v7H59zM143 239h40v7h-40zM76 258h26v7H76zM138 256h26v7h-26z" fill="#778265"/>
+  <path d="M81 218h10v10H81zM171 216h10v10h-10zM93 236h10v10H93zM156 234h10v10h-10zM101 254h9v9h-9zM148 252h9v9h-9z" fill="#cb8e3c"/>
+  <path d="M45 278h150v8H45z" fill="#211c1b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O HIEROFANTE</text>
+</svg>
