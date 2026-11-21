@@ -1,0 +1,16 @@
+import type { CardCatalogBatch, CardCatalogRecord } from "../card-catalog";
+import { CARD_CATALOG_SCHEMA_VERSION } from "../card-catalog";
+const author = "Codex (assistente de IA; rascunho, revisão editorial pendente)";
+const reference = "A. E. Waite, The Pictorial Key to the Tarot (1910), naipe Cups, cartas Oito a Rei; consultado para nomes e vocabulário, sem reprodução de frases ou imagens. https://www.willemwitteveen.com/wp-content/uploads/2018/12/The-Pictorial-Key-to-the-Tarot.pdf";
+const pendingReview={state:"pending",reviewer:null,reviewedAt:null,checklist:{identity:false,numbering:false,tradition:false,content:false,art:false,provenance:false}} as const satisfies CardCatalogRecord["review"];
+function draft(position:number,label:string,slug:string,name:string,summary:string,symbols:string[],file:string):CardCatalogRecord{return{id:"rws:"+slug,deckId:"rws",position,numberLabel:label,name,content:{summary,symbols,origin:"original",provenance:{state:"pending",author,references:[reference]}},art:{assetPath:"/art/cards/rws/"+file,origin:"original",provenance:{state:"pending",creator:author,license:null,evidence:[]}},review:pendingReview}}
+export const rwsCupsEightToKingDraft:CardCatalogBatch={schemaVersion:CARD_CATALOG_SCHEMA_VERSION,deckId:"rws",batchId:"rws-cups-eight-to-king-draft",scope:"batch",records:[
+draft(30,"8","eight-of-cups","Oito de Copas","Afastar-se de algo conhecido pode abrir espaço para procurar uma resposta mais coerente com necessidades atuais. A mudança merece planejamento e apoio.",["copas","mudança","busca"],"30-eight-of-cups.svg"),
+draft(31,"9","nine-of-cups","Nove de Copas","Satisfação pode vir de reconhecer o que foi construído e o que ainda traz alegria. Gratidão não exige ignorar limites ou necessidades futuras.",["copas","satisfação","reconhecimento"],"31-nine-of-cups.svg"),
+draft(32,"10","ten-of-cups","Dez de Copas","Bem-estar compartilhado pode crescer com cuidado, cooperação e pertencimento. A imagem de harmonia é uma aspiração, não garantia de que todos concordam.",["copas","pertencimento","cooperação"],"32-ten-of-cups.svg"),
+draft(33,"PAJEM","page-of-cups","Pajem de Copas","Curiosidade emocional pode convidar a expressar sentimentos ainda em formação. Escutar com abertura inclui conferir o que se entende antes de agir.",["copas","curiosidade","expressão"],"33-page-of-cups.svg"),
+draft(34,"CAVALEIRO","knight-of-cups","Cavaleiro de Copas","Uma proposta pode ser conduzida por imaginação, afeto ou idealismo. Considerar gestos e compromissos concretos ajuda a manter a intenção ligada à realidade.",["copas","proposta","idealismo"],"34-knight-of-cups.svg"),
+draft(35,"RAINHA","queen-of-cups","Rainha de Copas","Empatia e imaginação podem ajudar a compreender experiências complexas. Cuidar também inclui proteger a própria energia e distinguir percepção de fato.",["copas","empatia","limites"],"35-queen-of-cups.svg"),
+draft(36,"REI","king-of-cups","Rei de Copas","Manter calma em meio a sentimentos intensos pode favorecer uma resposta cuidadosa. Equilíbrio emocional não significa esconder o que se sente.",["copas","regulação","cuidado"],"36-king-of-cups.svg")
+]};
+export const rwsCupsEightToKingArtwork=["30-eight-of-cups.svg","31-nine-of-cups.svg","32-ten-of-cups.svg","33-page-of-cups.svg","34-knight-of-cups.svg","35-queen-of-cups.svg","36-king-of-cups.svg"] as const;
