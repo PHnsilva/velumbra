@@ -1,0 +1,16 @@
+import type { CardCatalogBatch, CardCatalogRecord } from "../card-catalog";
+import { CARD_CATALOG_SCHEMA_VERSION } from "../card-catalog";
+const author = "Codex (assistente de IA; rascunho, revisão editorial pendente)";
+const reference = "A. E. Waite, The Pictorial Key to the Tarot (1910), naipe Cups, Ás a Sete; consultado para nomes e vocabulário, sem reprodução de frases ou imagens. https://www.willemwitteveen.com/wp-content/uploads/2018/12/The-Pictorial-Key-to-the-Tarot.pdf";
+const pendingReview = {state:"pending",reviewer:null,reviewedAt:null,checklist:{identity:false,numbering:false,tradition:false,content:false,art:false,provenance:false}} as const satisfies CardCatalogRecord["review"];
+function draft(position:number,label:string,slug:string,name:string,summary:string,symbols:string[],file:string):CardCatalogRecord{return{id:"rws:"+slug,deckId:"rws",position,numberLabel:label,name,content:{summary,symbols,origin:"original",provenance:{state:"pending",author,references:[reference]}},art:{assetPath:"/art/cards/rws/"+file,origin:"original",provenance:{state:"pending",creator:author,license:null,evidence:[]}},review:pendingReview}}
+export const rwsCupsAceToSevenDraft:CardCatalogBatch={schemaVersion:CARD_CATALOG_SCHEMA_VERSION,deckId:"rws",batchId:"rws-cups-ace-to-seven-draft",scope:"batch",records:[
+draft(23,"ÁS","ace-of-cups","Ás de Copas","Uma emoção ou vínculo pode surgir como convite à abertura. Receptividade não obriga a confiar sem limites nem a aceitar um compromisso.",["copas","abertura","receptividade"],"23-ace-of-cups.svg"),
+draft(24,"2","two-of-cups","Dois de Copas","Troca e reciprocidade podem crescer quando cada pessoa expressa o que oferece e espera. A harmonia depende de conversa e respeito mútuo.",["copas","reciprocidade","diálogo"],"24-two-of-cups.svg"),
+draft(25,"3","three-of-cups","Três de Copas","Celebração compartilhada pode reconhecer esforço, amizade e apoio. Aproveitar a companhia também pede espaço para que todas as vozes participem.",["copas","amizade","celebração"],"25-three-of-cups.svg"),
+draft(26,"4","four-of-cups","Quatro de Copas","Pausa e insatisfação podem indicar que algo precisa de atenção. Antes de recusar ou aceitar uma proposta, vale reconhecer o que está faltando.",["copas","pausa","insatisfação"],"26-four-of-cups.svg"),
+draft(27,"5","five-of-cups","Cinco de Copas","Uma perda ou desapontamento merece ser reconhecido sem apagar os apoios que ainda existem. Lamentar e procurar recursos podem acontecer juntos.",["copas","luto","apoio"],"27-five-of-cups.svg"),
+draft(28,"6","six-of-cups","Seis de Copas","Lembranças podem oferecer afeto e continuidade, embora o passado não precise definir o presente. Compartilhar cuidado também requer consentimento e limites.",["copas","memória","cuidado"],"28-six-of-cups.svg"),
+draft(29,"7","seven-of-cups","Sete de Copas","Muitas possibilidades podem estimular a imaginação e dificultar prioridades. Comparar consequências e evidências ajuda a escolher sem confundir desejo com certeza.",["copas","possibilidades","discernimento"],"29-seven-of-cups.svg")
+]};
+export const rwsCupsAceToSevenArtwork=["23-ace-of-cups.svg","24-two-of-cups.svg","25-three-of-cups.svg","26-four-of-cups.svg","27-five-of-cups.svg","28-six-of-cups.svg","29-seven-of-cups.svg"] as const;
