@@ -158,3 +158,4 @@ A inspeção visual em navegador continua pendente pela restrição da sessão i
 ## 21/11/2026: RWS, posição final dos arcanos maiores (issue #41)
 
 Issue #41, S3, M (4 unidades): um rascunho de O Mundo (XXI, posição editorial 22) com texto/artes originais e proveniência/licença/revisão pendentes. Registro e SVG fora do runtime; não integra o sorteio. Base provisória no PR #10/Next.js 16.4.5 e ancestrais validados #36/#89 e #37/#90. Build, check, testes 22/22, XML e inspeção raster passaram. Evidências e limites: [PROGRESS-2026-11-21-ISSUE-41.md](PROGRESS-2026-11-21-ISSUE-41.md). Aguarda PR draft e revisão/aceite de Pedro.
+PR #108 para issue #41: Actions run 44904847986, Vercel e Preview Comments passaram no HEAD da implementação 08a47844ef7a12b2ec24883c14f9e703c7dc7a5b; PR draft/issue aberta, sem aceite.

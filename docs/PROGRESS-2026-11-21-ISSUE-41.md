@@ -23,3 +23,4 @@ Essas verificações confirmam estrutura e a prévia produzida, não correção 
 Proveniência, licença, grafia e conteúdo aguardam revisão de Pedro. A carta não pode ser tratada como editorialmente aceita ou integrada ao sorteio. Próximo passo: PR draft, revisão e decisão de aceite por Pedro.
 
 **Pontos da issue:** 4/4. **Pontos produzidos nesta rodada até aqui:** 4/24.
+PR draft #108: https://github.com/PHnsilva/velumbra/pull/108, aberto contra daily/2026-11-02-s01-validation. Commit da implementação: 08a47844ef7a12b2ec24883c14f9e703c7dc7a5b. Actions run 44904847986 (build/regressões) passou; Vercel e Preview Comments passaram no HEAD inicial. Continua aberto/draft para revisão humana.
