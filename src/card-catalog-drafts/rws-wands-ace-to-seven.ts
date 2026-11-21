@@ -1,0 +1,16 @@
+import type { CardCatalogBatch, CardCatalogRecord } from "../card-catalog";
+import { CARD_CATALOG_SCHEMA_VERSION } from "../card-catalog";
+const author="Codex (assistente de IA; rascunho, revisão editorial pendente)";
+const reference="A. E. Waite, The Pictorial Key to the Tarot (1910), naipe Wands, Ás a Sete; consultado para nomes e vocabulário, sem reprodução de frases ou imagens. https://www.willemwitteveen.com/wp-content/uploads/2018/12/The-Pictorial-Key-to-the-Tarot.pdf";
+const pendingReview={state:"pending",reviewer:null,reviewedAt:null,checklist:{identity:false,numbering:false,tradition:false,content:false,art:false,provenance:false}} as const satisfies CardCatalogRecord["review"];
+function draft(position:number,label:string,slug:string,name:string,summary:string,symbols:string[],file:string):CardCatalogRecord{return{id:"rws:"+slug,deckId:"rws",position,numberLabel:label,name,content:{summary,symbols,origin:"original",provenance:{state:"pending",author,references:[reference]}},art:{assetPath:"/art/cards/rws/"+file,origin:"original",provenance:{state:"pending",creator:author,license:null,evidence:[]}},review:pendingReview}}
+export const rwsWandsAceToSevenDraft:CardCatalogBatch={schemaVersion:CARD_CATALOG_SCHEMA_VERSION,deckId:"rws",batchId:"rws-wands-ace-to-seven-draft",scope:"batch",records:[
+draft(37,"ÁS","ace-of-wands","Ás de Paus","Uma ideia ou impulso inicial pode despertar energia para agir. Dar forma ao entusiasmo também pede atenção a recursos, tempo e limites.",["paus","iniciativa","energia"],"37-ace-of-wands.svg"),
+draft(38,"2","two-of-wands","Dois de Paus","Planejar o próximo passo pode ampliar opções, desde que a visão de futuro considere as condições presentes. Escolhas podem ser revistas conforme surgem informações.",["paus","planejamento","possibilidades"],"38-two-of-wands.svg"),
+draft(39,"3","three-of-wands","Três de Paus","Um trabalho em andamento pode pedir paciência, coordenação e abertura a novas perspectivas. Progresso inicial ainda depende de condições e colaboração.",["paus","progresso","coordenação"],"39-three-of-wands.svg"),
+draft(40,"4","four-of-wands","Quatro de Paus","Uma etapa compartilhada pode ser marcada com gratidão e descanso. Celebrar o que foi feito não elimina responsabilidades nem garante que tudo permanecerá estável.",["paus","marco","celebração"],"40-four-of-wands.svg"),
+draft(41,"5","five-of-wands","Cinco de Paus","Diferenças de ritmo ou interesse podem criar atrito. A disputa fica mais produtiva quando as pessoas explicitam regras, escutam objeções e evitam dano.",["paus","atrito","regras"],"41-five-of-wands.svg"),
+draft(42,"6","six-of-wands","Seis de Paus","Reconhecimento pode refletir esforço e apoio recebidos. Dividir crédito e manter humildade ajuda a sustentar a conquista sem tratá-la como garantia de sucesso futuro.",["paus","reconhecimento","apoio"],"42-six-of-wands.svg"),
+draft(43,"7","seven-of-wands","Sete de Paus","Defender um limite pode exigir firmeza e avaliação dos custos. Escolher onde investir energia também faz parte de proteger o que importa.",["paus","limites","firmeza"],"43-seven-of-wands.svg")
+]};
+export const rwsWandsAceToSevenArtwork=["37-ace-of-wands.svg","38-two-of-wands.svg","39-three-of-wands.svg","40-four-of-wands.svg","41-five-of-wands.svg","42-six-of-wands.svg","43-seven-of-wands.svg"] as const;
