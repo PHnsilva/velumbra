@@ -154,3 +154,7 @@ Após a revisão da evidência, Pedro autorizou atualizar o pin de `next` 16.4.3
 Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes; `npm audit` passou sem vulnerabilidades; `npm run build` e `npm run check` passaram; `npm test` passou com 20/20, inclusive o teste HTTP após o build. A versão 16.4.5 está documentada como corrigida para [GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h) e [GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8); a auditoria atual não reporta vulnerabilidades.
 
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
+
+## 21/11/2026: RWS, posição final dos arcanos maiores (issue #41)
+
+Issue #41, S3, M (4 unidades): um rascunho de O Mundo (XXI, posição editorial 22) com texto/artes originais e proveniência/licença/revisão pendentes. Registro e SVG fora do runtime; não integra o sorteio. Base provisória no PR #10/Next.js 16.4.5 e ancestrais validados #36/#89 e #37/#90. Build, check, testes 22/22, XML e inspeção raster passaram. Evidências e limites: [PROGRESS-2026-11-21-ISSUE-41.md](PROGRESS-2026-11-21-ISSUE-41.md). Aguarda PR draft e revisão/aceite de Pedro.
