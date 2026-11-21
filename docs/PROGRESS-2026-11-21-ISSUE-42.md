@@ -21,3 +21,4 @@ A validação cobre estrutura e apresentação raster local, não autoriza direi
 ## Próximo passo
 
 Abrir PR draft para Pedro; manter issue aberta até revisão/aceite. Produzido nesta rodada: #41 (M=4, PR #108) e #42 (M=4), total 8/24 unidades. Revisão de documentação da issue #101 já está no PR draft #102, em revisão e sem feedback de Pedro até esta consulta; não contei essa revisão como progresso novo.
+PR draft #109: https://github.com/PHnsilva/velumbra/pull/109. Implementação em 4c58b161da54884932ae55a7130981897e7a1930, base de destino PR #10. Actions run 44905614901, Vercel e preview passaram no HEAD inicial. Issue #42 movida para Em andamento no Kanban; segue aberta para Pedro.
