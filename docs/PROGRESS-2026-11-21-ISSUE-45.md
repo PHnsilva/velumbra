@@ -21,3 +21,4 @@ Essa evidência não confirma licenças, precisão histórica, legibilidade em d
 ## Pendências e próxima ação
 
 Abrir PR draft; Pedro revisa traduções, conteúdo e direitos das artes. A issue continua aberta. Esta rodada soma #41–45 (M cada): 20/24 unidades; ainda há até 4 unidades autorizadas se existir issue executável e validação adequada.
+PR draft #112: https://github.com/PHnsilva/velumbra/pull/112, base PR #10; commit da implementação 5bf550bec9a6460163482baac1fc89c6bee711a6. Kanban atualizado para Em andamento. Checks de CI aguardavam na abertura; aprovação humana segue pendente.
