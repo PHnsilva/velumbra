@@ -21,3 +21,4 @@ Isso não atesta direitos autorais, correção histórica ou aceitação por Ped
 ## Próximo passo
 
 PR draft para revisão humana; issue permanece aberta. Total de 21/11/2026: issues #41–46, seis entregas M de 4 unidades cada, 24/24 unidades autorizadas. Documentação #101 continua em revisão no PR #102, sem feedback novo; não computada como entrega hoje.
+PR draft #113: https://github.com/PHnsilva/velumbra/pull/113, base PR #10; implementação em 30c135a2b8d38fab7256425dc0f7015d4b0d9340. Issue movida a Em andamento no Kanban. Checks remotos estavam pendentes na abertura; aguarda revisão humana.
