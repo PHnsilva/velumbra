@@ -21,3 +21,4 @@ Isso não prova correção editorial/histórica, licença de distribuição ou a
 ## Próximo passo
 
 PR draft para revisão humana; manter issue aberta. Pontos: 4/4. Total produzido hoje nas issues #41–44: 16/24 unidades. Permanecem lotes RWS, documentação #101 (PR #102 ainda draft/em revisão) e outras entregas do ciclo.
+PR draft #111: https://github.com/PHnsilva/velumbra/pull/111, base PR #10; implementação em 5ebd5f7db5d2817eef9890d041440c2958a2fe78. Kanban atualizado para Em andamento com base e dependência documentadas. Checks remotos pendentes na abertura do PR.
