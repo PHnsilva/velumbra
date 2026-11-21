@@ -25,3 +25,4 @@ Validação estrutural e visual local não comprova licenciamento, precisão his
 PR draft para Pedro revisar grafia/tradução das figuras de corte, resumos, símbolos, arte e licenças. A issue continua aberta.
 
 **Pontos desta issue:** 4/4. **Total implementado nesta rodada até aqui:** #41, #42 e #43; 12/24 unidades.
+PR draft #110: https://github.com/PHnsilva/velumbra/pull/110; branch codex/2026-11-21-43-rws-cups-2, implementação commit 717efe5b8e5eae2f64d87fefa0e331d7533a20b0. Alvo PR #10. Issue movida para Em andamento no Kanban; CI da revisão remota aguarda.
