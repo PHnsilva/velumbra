@@ -2,7 +2,7 @@
 
 Cartomancia interativa com quatro tradições, 270 cartas, personagem/cabana animadas, tiragens e diário local, com IA opcional.
 
-Definido a partir das decisões de Pedro até 06/11/2026. Documento de planejamento; não comprova implementação, treinamento, revisão ou aceite. As alterações são propostas no PR de organização, sem merge por agente.
+Este documento especifica os resultados e restrições do ciclo inicial. Os registros de progresso e pull requests identificam quais requisitos foram implementados e validados; esta especificação não representa, por si só, evidência de implementação ou aceite.
 
 ## Requisitos funcionais
 
@@ -25,24 +25,22 @@ Definido a partir das decisões de Pedro até 06/11/2026. Documento de planejame
 
 | ID  | Critério                                                                                                                                                                                                                                                                                                              |
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| N01 | Contribuição rastreável por issue/branch/PR; somente Pedro revisa/aprova PRs e aceita issues, sem merge/auto-merge/deploy de agentes. Durante a semana, dependência tecnicamente disponível em branch/PR validado pode ser consumida provisoriamente em PR empilhado; revisão/aceite/merge ficam com Pedro no sábado. |
+| N01 | Cada alteração é rastreável por issue, branch e PR. Pedro responde pela revisão/aprovação dos PRs e pelo aceite das issues. Artefatos tecnicamente validados podem ser usados provisoriamente em PRs empilhados quando base, SHA, ordem e validação combinada são registrados. |
 | N02 | Contratos versionados, entradas/saídas validadas e erros explícitos; dados externos nunca concedem permissões.                                                                                                                                                                                                        |
-| N03 | Sem serviço pago obrigatório, faturamento ou fallback remoto automático; executar ferramentas/caches no C: e respeitar pausas.                                                                                                                                                                                        |
+| N03 | O funcionamento previsto não depende de serviço pago, faturamento automático nem fallback remoto não declarado.                                                                                                                                                                                        |
 | N04 | Testes de sucesso/erro e avaliações reais reproduzíveis; registrar versões e distinguir mock, execução e aceite humano.                                                                                                                                                                                               |
 | N05 | Minimização de dados, credenciais fora do Git, acesso mínimo e retenção/exclusão definidas; não publicar dados reais de usuários.                                                                                                                                                                                     |
 | N06 | Limites de entrada, memória, concorrência e tempo configuráveis, cancelamento e falha fechada; medir desempenho no hardware disponível.                                                                                                                                                                               |
 | N07 | Documentação operacional coerente com código e evidências; disponibilidade ou qualidade não podem ser inferidas de um perfil ou schema.                                                                                                                                                                               |
-| N08 | Até 5 + 1 sprints de até uma semana, PP/P/M/L=1/2/4/8; meta mínima 1 L por dia ativo e autorização para acelerar até 3 L equivalentes (24 unidades) por dia no Velumbra.                                                                                                                                              |
+| N08 | O ciclo inicial contém até cinco sprints de entrega e uma sprint de validação extra e mudanças, cada uma com duração máxima de uma semana. As entregas usam estimativas relativas PP/P/M/L de 1/2/4/8 unidades.                                                                                                                                              |
 
 ## Fora do ciclo
 
 - Cruz Celta, Grand Tableau, conta/sincronização e conversa ilimitada.
 - Dublagem dinâmica paga e monetização no ciclo inicial.
 - Copiar arte sem licença ou apresentar leitura simbólica como previsão factual.
-- Publicação automática por agente.
+- Deploy sem a autorização necessária para o ambiente de publicação.
 
 ## Verificação e aceite
 
-Cada requisito é rastreado em TRACEABILITY.md, com critérios concretos no corpo das issues. Dados conhecidos/sintéticos e ferramentas determinísticas verificam resultados quando possível; comportamento generativo exige casos separados e revisão apropriada. Não usar um teste de roteamento, presença de perfil ou metadado para alegar competência ou treino. Não declarar cobertura completa quando há pendência de ambiente/fonte.
-
-A meta de 8 unidades/dia é um mínimo desejado por projeto ativo, não um teto de esforço nem uma medição de inteligência. A duração semanal é o objetivo do plano; a capacidade real e os bloqueios precisam ser observados e reportados. Não fabricar tarefa/estimativa/aceite para cumprir calendário.
+A matriz de rastreabilidade associa cada requisito às issues responsáveis. Cada issue contém critérios e evidências adequados ao comportamento esperado. Testes com dados conhecidos ou sintéticos verificam propriedades determinísticas; comportamento generativo requer casos separados e avaliação pertinente. Cobertura de contrato, qualidade semântica e disponibilidade de ambiente são dimensões diferentes e permanecem identificadas como tal.

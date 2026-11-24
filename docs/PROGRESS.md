@@ -93,39 +93,23 @@ Limites e pendências:
 
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
 
-## 02/11/2026: validação atual da fundação
 
-Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). PR: [#10](https://github.com/PHnsilva/velumbra/pull/10). Branch: `daily/2026-11-02-s01-validation`. Base: `daily/2026-10-31-s01-deck-types` (PR #3), ainda aberto e sujeito à revisão dos PRs #1 e #2. A verificação foi executada na cópia ativa em `C:\Users\peecs\Documents\ChatGPT\velumbra`, no commit local `c767028`; os arquivos de aplicação, testes, scripts e lockfile conferem com o HEAD do PR #3, `14fc529e8dd355afeb66afb01d6a7c67734f41e1`. O incremento de hoje registra somente a evidência.
+## 16/11/2026: uniformização documental (issue #101)
 
-Validação em Node.js 24.19.0 e npm 11.17.0:
+Issue S6, tamanho L (8 unidades). Branch `codex/2026-11-16-101-doc-audience`, baseada em `main` (`2ae7f27c7621c3bc725a67b448b71cf3f9bc7d1c`). Commit principal `e8d080ce0e66ac922874421754b07af5e4657696`. PR [#102](https://github.com/PHnsilva/velumbra/pull/102) aberto em rascunho para revisão de Pedro.
 
-- `npm ci`: 66 pacotes instalados; 67 auditados, sem vulnerabilidades encontradas.
-- `npm run build`: aprovado; Next.js compilou, verificou TypeScript e gerou as rotas estáticas.
-- `npm run check`: aprovado; tipos e sintaxe dos controladores conferidos.
-- `npm test`: 10 testes aprovados, incluindo preparação restrita do runtime, quatro estruturas tipadas, amostras e servidor HTTP do build real.
-- O MCP do GitHub confirmou checks verdes nos HEADs de #1, #2 e #3. Nenhum dos três PRs tem review submetido; todos seguem abertos na ordem #1 → #2 → #3.
+O incremento concentra instruções de trabalho em `AGENTS.md`, converte README, especificações e políticas para documentação voltada a pessoas desenvolvedoras, substitui o antigo guia de operação por interfaces de engenharia e retira os planos de retomada diária/semanal duplicados. As regras de dependência e estados foram consolidadas na política de contribuição. A nova issue foi incluída no plano S6 e na rastreabilidade N01/N07. Nenhum critério de domínio ou estado de outras issues foi alterado.
 
-Limites e pendências:
+Validação documental: `git diff --check` passou; todos os links Markdown relativos resolvem; busca por referências aos três documentos operacionais removidos não encontrou ocorrências. Ambiente inventariado: Node.js 24.19.0. Nenhuma dependência foi instalada e não houve custo adicional. Não foram executados testes funcionais, revisão visual/áudio ou deploy por se tratar de alteração documental.
 
-- A revisão visual em computador e celular não foi executada. A ferramenta de navegador/automação não inicializou (`failed to write kernel assets`, erro 3) nas duas tentativas. A inspeção por Pedro e o aceite da sprint continuam pendentes; build, testes e CI não substituem essa revisão.
-- O teste exercita a aplicação em DOM simulado e o servidor HTTP local. Não valida qualidade de áudio, renderização de animações ou integração externa de interpretação.
-- A preparação gerou somente a saída `public/runtime/` e o build `.next/`, ambos artefatos locais; não houve alteração de produto ou deploy.
+No HEAD `9edcd6305e8e98e85e9536aada656a0f16e0362a`, o workflow de regressões/build concluiu com sucesso e o preview Vercel estava verde. Esses checks confirmam o build e a suíte automatizada da árvore, mas não representam revisão do conteúdo documental, qualidade funcional, revisão ou aceite humano. O relatório diário é um incremento documental posterior.
 
-Próxima ação: concluir a revisão visual de #1–#3 em desktop/celular, conferir o preview autenticado com Pedro e resolver qualquer lacuna antes de aceitar a sprint 1 ou avançar para a sprint 2. A integração MCP #9 continua bloqueada pelo aceite da fundação #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
+Resultado diário: 8 de até 24 unidades; déficit de 16. A consulta ao Project #7 não encontrou outra issue em `Pronto`. As próximas entregas de produto permanecem bloqueadas conforme o quadro, incluindo #15 por #7, #9 por #35 e `sofiee-agent-communication#8`, #34 por #15 e #80 por #27/#34. O rascunho documental não foi contado novamente.
 
-
-
-## 03/11/2026: roteiro para revisão da fundação
-
-Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). Atualização no [PR #10](https://github.com/PHnsilva/velumbra/pull/10), branch `daily/2026-11-02-s01-validation`, base `daily/2026-10-31-s01-deck-types` (PR #3). O trabalho partiu do HEAD anterior do PR #10, `fab689f8e69646fd41f5a1cb5f5aedad509317ee`; o novo roteiro foi criado no commit `5579564777cbc5639e31c3acc623d6c71d0856d9`.
-
-Entrega: `docs/REVIEW_CHECKLIST_S01.md` descreve passos concretos para a revisão manual em desktop (1000 × 597) e celular (390 × 844), usando dados sintéticos. Cobre entrada silenciosa, foco/teclado, erros de nome, preservação ou descarte de rascunho, quatro tradições e três amostras, som, movimento reduzido, diário local, layout e limpeza dos dados de teste. Foi cruzado com os critérios atuais das issues #6/#7 e com os seletores/fluxos já existentes no HEAD #3.
-
-Validação: GitHub Actions do PR #10 no HEAD `4406b9377b5553fbb0eb1abb613f48e87a3011b8` (run `41642203579`) aprovou `npm ci`, `npm run build`, `npm run check` e `npm test`; 10 testes passaram. Isto verifica o estado do código, não oferece evidência visual nem comportamento novo de produto. O roteiro propõe verificações para Pedro executar e não registra resultado visual. A revisão visual segue pendente após a ferramenta de navegador falhar ao iniciar na sessão anterior; preview autenticado, aparência, áudio, animações e comportamento real continuam sem evidência nova.
-
-Próxima ação: Pedro executar o roteiro no preview e registrar Passou/Falhou/Não executada por dispositivo. Corrigir falhas comprovadas antes do aceite da sprint 1; preservar a ordem #1 → #2 → #3. O cliente MCP #9 segue bloqueado por #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
+Próxima ação: aguardar a revisão de Pedro do PR #102 e reavaliar a primeira issue de produto quando seus artefatos dependentes estiverem tecnicamente disponíveis e validados.
 
 ## 08/11/2026: S1, ampliação acessível da biblioteca (issue #14)
+
 
 Branch `codex/2026-11-08-14-library-enlargement`, baseada provisoriamente no HEAD do PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`), que por sua vez depende de #2 e #1. A biblioteca mantém as três amostras por tradição e agora permite abrir uma carta ampliada com símbolo e descrição. O botão de ampliação tem nome acessível; o retorno restaura a tradição, a lista e o foco na amostra acionada. Nenhum conteúdo de carta ou arte nova foi criado. A implementação e as verificações deste incremento estão em [PROGRESS-2026-11-08-ISSUE-14.md](PROGRESS-2026-11-08-ISSUE-14.md).
 
@@ -154,6 +138,7 @@ Após a revisão da evidência, Pedro autorizou atualizar o pin de `next` 16.4.3
 Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes; `npm audit` passou sem vulnerabilidades; `npm run build` e `npm run check` passaram; `npm test` passou com 20/20, inclusive o teste HTTP após o build. A versão 16.4.5 está documentada como corrigida para [GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h) e [GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8); a auditoria atual não reporta vulnerabilidades.
 
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
+
 
 ## 20/11/2026: RWS, primeiro lote editorial (issue #38)
 
