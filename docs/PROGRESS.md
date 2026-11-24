@@ -140,8 +140,7 @@ Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
 
 
-## 20/11/2026: RWS, terceiro lote editorial (issue #40)
+## 21/11/2026: RWS, posição final dos arcanos maiores (issue #41)
 
-Issue #40, S3, M (4 unidades): sete rascunhos originais para posições 15–21, com proveniência/licença/revisão pendentes e SVGs fora do runtime. Validação no Node 24.19/npm 11.17: build, check e suíte 23/23 passaram; XML e prévia raster conferidos. Detalhes e limites: [PROGRESS-2026-11-20-ISSUE-40.md](PROGRESS-2026-11-20-ISSUE-40.md). Pedro mantém revisão e aceite.
-PR draft #107 aberto para a issue #40, contra PR #10 (daily/2026-11-02-s01-validation); commit inicial do lote 94ded848eaef65d32916de467485d37eb12e307c. CI aguarda.
-PR #107: Actions run 44819975625, Vercel e Preview Comments passaram no HEAD 28f0df7fffbdc4cb7089b38dda209abb65730db6. Resultado técnico somente; PR draft e issue #40 aguardam Pedro.
+Issue #41, S3, M (4 unidades): um rascunho de O Mundo (XXI, posição editorial 22) com texto/artes originais e proveniência/licença/revisão pendentes. Registro e SVG fora do runtime; não integra o sorteio. Base provisória no PR #10/Next.js 16.4.5 e ancestrais validados #36/#89 e #37/#90. Build, check, testes 22/22, XML e inspeção raster passaram. Evidências e limites: [PROGRESS-2026-11-21-ISSUE-41.md](PROGRESS-2026-11-21-ISSUE-41.md). Aguarda PR draft e revisão/aceite de Pedro.
+PR #108 para issue #41: Actions run 44904847986, Vercel e Preview Comments passaram no HEAD da implementação 08a47844ef7a12b2ec24883c14f9e703c7dc7a5b; PR draft/issue aberta, sem aceite.
