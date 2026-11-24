@@ -94,23 +94,18 @@ Limites e pendências:
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
 
 
-## 11/11/2026: S1, rascunho autoral do lote Petit Lenormand 1–7 (issue #74)
+## 16/11/2026: uniformização documental (issue #101)
 
-Foram preparados sete registros editoriais e sete desenhos SVG de rascunho para as primeiras posições do Petit Lenormand, com resumos originais em contexto e sem inversões. A proveniência distingue conteúdo/arte e mantém licença e revisão pendentes. Os desenhos ficam em `docs/card-drafts/lenormand/`, fora do caminho público; não foram conectados ao catálogo do runtime. PR [#95](https://github.com/PHnsilva/velumbra/pull/95) está aberto como rascunho no commit de implementação `96b7e256139ce2d6b7a97d10ae818979d78abae6`. O relatório completo, limites e decisão necessária estão em [PROGRESS-2026-11-11-ISSUE-74.md](PROGRESS-2026-11-11-ISSUE-74.md).
+Issue S6, tamanho L (8 unidades). Branch `codex/2026-11-16-101-doc-audience`, baseada em `main` (`2ae7f27c7621c3bc725a67b448b71cf3f9bc7d1c`). Commit principal `e8d080ce0e66ac922874421754b07af5e4657696`. PR [#102](https://github.com/PHnsilva/velumbra/pull/102) aberto em rascunho para revisão de Pedro.
 
-Na base provisória PR #90 → #89 → #3 → #2 → #1, `npm run check`, `npm run build`, `npm test` (18/18) e `git diff --check` passaram; Actions, Vercel e Vercel Preview Comments passaram no HEAD `7633159`. A montagem local dos SVGs foi inspecionada, sem afirmar teste visual no aplicativo. Issue #74 M segue incompleta: licença/atribuição de distribuição e revisão humana pendentes; pontuação diária contada nesta issue 0/4.
+O incremento concentra instruções de trabalho em `AGENTS.md`, converte README, especificações e políticas para documentação voltada a pessoas desenvolvedoras, substitui o antigo guia de operação por interfaces de engenharia e retira os planos de retomada diária/semanal duplicados. As regras de dependência e estados foram consolidadas na política de contribuição. A nova issue foi incluída no plano S6 e na rastreabilidade N01/N07. Nenhum critério de domínio ou estado de outras issues foi alterado.
 
-## 15/11/2026: S1, rascunho do lote Petit Lenormand 8–14 (issue #75)
+Validação documental: `git diff --check` passou; todos os links Markdown relativos resolvem; busca por referências aos três documentos operacionais removidos não encontrou ocorrências. Ambiente inventariado: Node.js 24.19.0. Nenhuma dependência foi instalada e não houve custo adicional. Não foram executados testes funcionais, revisão visual/áudio ou deploy por se tratar de alteração documental.
 
+No HEAD `9edcd6305e8e98e85e9536aada656a0f16e0362a`, o workflow de regressões/build concluiu com sucesso e o preview Vercel estava verde. Esses checks confirmam o build e a suíte automatizada da árvore, mas não representam revisão do conteúdo documental, qualidade funcional, revisão ou aceite humano. O relatório diário é um incremento documental posterior.
 
-A árvore combinada parte do PR #92, cujo predecessor é PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`). Os resultados finais locais estão no relatório diário. A cena, CSS e assets de áudio/arte continuam sem alterações desde a evidência visual histórica do PR #2. Não é uma inspeção visual/escuta nova em 09/11. Revisão e aceite de Pedro continuam pendentes.
+Resultado diário: 8 de até 24 unidades; déficit de 16. A consulta ao Project #7 não encontrou outra issue em `Pronto`. As próximas entregas de produto permanecem bloqueadas conforme o quadro, incluindo #15 por #7, #9 por #35 e `sofiee-agent-communication#8`, #34 por #15 e #80 por #27/#34. O rascunho documental não foi contado novamente.
 
-## 15/11/2026: S2, rascunho do lote Lenormand 19–25 (issue #77)
+Próxima ação: aguardar a revisão de Pedro do PR #102 e reavaliar a primeira issue de produto quando seus artefatos dependentes estiverem tecnicamente disponíveis e validados.
 
-Sete registros de texto e arte originais preparados para revisão, sem integração pública. A licença e atribuição de distribuição continuam pendentes de decisão de Pedro. A branch `codex/2026-11-15-77-lenormand-lot19-25` parte de `main` após os PRs #89 e #90 já integrados; não depende dos PRs #95–#97, que permanecem abertos para revisão. O PR #98 está aberto em rascunho; o relatório com base, validação e limites está em [PROGRESS-2026-11-15-ISSUE-77.md](PROGRESS-2026-11-15-ISSUE-77.md).
-
-Sete registros e exemplos de combinações para as posições 19–25 foram preparados no PR #98, sem integração pública. O relatório está em [PROGRESS-2026-11-15-ISSUE-77.md](PROGRESS-2026-11-15-ISSUE-77.md).
-
-Sete registros e exemplos de combinações para as posições 26–32 foram preparados no PR #99 sobre o #98. A branch inclui o HEAD atualizado do #98 e o teste combinado cobre posições 19–32. Relatório em [PROGRESS-2026-11-15-ISSUE-78.md](PROGRESS-2026-11-15-ISSUE-78.md).
-
-Quatro registros e exemplos de combinações para as posições 33–36 foram preparados no PR #100 sobre o #99. O teste combinado cobre as posições 19–36. Os três lotes permanecem sem licença final, revisão ou aceite e não formam catálogo pronto. Fechamento da rodada: 0/20 unidades em #75–#79; déficit de 8 à meta mínima por critérios humanos pendentes, não por falta de alteração local. Relatório em [PROGRESS-2026-11-15-ISSUE-79.md](PROGRESS-2026-11-15-ISSUE-79.md).
+## 08/11/2026: S1, ampliação acessível da biblioteca (issue #14)

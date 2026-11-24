@@ -1,10 +1,10 @@
-# Pesquisas recuperadas
+# Síntese da pesquisa de produto
 
-## Origem e estado
+## Corpus de referência e limites
 
-Em 17/10/2026 foram recuperados o pacote original `Velumbra-Projeto-Inicial.zip`, seus oito arquivos e o registro de pesquisa da conversa de definição do projeto. O ícone foi extraído do pacote original, sem nova geração ou edição. A instrução de geração está em [ASSETS.md](ASSETS.md).
+O pacote inicial `Velumbra-Projeto-Inicial.zip` continha oito arquivos e um ícone estático. O ícone foi extraído do pacote sem nova geração ou edição; sua proveniência está em [ASSETS.md](ASSETS.md). O registro estruturado de pesquisas está em [research-log.json](research-log.json).
 
-O registro inclui 14 chamadas à ferramenta de pesquisa, com consultas sobre cartomancia, direção visual e infraestrutura. As consultas e URLs explícitas estão em [research-log.json](research-log.json). Esse registro preserva a trilha da pesquisa, não uma cópia integral das páginas ou dos resultados retornados.
+O registro contém consultas sobre cartomancia, direção visual e infraestrutura, com URLs explícitas. Ele preserva a trilha de pesquisa, não uma cópia integral das páginas ou dos resultados retornados.
 
 O pacote inicial continha planejamento e um ícone estático. Não continha aplicação executável, catálogo completo, personagens animados ou integração de IA.
 
@@ -55,8 +55,8 @@ O registro original também contém pesquisas de Gemini. Essa opção não foi e
 - Nome e forma de tratamento, velha misteriosa animada, explicação de cada carta e veredito contextual.
 - Perguntas livres quando a IA estiver disponível; consultas guiadas quando estiver indisponível.
 - Aplicação e função de servidor na Vercel, dentro da viabilidade gratuita.
-- 20 sprints, testes e mudanças nas sprints 18 e 20 e MVP na sprint 19.
+- As vinte entregas históricas foram reconciliadas no ciclo de seis sprints definido em [DELIVERY_PLAN.md](DELIVERY_PLAN.md).
 - README técnico separado de [GAME.md](../GAME.md).
 - Planejamento em Markdown, sem Issues ou GitHub Projects.
 
-Todas as sprints continuam pendentes. A recuperação e a publicação da documentação são preparação para a sprint 1.
+As referências fundamentam decisões de conteúdo, ambientação e infraestrutura. A implementação e o aceite de cada requisito são rastreados no plano vigente e nos registros de progresso.
