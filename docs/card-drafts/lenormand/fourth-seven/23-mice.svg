@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc">
+  <title id="title">Os Ratos — rascunho original</title><desc id="desc">Pequenos roedores junto a um saco roído e grãos espalhados.</desc>
+  <rect width="240" height="336" fill="#e5d6b8"/><rect x="13" y="13" width="214" height="310" rx="8" fill="#30251f"/><rect x="22" y="22" width="196" height="292" fill="#aa9978"/>
+  <path d="M54 245q-4-69 58-87 41-13 75 15l-16 78z" fill="#685343" stroke="#30251f" stroke-width="7"/><path d="m105 165 16-37 20 34m-20 78q-29-38 4-55 26-9 38 17 8 27-18 40z" fill="#84705b" stroke="#30251f" stroke-width="6"/><circle cx="132" cy="205" r="4" fill="#30251f"/><path d="M149 228q27 20 36 2" fill="none" stroke="#30251f" stroke-width="5"/><path d="M67 241q-33 9-34-18t22-24" fill="none" stroke="#30251f" stroke-width="5"/><g fill="#bd8150"><ellipse cx="65" cy="274" rx="8" ry="4"/><ellipse cx="91" cy="283" rx="8" ry="4"/><ellipse cx="171" cy="270" rx="8" ry="4"/></g><text x="120" y="302" text-anchor="middle" fill="#f0dfbd" font-family="serif" font-size="17">XXIII · RATOS</text>
+</svg>
