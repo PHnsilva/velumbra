@@ -40,10 +40,21 @@ test('build Next.js serve a cabana e os módulos corretos sem publicar arquivos 
       : await readFile(new URL(`../src/${name}`,import.meta.url),'utf8');
     assert.equal(await resource.text(),expected);
   }
-  for(const path of ['/fonts/velumbra.ttf','/art/cabin-pixel.png','/art/elder-pixel.png','/audio/murmur-0.wav','/brand/velumbra-icon.png']) {
+  for(const path of ['/fonts/velumbra.ttf','/art/cabin-pixel.png','/art/elder-pixel.png','/brand/velumbra-icon.png']) {
     const resource=await fetch(origin+path);
     assert.equal(resource.status,200,path);
     assert.ok((await resource.arrayBuffer()).byteLength>0,path);
+  }
+  for(let index=0;index<4;index++) {
+    const path=`/audio/murmur-${index}.wav`;
+    const resource=await fetch(origin+path);
+    assert.equal(resource.status,200,path);
+    assert.match(resource.headers.get('content-type')||'',/audio\/wav/,path);
+    const bytes=await resource.arrayBuffer();
+    assert.ok(bytes.byteLength>44,path);
+    const header=new DataView(bytes);
+    assert.equal(header.getUint32(0,true),0x46464952,`${path} RIFF`);
+    assert.equal(header.getUint32(8,true),0x45564157,`${path} WAVE`);
   }
   for(const path of ['/scripts/prepare-runtime.mjs','/src/prologue.js','/.git/HEAD']) {
     assert.equal((await fetch(origin+path)).status,404,path);
