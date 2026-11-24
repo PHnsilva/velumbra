@@ -11,13 +11,15 @@ test('preparação limpa apenas o runtime gerado, publica a lista permitida e in
   assert.equal(dirname(fixture), tempRoot);
   assert.ok(basename(fixture).startsWith('velumbra-build-'));
   t.after(() => rm(fixture, {recursive:true,force:true}));
-  for(const dir of ['scripts','src','public/runtime','node_modules/esbuild']) await mkdir(join(fixture,dir),{recursive:true});
+  for(const dir of ['scripts','src','public/runtime','node_modules/esbuild','docs/card-drafts/lenormand']) await mkdir(join(fixture,dir),{recursive:true});
   await copyFile(new URL('../scripts/prepare-runtime.mjs',import.meta.url),join(fixture,'scripts/prepare-runtime.mjs'));
   await copyFile(new URL('../scripts/compile-decks.mjs',import.meta.url),join(fixture,'scripts/compile-decks.mjs'));
   for(const name of ['prologue.js','scene.js']) await writeFile(join(fixture,'src',name),`export const name='${name}';`);
   await writeFile(join(fixture,'src/decks.ts'),`export const decks = { rws: { count: 78 } } as const;`);
   await writeFile(join(fixture,'node_modules/esbuild/package.json'),JSON.stringify({name:'esbuild',version:'0.0.0',type:'module',exports:'./index.js'}));
-  await writeFile(join(fixture,'node_modules/esbuild/index.js'),`export function transformSync(source){return {code:source}}`);
+  await writeFile(join(fixture,'node_modules/esbuild/index.js'),`import {writeFileSync} from 'node:fs'; export function transformSync(source){return {code:source}};export function buildSync(options){writeFileSync(options.outfile,'export const playable=true;');}`);
+  for(const folder of ['', 'second-seven','third-four','fourth-seven','fifth-seven','last-four']) await mkdir(join(fixture,'docs/card-drafts/lenormand',folder),{recursive:true});
+  for(let n=1;n<=36;n++) await writeFile(join(fixture,'docs/card-drafts/lenormand',String(n).padStart(2,'0')+'-test.svg'),'<svg/>');
   await writeFile(join(fixture,'src/private.js'),'do not publish');
   await writeFile(join(fixture,'public/card.txt'),'preserve artwork');
   await writeFile(join(fixture,'public/runtime/obsolete.js'),'stale');
@@ -25,6 +27,8 @@ test('preparação limpa apenas o runtime gerado, publica a lista permitida e in
   prepare(fixture);
   await assert.rejects(readFile(join(fixture,'public/runtime/obsolete.js')),{code:'ENOENT'});
   await assert.rejects(readFile(join(fixture,'public/runtime/private.js')),{code:'ENOENT'});
+  assert.equal(await readFile(join(fixture,'public/art/cards/lenormand-preview/36-test.svg'),'utf8'),'<svg/>');
+  assert.match(await readFile(join(fixture,'public/runtime/consultation.js'),'utf8'),/playable/);
   for(const name of ['prologue.js','scene.js']) {
     assert.equal(await readFile(join(fixture,'public/runtime',name),'utf8'),await readFile(join(fixture,'src',name),'utf8'));
   }

@@ -10,4 +10,5 @@ coverage/
 !.env.example
 .DS_Store
 public/runtime/
+public/art/cards/lenormand-preview/
 *.tsbuildinfo

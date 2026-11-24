@@ -6,6 +6,7 @@ import net from 'node:net';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { compileDeckCatalog } from '../scripts/compile-decks.mjs';
+import { lenormandPreview } from '../src/playable-lenormand.ts';
 
 test('build Next.js serve a cabana e os módulos corretos sem publicar arquivos do projeto', {timeout:30000}, async t => {
   const socket=net.createServer();
@@ -59,4 +60,11 @@ test('build Next.js serve a cabana e os módulos corretos sem publicar arquivos 
   for(const path of ['/scripts/prepare-runtime.mjs','/src/prologue.js','/.git/HEAD']) {
     assert.equal((await fetch(origin+path)).status,404,path);
   }
+  const bundle=await fetch(origin+'/runtime/consultation.js');
+  assert.equal(bundle.status,200); assert.match(await bundle.text(),/createConsultation/);
+  for(const card of lenormandPreview.records) {
+    const image=await fetch(origin+card.art.assetPath);
+    assert.equal(image.status,200,card.id); assert.match(await image.text(),/<svg/);
+  }
+  assert.equal((await fetch(origin+'/docs/card-drafts/rws/01-fool.svg')).status,404);
 });

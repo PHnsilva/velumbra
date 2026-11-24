@@ -1,5 +1,6 @@
 import { decks } from './decks.js';
 import { createScene } from './scene.js';
+import { createConsultation } from './consultation.js';
 
 const $ = selector => document.querySelector(selector);
 const storageKey='velumbra.prologue.v1';
@@ -22,6 +23,7 @@ let introLeaving=false,lastTrigger=null,sound=null,soundAllowed=false,soundOpera
 let consultDraft=null;
 document.documentElement.dataset.motion=settings.motion;
 const scene=createScene({getMotion:()=>settings.motion,getSpeaking:()=>Boolean(sound?.currentVoice)});
+const consultation=createConsultation({document,setPanel,closePanel,scene,getMotion:()=>settings.motion});
 
 function hideBubble() {clearTimeout(bubbleTimer);$('#whisper').hidden=true;}
 function intro() {
@@ -65,6 +67,7 @@ function setNameError(inputSelector,errorSelector,message='') {
 function updateName() {$('#table-name').value=settings.profile?.name||'';setNameError('#table-name','#name-error');}
 
 function setPanel(title,content) {
+  consultation.cancelPending();
   hideBubble();stopVoice();playPaper();
   $('#panel-title').textContent=title;$('#panel-content').innerHTML=content;
   if(!panel.open) panel.showModal();
@@ -72,7 +75,7 @@ function setPanel(title,content) {
 }
 function closePanel() {panel.close();}
 $('#close-panel').addEventListener('click',closePanel);
-panel.addEventListener('close',()=>{consultDraft=null;lastTrigger?.focus({preventScroll:true});});
+panel.addEventListener('close',()=>{consultation.cancelPending();consultDraft=null;lastTrigger?.focus({preventScroll:true});});
 panel.addEventListener('click',event=>{
   if(event.target!==panel) return;
   const r=panel.getBoundingClientRect();
@@ -80,14 +83,14 @@ panel.addEventListener('click',event=>{
 });
 document.querySelectorAll('[data-panel]').forEach(button=>button.addEventListener('click',()=>{
   lastTrigger=button;
-  ({decks:()=>showDecks(settings.profile?.deck||'rws'),journal:showJournal,settings:showSettings})[button.dataset.panel]?.();
+  ({play:consultation.showSetup,decks:()=>showDecks(settings.profile?.deck||'rws'),journal:showJournal,settings:showSettings})[button.dataset.panel]?.();
 }));
 function showConsult(selected=consultDraft?.deck||settings.profile?.deck||'rws') {
   consultDraft={...(consultDraft||settings.profile||{name:normalizeName($('#table-name').value),treatment:'neutral'}),deck:selected};
   setPanel('Seu lugar',`<form id="consult-form">
     <div class="form-grid"><label class="field" for="visitor-name">Nome<input id="visitor-name" autocomplete="given-name" minlength="2" maxlength="32" required aria-describedby="profile-error"></label><label class="field" for="treatment">Tratamento<select id="treatment"><option value="neutral">Neutro / não informar</option><option value="feminine">Feminino</option><option value="masculine">Masculino</option></select></label></div>
     <fieldset><legend>Baralho</legend><div class="deck-options">${Object.entries(decks).map(([id,deck])=>`<label class="deck-radio"><input type="radio" name="deck" value="${id}" ${id===selected?'checked':''}><span><strong>${deck.short}</strong><small>${deck.count} cartas</small></span></label>`).join('')}</div></fieldset>
-    <p id="profile-error" class="error" role="alert" hidden></p><p class="scope-note">O prólogo permite salvar suas preferências e examinar amostras. As tiragens ainda não estão disponíveis.</p>
+    <p id="profile-error" class="error" role="alert" hidden></p><p class="scope-note">Petit Lenormand já permite consultas guiadas em edição de teste. Os outros baralhos têm amostras. Você também pode jogar sem informar um nome pelo botão Consultar.</p>
     <div class="actions"><button class="action-button" type="submit">Salvar</button><button class="action-button secondary" type="button" id="consult-decks">Ver baralhos</button></div></form>`);
   $('#visitor-name').value=consultDraft.name;
   $('#treatment').value=consultDraft.treatment;
@@ -104,7 +107,8 @@ function showConsult(selected=consultDraft?.deck||settings.profile?.deck||'rws')
   });
 }
 function showSaved() {
-  setPanel('Preferências salvas',`<p class="panel-lead" id="saved-name"></p><div class="prepared-deck"><span>Baralho</span><strong>${decks[settings.profile.deck].name}</strong></div><p class="scope-note">${storageAvailable?'Dados salvos somente neste navegador.':'O armazenamento está indisponível. Os dados valem para esta sessão.'} O sorteio e a interpretação ainda estão em preparação.</p><div class="actions"><button class="action-button" id="saved-decks">Ver amostras</button><button class="action-button secondary" id="saved-back">Voltar</button></div>`);
+  setPanel('Preferências salvas',`<p class="panel-lead" id="saved-name"></p><div class="prepared-deck"><span>Baralho preferido</span><strong>${decks[settings.profile.deck].name}</strong></div><p class="scope-note">${storageAvailable?'Dados salvos somente neste navegador.':'O armazenamento está indisponível. Os dados valem para esta sessão.'} A edição jogável usa Petit Lenormand; as outras tradições continuam em preparação.</p><div class="actions"><button class="action-button" id="saved-play">Jogar com Lenormand</button><button class="action-button secondary" id="saved-decks">Ver amostras</button><button class="action-button secondary" id="saved-back">Voltar</button></div>`);
+  $('#saved-play').addEventListener('click',consultation.showSetup);
   $('#saved-name').textContent=settings.profile.name;
   $('#saved-decks').addEventListener('click',()=>showDecks(settings.profile.deck));$('#saved-back').addEventListener('click',closePanel);
 }
@@ -114,6 +118,10 @@ function showDecks(selected,{returnToConsult=false}={}) {
   document.querySelectorAll('[data-sample-index]').forEach(button=>button.addEventListener('click',()=>{
     showDeckSample(selected,Number(button.dataset.sampleIndex),{returnToConsult});
   }));
+  if(selected==='lenormand') {
+    $('#deck-details').insertAdjacentHTML('beforeend','<button class="action-button" type="button" id="lenormand-full">Examinar as 36 cartas</button>');
+    $('#lenormand-full').addEventListener('click',consultation.showLibrary);
+  }
   document.querySelectorAll('[data-deck]').forEach(tab=>{
     tab.addEventListener('click',()=>{showDecks(tab.dataset.deck,{returnToConsult});$(`#tab-${tab.dataset.deck}`).focus();});
     tab.addEventListener('keydown',event=>{
@@ -138,8 +146,7 @@ function showDeckSample(selected,index,{returnToConsult=false}={}) {
   });
 }
 function showJournal() {
-  setPanel('Diário',`<div class="empty-journal"><h3>Nenhuma leitura registrada.</h3><p>As consultas aparecerão aqui quando as tiragens estiverem disponíveis.</p></div><p class="scope-note">Nome e baralho são preferências, não consultas. Nenhum dado é enviado a um serviço de interpretação nesta versão.</p><div class="actions"><button class="action-button" id="journal-back">Voltar</button></div>`);
-  $('#journal-back').addEventListener('click',closePanel);
+  consultation.showJournal();
 }
 function showSettings() {
   setPanel('Som e movimento',`<label class="setting-row" for="setting-sound"><span><h3>Som</h3><p>Vento, madeira e grunhidos sem palavras.</p></span><input class="switch" type="checkbox" id="setting-sound" ${soundAllowed?'checked':''}></label><label class="setting-row" for="setting-volume"><span><h3>Volume</h3><p id="volume-value">${settings.volume}%</p></span><input class="volume-control" type="range" id="setting-volume" min="0" max="100" value="${settings.volume}" aria-label="Volume do ambiente"></label><label class="setting-row" for="setting-motion"><span><h3>Reduzir movimento</h3><p>Pausa a velha, velas, névoa e partículas.</p></span><input class="switch" type="checkbox" id="setting-motion" ${settings.motion==='reduced'?'checked':''}></label><div class="setting-row"><span><h3>Abertura</h3></span><button class="action-button secondary" id="settings-replay">Rever</button></div><div class="setting-row"><span><h3>Identificação</h3><p>Apagar nome, tratamento e baralho.</p></span><button class="action-button secondary" id="forget-profile">Limpar</button></div><p class="setting-info">${storageAvailable?'Preferências salvas somente neste navegador.':'Armazenamento indisponível. Os ajustes valem para esta sessão.'}</p>`);

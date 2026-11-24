@@ -54,6 +54,16 @@ export function drawReading(
   size: SpreadSize,
   random: RandomSource = globalThis.crypto,
 ): ReadingSpread {
+  return drawCatalog(input, size, random, false);
+}
+
+/** Explicit test edition; does not mark the editorial records as reviewed. */
+export function drawLenormandPreview(input: CardCatalogBatch, size: SpreadSize, random: RandomSource = globalThis.crypto): ReadingSpread {
+  if (input.deckId !== 'lenormand') throw new DrawError('catalog-invalid', 'A edição de teste aceita somente Petit Lenormand.');
+  return drawCatalog(input, size, random, true);
+}
+
+function drawCatalog(input: CardCatalogBatch, size: SpreadSize, random: RandomSource, editorialPreview: boolean): ReadingSpread {
   if (size !== 1 && size !== 3) throw new DrawError('unsupported-spread', 'A tiragem aceita uma ou três cartas.');
   if (!random || typeof random.getRandomValues !== 'function') {
     throw new DrawError('secure-random-unavailable', 'Sorteio seguro indisponível neste ambiente.');
@@ -64,7 +74,7 @@ export function drawReading(
   if (input.scope !== 'complete-deck' || input.records.length !== decks[input.deckId].count) {
     throw new DrawError('catalog-incomplete', 'A tiragem exige o catálogo completo da tradição selecionada.');
   }
-  if (!validation.editoriallyReady) {
+  if (!validation.editoriallyReady && !editorialPreview) {
     throw new DrawError('catalog-unreviewed', 'A tiragem exige conteúdo e arte documentados e revisão editorial concluída.');
   }
 
