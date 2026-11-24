@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Buquê — rascunho</title><desc id="desc">Flores simples amarradas por uma faixa bordô, oferecidas num vaso de papel.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">IX</text>
+  <path d="M115 139h10v96h-10zM81 154h9l32 67-8 4zM149 154h9l-33 71-8-4z" fill="#778265"/>
+  <path d="M103 120h20v-12h12v20h-12v12h-20v-12H91v-20h12zM68 149h19v-11h11v19H87v11H68v-11H57v-19h11zM143 150h19v-11h11v19h-11v11h-19v-11h-11v-19h11z" fill="#cb8e3c"/>
+  <path d="M97 234h46l-8 34h-30z" fill="#4c1b2b"/><rect x="107" y="238" width="26" height="6" fill="#778265"/><text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O BUQUÊ</text>
+</svg>
