@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Cão — rascunho</title><desc id="desc">Um cão sentado olha em direção ao visitante com uma coleira bordô.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">XVIII</text>
+  <path d="M78 170h87v57h-13v26h-17v-39h-28v39H91v-28H78zM72 159h20v27H72zM153 159h19v33h-19z" fill="#778265"/>
+  <path d="M78 160l12 5v20l-10 7-7-9zM156 163l11-5 5 23-9 8-7-8z" fill="#4c1b2b"/>
+  <rect x="102" y="180" width="7" height="7" fill="#211c1b"/><rect x="140" y="180" width="7" height="7" fill="#211c1b"/><path d="M108 190h34v14h-34z" fill="#e4d2ad"/><path d="M119 190h12v7h-12z" fill="#211c1b"/>
+  <path d="M104 210h40v8h-40z" fill="#4c1b2b"/><rect x="121" y="218" width="7" height="8" fill="#cb8e3c"/>
+  <path d="M68 248h107v7H68zM84 264h75v5H84zM163 217h16v7h-16zM176 211h8v9h-8z" fill="#cb8e3c"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O CÃO</text>
+</svg>

@@ -103,3 +103,7 @@ Na base provisória PR #90 → #89 → #3 → #2 → #1, `npm run check`, `npm r
 ## 15/11/2026: S1, rascunho do lote Petit Lenormand 8–14 (issue #75)
 
 Foram preparados sete resumos e sete desenhos SVG originais para as posições editoriais 8–14. O lote tipado permanece como rascunho, com licença e revisão pendentes, fora do caminho público. PR [#96](https://github.com/PHnsilva/velumbra/pull/96), em rascunho no commit de implementação `6301e332512d6f114868d3d098ca526c96b075f2`, está empilhado sobre PR #95. Em árvore combinada, `npm run check`, `npm run build`, `npm test` (19/19) e `git diff --check` passaram. A montagem local das ilustrações foi examinada; não houve inspeção do aplicativo. O relatório [PROGRESS-2026-11-15-ISSUE-75.md](PROGRESS-2026-11-15-ISSUE-75.md) registra a base, limites e próxima ação. Issue #75 M segue incompleta, com 0/4 pontos contados nesta issue.
+
+## 15/11/2026: S1, rascunho do lote Petit Lenormand 15–18 (issue #76)
+
+Foram preparados quatro resumos e quatro desenhos SVG originais para as posições editoriais 15–18. O lote tipado permanece rascunho e não foi incorporado ao caminho público. PR [#97](https://github.com/PHnsilva/velumbra/pull/97) está em rascunho e empilhado sobre PR #96. Na árvore combinada dos lotes #74–#76, `npm run check`, `npm run build`, `npm test` (20/20) e `git diff --check` passaram. A montagem local das artes foi examinada, sem declarar inspeção do aplicativo. A licença e a revisão humana seguem pendentes; issues #75 e #76 totalizam 0/8 nesta rodada.
