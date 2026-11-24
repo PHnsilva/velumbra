@@ -109,7 +109,10 @@ function showSaved() {
 }
 function showDecks(selected,{returnToConsult=false}={}) {
   const deck=decks[selected];
-  setPanel('Baralhos',`<div role="tablist" aria-label="Tradições de cartomancia" class="deck-tabs">${Object.entries(decks).map(([id,d])=>`<button role="tab" class="deck-tab" id="tab-${id}" aria-selected="${id===selected}" aria-controls="deck-details" tabindex="${id===selected?'0':'-1'}" data-deck="${id}">${d.short}</button>`).join('')}</div><section role="tabpanel" id="deck-details" aria-labelledby="tab-${selected}" tabindex="0"><p class="deck-description">${deck.description}</p><p class="deck-facts">${deck.facts}</p><h3 class="sample-heading">Amostra: três cartas</h3><div class="card-samples">${deck.samples.map(c=>`<article class="sample-card"><span class="sample-number">${c.n}</span><span class="sample-symbol" aria-hidden="true">${c.symbol}</span><h3>${c.name}</h3><p>${c.text}</p></article>`).join('')}</div><p class="scope-note">A coleção completa e suas ilustrações ainda estão em preparação. O sentido das cartas depende da pergunta e da tiragem.</p></section><div class="actions"><button class="action-button" id="deck-choose">Escolher baralho</button><button class="action-button secondary" id="deck-back">Voltar</button></div>`);
+  setPanel('Baralhos',`<div role="tablist" aria-label="Tradições de cartomancia" class="deck-tabs">${Object.entries(decks).map(([id,d])=>`<button role="tab" class="deck-tab" id="tab-${id}" aria-selected="${id===selected}" aria-controls="deck-details" tabindex="${id===selected?'0':'-1'}" data-deck="${id}">${d.short}</button>`).join('')}</div><section role="tabpanel" id="deck-details" aria-labelledby="tab-${selected}" tabindex="0"><p class="deck-description">${deck.description}</p><p class="deck-facts">${deck.facts}</p><h3 class="sample-heading">Amostra: três cartas</h3><div class="card-samples">${deck.samples.map((c,index)=>`<article class="sample-card"><span class="sample-number">${c.n}</span><span class="sample-symbol" aria-hidden="true">${c.symbol}</span><h3>${c.name}</h3><p>${c.text}</p><button class="sample-expand" type="button" data-sample-index="${index}" aria-label="Ampliar carta ${c.name}">Ampliar</button></article>`).join('')}</div><p class="scope-note">A coleção completa e suas ilustrações ainda estão em preparação. O sentido das cartas depende da pergunta e da tiragem.</p></section><div class="actions"><button class="action-button" id="deck-choose">Escolher baralho</button><button class="action-button secondary" id="deck-back">Voltar</button></div>`);
+  document.querySelectorAll('[data-sample-index]').forEach(button=>button.addEventListener('click',()=>{
+    showDeckSample(selected,Number(button.dataset.sampleIndex),{returnToConsult});
+  }));
   document.querySelectorAll('[data-deck]').forEach(tab=>{
     tab.addEventListener('click',()=>{showDecks(tab.dataset.deck,{returnToConsult});$(`#tab-${tab.dataset.deck}`).focus();});
     tab.addEventListener('keydown',event=>{
@@ -123,6 +126,15 @@ function showDecks(selected,{returnToConsult=false}={}) {
   $('#deck-choose').addEventListener('click',()=>showConsult(selected));
   $('#deck-back').textContent=returnToConsult?'Voltar à identificação':'Voltar';
   $('#deck-back').addEventListener('click',()=>returnToConsult?showConsult():closePanel());
+}
+function showDeckSample(selected,index,{returnToConsult=false}={}) {
+  const deck=decks[selected],card=deck.samples[index];
+  if(!card)return;
+  setPanel(`${deck.short}: ${card.name}`,`<article class="expanded-sample" aria-label="Detalhes da amostra ${card.name}"><p class="expanded-sample-number">Carta ${card.n}</p><span class="expanded-sample-symbol" aria-hidden="true">${card.symbol}</span><p class="expanded-sample-description">${card.text}</p></article><div class="actions"><button class="action-button secondary" id="sample-return">Voltar às amostras</button></div>`);
+  $('#sample-return').addEventListener('click',()=>{
+    showDecks(selected,{returnToConsult});
+    $(`[data-sample-index="${index}"]`).focus({preventScroll:true});
+  });
 }
 function showJournal() {
   setPanel('Diário',`<div class="empty-journal"><h3>Nenhuma leitura registrada.</h3><p>As consultas aparecerão aqui quando as tiragens estiverem disponíveis.</p></div><p class="scope-note">Nome e baralho são preferências, não consultas. Nenhum dado é enviado a um serviço de interpretação nesta versão.</p><div class="actions"><button class="action-button" id="journal-back">Voltar</button></div>`);
