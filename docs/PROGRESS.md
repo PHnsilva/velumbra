@@ -108,3 +108,5 @@ A árvore combinada parte do PR #92, cujo predecessor é PR #3 (`14fc529e8dd355a
 ## 15/11/2026: S2, rascunho do lote Lenormand 19–25 (issue #77)
 
 Sete registros de texto e arte originais preparados para revisão, sem integração pública. A licença e atribuição de distribuição continuam pendentes de decisão de Pedro. A branch `codex/2026-11-15-77-lenormand-lot19-25` parte de `main` após os PRs #89 e #90 já integrados; não depende dos PRs #95–#97, que permanecem abertos para revisão. O PR #98 está aberto em rascunho; o relatório com base, validação e limites está em [PROGRESS-2026-11-15-ISSUE-77.md](PROGRESS-2026-11-15-ISSUE-77.md).
+
+Mais sete rascunhos e exemplos de combinações para as posições 26–32 da issue #78 foram empilhados no PR #99 sobre o #98 para manter a cronologia e testar as posições 19–32 em conjunto. O incremento está em [PROGRESS-2026-11-15-ISSUE-78.md](PROGRESS-2026-11-15-ISSUE-78.md); licença, revisão e aceite continuam pendentes.
