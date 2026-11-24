@@ -109,3 +109,40 @@ Resultado diário: 8 de até 24 unidades; déficit de 16. A consulta ao Project 
 Próxima ação: aguardar a revisão de Pedro do PR #102 e reavaliar a primeira issue de produto quando seus artefatos dependentes estiverem tecnicamente disponíveis e validados.
 
 ## 08/11/2026: S1, ampliação acessível da biblioteca (issue #14)
+
+
+Branch `codex/2026-11-08-14-library-enlargement`, baseada provisoriamente no HEAD do PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`), que por sua vez depende de #2 e #1. A biblioteca mantém as três amostras por tradição e agora permite abrir uma carta ampliada com símbolo e descrição. O botão de ampliação tem nome acessível; o retorno restaura a tradição, a lista e o foco na amostra acionada. Nenhum conteúdo de carta ou arte nova foi criado. A implementação e as verificações deste incremento estão em [PROGRESS-2026-11-08-ISSUE-14.md](PROGRESS-2026-11-08-ISSUE-14.md).
+
+Validação em Node 24.19.0/npm 11.17.0: instalação offline pelo lockfile; `npm run check`, `npm run build` e `npm test` passaram (12/12). Os testes novos cobrem rótulo do botão, amostra Lenormand XXXII, descrição, retorno, foco e preservação do rascunho após escolha explícita. A inspeção visual real em desktop/celular não foi concluída porque o controle do navegador encerrou por não conseguir determinar a URL ativa; não se declara aprovação visual. PR [#92](https://github.com/PHnsilva/velumbra/pull/92) aberto para revisão e CI passou no HEAD registrado; sem integração ou aceite de Pedro.
+
+## 09/11/2026: S1, validação da cabana, som e movimento (issue #11)
+
+Issue L (8 unidades), sobre assets e comportamento já existentes. A rodada acrescenta teste do controlador de som/volume/movimento reduzido, fallback acessível sem AudioContext, execução do renderizador com movimento reduzido e checagem dos quatro WAV no servidor. Nenhum asset ou código de produto foi refeito. O incremento foi empilhado sobre o PR #92 para preservar o diário cronológico; a base combinada é documentada em [PROGRESS-2026-11-09-ISSUE-11.md](PROGRESS-2026-11-09-ISSUE-11.md).
+
+A árvore combinada parte do PR #92, cujo predecessor é PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`). Os resultados finais locais estão no relatório diário. A cena, CSS e assets de áudio/arte continuam sem alterações desde a evidência visual histórica do PR #2. Não é uma inspeção visual/escuta nova em 09/11. Revisão e aceite de Pedro continuam pendentes.
+
+
+## 17/11/2026: validação atual da fundação (issue #7)
+
+Issue #7, S1, tamanho L (8 unidades). Atualização do PR documental existente #10, sem abrir PR duplicado nem alterar código de produto. Base técnica: `main` em `2ae7f27c7621c3bc725a67b448b71cf3f9bc7d1c`, que já contém os PRs #1, #2, #3, #92 e #93. A execução ocorreu no worktree isolado em `C:\DevData\Codex\worktrees\velumbra-2026-11-17-s1-visual`, Node.js 24.19.0, npm 11.17.0, dependências exatamente do lockfile.
+
+Validação executada hoje: `npm ci` instalou 66 pacotes e auditou 67; `npm run build` passou com Next.js 16.4.3; `npm run check` passou; `npm test` passou com 20/20, incluindo o teste do servidor HTTP após o build. `npm audit` encontrou vulnerabilidade moderada na dependência de produção Next.js 16.4.3 (GHSA-mfr8-8qww-v76h e GHSA-vc7v-qv4w-wrv8). Os avisos oficiais listam correção em 16.4.5; o projeto fixa 16.4.3 no `package.json` e lockfile. Nenhuma versão foi alterada nesta rodada. O build completou com aviso de segurança; essa validação técnica não remove o achado do audit.
+
+A revisão visual em desktop/celular não foi executada: o navegador integrado não permite abrir nova aba nesta sessão. Não reutilizei a aba pessoal existente. O roteiro manual em `docs/REVIEW_CHECKLIST_S01.md` permanece pendente para inspeção real. Não há evidência de aceite humano. GitHub Actions passou no HEAD `b0c9033820d6a5f2a6057e182b13c5f0b5d0ff67` (run `44144927916`), e o preview Vercel ficou pronto. Esses checks não substituem inspeção visual nem aceite humano.
+
+Resultado do incremento: evidência atualizada e reproduzível da base técnica; a issue #7 permanece em revisão, sem aceite. Pontos da issue creditados nesta rodada: 0/8, pois falta a revisão visual e a decisão de Pedro sobre o pin vulnerável. Próximo passo: Pedro definir a atualização segura do Next.js e executar a revisão visual guiada; depois, repetir build e testes na base atualizada.
+### Complemento de 17/11/2026: correção autorizada do Next.js
+
+Após a revisão da evidência, Pedro autorizou atualizar o pin de `next` 16.4.3 para 16.4.5 na issue #7. O `package.json` e o lockfile agora fixam a versão corrigida; a alteração permanece no PR #10 e não muda React, os contratos do jogo ou a sequência #1 → #2 → #3.
+
+Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes; `npm audit` passou sem vulnerabilidades; `npm run build` e `npm run check` passaram; `npm test` passou com 20/20, inclusive o teste HTTP após o build. A versão 16.4.5 está documentada como corrigida para [GHSA-mfr8-8qww-v76h](https://github.com/vercel/next.js/security/advisories/GHSA-mfr8-8qww-v76h) e [GHSA-vc7v-qv4w-wrv8](https://github.com/vercel/next.js/security/advisories/GHSA-vc7v-qv4w-wrv8); a auditoria atual não reporta vulnerabilidades.
+
+A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
+
+## 18/11/2026: S2, domínio de tiragem e diário local (issue #15)
+
+Implementação parcial estimada em 4/8 unidades da issue #15 (L), no [PR #103](https://github.com/PHnsilva/velumbra/pull/103), draft. O commit de implementação `c22387bf68a3ad460bb72c944f0cc0f7bf05cd7a` está empilhado no HEAD tecnicamente validado do PR #10; issue #7 segue em revisão, sem aceite.
+
+Validação local em Node.js 24.19.0/npm 11.17.0: `npm ci` (66 pacotes, 0 vulnerabilidades), `npm run build`, `npm run check` e `npm test` (27/27) passaram no worktree da branch de issue #15. Fixtures completas são sintéticas e exclusivas dos testes. O código falha fechado enquanto os catálogos completos e editorialmente revisados não existirem.
+
+Limites: a tela e o armazenamento do navegador ainda não estão conectados aos módulos; faltam os dados editoriais das 270 cartas e a inspeção visual real desktop/celular. A issue #15 não está concluída nem aceita. Próximo passo: acompanhar CI/revisão do PR #103 e continuar a integração visual e a validação de recuperação com armazenamento real.
