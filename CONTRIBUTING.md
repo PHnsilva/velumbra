@@ -1,7 +1,5 @@
 # Contribuição
 
-<!-- BEGIN GOVERNANCE 2026-11-06 -->
-## Fluxo obrigatório e revisão do proprietário
+O fluxo de contribuição do Velumbra está definido em [docs/CONTRIBUTION_POLICY.md](docs/CONTRIBUTION_POLICY.md). Cada alteração de produto tem uma issue com escopo, tamanho, dependências e critérios de aceite, uma branch própria, verificações proporcionais e um pull request rastreável.
 
-Leia [a política de implementação e contribuição](docs/CONTRIBUTION_POLICY.md). Toda alteração após o bootstrap exige issue definida, branch e PR. As issues têm tamanho PP/P/M/L (1/2/4/8), justificativa, sprint, dependências e critérios de aceite. Somente Pedro (PHnsilva) revisa/aprova PRs e aceita issues; agentes não aprovam, não fazem merge/auto-merge nem publicam por conta própria. Instruções atuais do proprietário sobre pausas, prioridade e data de início prevalecem sobre referências históricas.
-<!-- END GOVERNANCE 2026-11-06 -->
+As convenções de validação estão em [AGENTS.md](AGENTS.md). O progresso, os resultados de validação, os limites e as pendências ficam em [docs/PROGRESS.md](docs/PROGRESS.md). A abertura de um PR ou a aprovação de verificações automatizadas não substitui a revisão humana e o aceite.

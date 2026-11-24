@@ -1,0 +1,16 @@
+import type { CardCatalogBatch, CardCatalogRecord } from "../card-catalog";
+import { CARD_CATALOG_SCHEMA_VERSION } from "../card-catalog";
+const reference = "A. E. Waite, The Pictorial Key to the Tarot (1910), trunfos XIV–XX; consultado para sequência e vocabulário, sem reprodução de frases ou imagens. https://www.willemwitteveen.com/wp-content/uploads/2018/12/The-Pictorial-Key-to-the-Tarot.pdf";
+const author = "Codex (assistente de IA; rascunho, revisão editorial pendente)";
+const pendingReview = {state:"pending",reviewer:null,reviewedAt:null,checklist:{identity:false,numbering:false,tradition:false,content:false,art:false,provenance:false}} as const satisfies CardCatalogRecord["review"];
+function draft(position:number,numberLabel:string,slug:string,name:string,summary:string,symbols:string[],artFile:string):CardCatalogRecord{return{id:"rws:"+slug,deckId:"rws",position,numberLabel,name,content:{summary,symbols,origin:"original",provenance:{state:"pending",author,references:[reference]}},art:{assetPath:"/art/cards/rws/"+artFile,origin:"original",provenance:{state:"pending",creator:author,license:null,evidence:[]}},review:pendingReview}}
+export const rwsThirdSevenDraft:CardCatalogBatch={schemaVersion:CARD_CATALOG_SCHEMA_VERSION,deckId:"rws",batchId:"rws-major-arcana-positions-15-21-draft",scope:"batch",records:[
+draft(15,"XIV","temperance","A Temperança","Misturar ritmos, recursos ou perspectivas exige atenção às proporções e ao que cada parte precisa. Ajustes graduais podem ser mais sustentáveis que extremos.",["medida","integração","ajuste"],"15-temperance.svg"),
+draft(16,"XV","devil","O Diabo","Apego, hábito ou acordo pode parecer inevitável quando seus custos ficam fora de vista. Nomear limites e alternativas devolve espaço para escolha.",["apego","limites","escolha"],"16-devil.svg"),
+draft(17,"XVI","tower","A Torre","Uma estrutura pode revelar fragilidades quando submetida à pressão. Interromper, proteger o que importa e reconstruir com evidências são respostas possíveis.",["ruptura","estrutura","reconstrução"],"17-tower.svg"),
+draft(18,"XVII","star","A Estrela","Depois de um período difícil, pequenas fontes de cuidado podem apoiar recuperação e confiança. Esperança pode coexistir com passos concretos e incerteza.",["esperança","cuidado","recomposição"],"18-star.svg"),
+draft(19,"XVIII","moon","A Lua","Ambiguidade e imaginação podem ampliar receios quando faltam informações. Separar observação de hipótese ajuda a atravessar a incerteza sem tratá-la como prova.",["ambiguidade","imaginação","cautela"],"19-moon.svg"),
+draft(20,"XIX","sun","O Sol","Clareza, energia e reconhecimento podem favorecer encontros e projetos. Aproveitar o momento inclui cuidar daquilo que torna esse bem-estar possível.",["clareza","vitalidade","partilha"],"20-sun.svg"),
+draft(21,"XX","judgement","O Julgamento","Revisitar uma história pode ajudar a reconhecer consequências, aprendizados e responsabilidades. Responder ao chamado de mudança não apaga o que aconteceu.",["revisão","responsabilidade","mudança"],"21-judgement.svg")
+]};
+export const rwsThirdDraftArtwork=["15-temperance.svg","16-devil.svg","17-tower.svg","18-star.svg","19-moon.svg","20-sun.svg","21-judgement.svg"] as const;

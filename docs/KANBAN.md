@@ -1,75 +1,36 @@
-# Kanban do Velumbra
+# Organização do trabalho
 
-[Abrir o quadro oficial](https://github.com/users/PHnsilva/projects/7/views/1) · [Issues](https://github.com/PHnsilva/velumbra/issues)
+O [Project #7](https://github.com/users/PHnsilva/projects/7/views/1) organiza as issues do repositório. O [repositório de issues](https://github.com/PHnsilva/velumbra/issues) mantém os critérios, dependências, discussões e vínculos com pull requests. O Project apresenta o estado atual; esta página descreve o significado de seus campos e estados, sem replicar uma fotografia do quadro.
 
-## Estado conferido em 01/11/2026
+## Estados
 
-O Project #7 foi vinculado a `PHnsilva/velumbra` e recebeu 4 issues abertas reais, sem duplicar PRs como entregas. Foram salvos campos Status, Prioridade, Área e Bloqueio e visões de Kanban, backlog/dependências e revisão/validação. Issues e Project são a fonte operacional; esta documentação não replica seu estado em tempo real.
+| Estado | Significado |
+| ------ | ----------- |
+| Backlog | Necessidade registrada; refinamento, dependência ou decisão ainda pode faltar. |
+| Pronto | Resultado, critérios, validação e pré-requisitos estão definidos. |
+| Em andamento | A implementação da entrega está ativa. |
+| Em revisão | Um artefato e suas evidências estão disponíveis para revisão humana. |
+| Em validação | A revisão foi realizada; ainda falta validar critérios no ambiente ou experiência alvo. |
+| Concluído | Critérios e aceite humano foram registrados. |
 
-A GitHub CLI foi autenticada pelo proprietário no D: e permite operar o quadro em segundo plano. O MCP do GitHub atende às operações disponíveis de repositório/issues/PRs. Não depende de manter o Edge em primeiro plano.
+O estado Em revisão não equivale a aceite. A abertura, atualização ou integração de um PR não fecha uma issue automaticamente. O aceite e o fechamento permanecem ligados à confirmação dos critérios pela pessoa responsável.
 
-## Objetivo e decisões de produto
+## Campos
 
-Preservar o escopo vigente de cartomancia interativa com quatro tradições, personagem/cena animadas, diário local e interpretação opcional. O proprietário pediu discutir este escopo por último; as 20 entregas do planejamento continuam registradas sem novas datas ou redução silenciosa.
+| Campo | Uso |
+| ----- | --- |
+| Sprint | Agrupamento planejado da entrega no ciclo. |
+| Tamanho | Estimativa PP, P, M ou L; deve corresponder à label `size:*` da issue. |
+| Pontos | Valor relativo correspondente ao tamanho: 1, 2, 4 ou 8. |
+| Prioridade | Ordem relativa de atenção; não define esforço nem substitui dependências. |
+| Área | Domínio principal da entrega. |
+| Bloqueio | Condição que impede o próximo passo e a evidência necessária para removê-la. |
+| Base técnica | Commit ou PR que fornece o artefato técnico usado provisoriamente, com limitações. |
 
-Escopos e sprints serão discutidos com Pedro um projeto por vez, com Velumbra por último. Nenhum compromisso semanal, prazo final, esforço ou atribuição humana foi inventado. Prioridades iniciais organizam o trabalho já conhecido e serão revisadas nessa conversa.
+Uma dependência aponta do consumidor para o pré-requisito. O corpo da issue descreve o artefato necessário e sua condição de liberação; a relação nativa do GitHub fornece rastreabilidade adicional. Agrupamentos, prioridades e posicionamento não substituem dependências.
 
-## Fluxo
+## Estrutura do ciclo
 
-| Fase         | Critério                                                              |
-| ------------ | --------------------------------------------------------------------- |
-| Backlog      | Necessidade registrada; podem faltar refinamento ou decisões.         |
-| Pronto       | Escopo, aceite e validação claros; pré-requisitos disponíveis.        |
-| Em andamento | Entrega selecionada; limite inicial de uma implementação por projeto. |
-| Em revisão   | PR/artefato concreto e evidências disponíveis para Pedro revisar.     |
-| Em validação | Revisão realizada; falta aceite no ambiente ou experiência alvo.      |
-| Concluído    | Critérios, integração e aceite humano comprovados.                    |
+O ciclo inicial e a correspondência entre suas entregas estão definidos em [DELIVERY_PLAN.md](DELIVERY_PLAN.md) e [SPRINTS.md](SPRINTS.md). O plano mantém cinco sprints de entrega e uma sprint de validação extra e mudanças, sem declarar concluído qualquer item apenas por estar planejado.
 
-Bloqueios preservam a fase e registram motivo, quem resolve, próxima ação e evidência de desbloqueio. O número da issue não define ordem técnica. Agrupamento/subissue não substitui dependência.
-
-Automações de fechar issue, mover por vínculo de PR e mover por merge foram retiradas para preservar o fluxo de revisão/aceite. Fechamento manual de issue aceita pode atualizar o quadro; não usar movimento de cartão como prova de conclusão. Não há autoaprovação ou auto-merge.
-
-## Contratos e dependências iniciais
-
-| Issue                                               | Pré-requisitos/decisões                                                        |
-| --------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [#4](https://github.com/PHnsilva/velumbra/issues/4) | Sem bloqueio técnico registrado; consultar o contrato atual da issue.          |
-| [#5](https://github.com/PHnsilva/velumbra/issues/5) | Decidir necessidade e arquitetura MCP antes de implementar.                    |
-| [#6](https://github.com/PHnsilva/velumbra/issues/6) | Sem bloqueio técnico registrado; consultar o contrato atual da issue.          |
-| [#7](https://github.com/PHnsilva/velumbra/issues/7) | Bloqueada por #6. Integrar apenas após aceite do predecessor: PR #1 → #2 → #3. |
-
-Dependências técnicas foram registradas nativamente no GitHub quando há consumo real de um pré-requisito. O campo Bloqueio destaca também decisões/impedimentos externos. As issues seguem contexto/evidência, resultado esperado, escopo, critérios de aceite, validação e dependências; o template ajuda na captura e não substitui refinamento.
-
-Tipo usa a família `type:*` como alternativa explícita enquanto o tipo nativo não estiver configurado. Área, prioridade, tipo, marco e esforço têm propósitos distintos. Marcos existentes não são automaticamente sprints.
-
-## MCP e retomada
-
-MCP não exige outro repositório ou um servidor em cada aplicação. Um sistema consumidor pode usar apenas um cliente; expor ferramentas exige um servidor/adaptador somente quando houver capacidade e consumidor definidos. O Sofiie Agents já tem servidor stdio. A interface MCP fica na arquitetura do Sofiie Agents; sistemas consumidores usam cliente quando necessário. Não será criado servidor próprio no Sofiie/Velumbra nesta organização; os rascunhos separados de contexto do Sofiie/Velumbra foram retirados antes de publicação.
-
-Consultar [AGENTS.md](../AGENTS.md) e [operação por MCP/CLI](AGENT_WORKFLOW.md). A cópia local fica em `D:\Dev\Projetos\velumbra`; inventariar SDKs antes de baixar novamente e manter custo adicional zero.
-
-Pedido de rotina: diariamente às 6h de America/Sao_Paulo, a partir de 02/11/2026, com avanço verificável, registro e PR para revisão no fim de semana. O cadastro dos novos chats e das automações é etapa posterior; este documento não o ativa.
-
-## Bases de revisão preservadas
-
-A sequência existente é [PR #1](https://github.com/PHnsilva/velumbra/pull/1) → [PR #2](https://github.com/PHnsilva/velumbra/pull/2) → [PR #3](https://github.com/PHnsilva/velumbra/pull/3). A issue #6 acompanha manutenção; #7 acompanha o aceite da fundação. Manter bases e diffs restritos e conferir HEAD/checks ao atualizar cada base. Nenhuma sprint é concluída só por PR aberto.
-
-O pedido atual de 01/11 substitui a regra antiga de acompanhamento somente em Markdown. Issues foram ativadas no repositório para atender essa organização. O plano de 20 entregas continua em [SPRINTS.md](SPRINTS.md).
-
-## Decisão de integração MCP e foco das melhorias
-
-Decisão do proprietário em 01/11/2026: Sofiie e Velumbra atuarão como hosts, cada um com seu cliente MCP, consumindo a interface servidora do Sofiie Agents. Não criar servidores próprios nem repositórios adicionais de MCP para esses dois consumidores nesta etapa.
-
-O Sofiie Agents manterá seu servidor MCP como adaptador da própria arquitetura e também poderá atuar como host/cliente de servidores MCP externos quando uma tarefa exigir ferramentas ou recursos deles. Um agente futuro consumir as especializações do Agents usa o lado servidor do Agents; o cliente de saída só é necessário quando o Agents consome algo externo. Não ativar conexões externas sem consumidor, contrato e configuração definidos.
-
-Priorizar nas melhorias diárias especializações com aplicação concreta nos dois produtos:
-
-- Velumbra: interpretação contextual de perguntas e tiragens, conteúdo e diferenças entre tradições, coerência das respostas e avaliação de qualidade; complementar com interface, acessibilidade e testes.
-- Sofiie: interpretação de intenções em português, diálogo por texto/voz, planejamento e seleção de ações estruturadas, integrações desktop/mobile/carro e validação de execução.
-- Compartilhadas: contratos de ferramentas/MCP, QA, acessibilidade e avaliação de regressões.
-
-Cada melhoria deve ter cenário de uso, entrada/saída, limites e evidência comparável. Especialistas novos exigem necessidade concreta; não ampliar o catálogo apenas por quantidade. Esta decisão orienta o backlog, não declara clientes integrados, inferência homologada ou rotinas agendadas.
-
-## Próximas retomadas
-
-[Plano diário e fila inicial](DAILY_PLAN.md). As novas issues de contrato e integração são somadas ao quadro sem redefinir estados escolhidos pelo proprietário.
+As bases de revisão existentes incluem a sequência PR #1 → #2 → #3. Cada PR dependente identifica a base, os predecessores, a ordem de integração e os testes da árvore combinada. Os detalhes de papéis host/cliente e transporte estão em [ARCHITECTURE_PLAN.md](ARCHITECTURE_PLAN.md).

@@ -42,6 +42,7 @@ $('#silent-entry').addEventListener('click',()=>{setSound(false);enterCabin();})
 $('#portrait').addEventListener('click',()=>{
   hideBubble();$('#whisper').hidden=false;
   bubbleTimer=setTimeout(hideBubble,5000);
+  scene.performGesture('reaction');
   if(soundAllowed) playMurmur(voiceIndex++%4);
 });
 $('#table-area').addEventListener('click',()=>{$('#table-name').focus();hideBubble();});
