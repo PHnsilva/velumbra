@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Raposa — rascunho</title><desc id="desc">Uma raposa observa com atenção entre folhas e sombras do bosque.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">XIV</text>
+  <path d="M67 190l14-46 36 28 36-28 20 46v44H67z" fill="#cb8e3c"/><path d="M80 151l20 17-17 8zM151 168l18-17-2 25z" fill="#4c1b2b"/><path d="M89 184h14v8H89zM136 184h14v8h-14z" fill="#211c1b"/><rect x="95" y="187" width="4" height="4" fill="#e4d2ad"/><rect x="141" y="187" width="4" height="4" fill="#e4d2ad"/>
+  <path d="M105 205h31v8l-15 11-16-11zM114 207h12v4h-12z" fill="#4c1b2b"/><path d="M49 257h39v-8h9v16H49zM151 262h9v-13h9v13h22v7h-40z" fill="#778265"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">A RAPOSA</text>
+</svg>
