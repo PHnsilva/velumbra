@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Mago — rascunho original</title><desc id="desc">Uma artesã organiza materiais e ferramentas em uma oficina antes de iniciar seu trabalho.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">I</text>
+  <path d="M44 88h152v8H44zM51 96h8v86h-8zM181 96h8v86h-8z" fill="#4c1b2b"/>
+  <path d="M72 108h20v7H72zM83 115h8v18h-8zM148 105h18v7h-18zM151 112h12v7h-12z" fill="#778265"/>
+  <path d="M95 135h42v8H95zM91 143h50v8H91zM101 151h31v8h-31z" fill="#211c1b"/>
+  <path d="M108 163h24v17h-24zM102 180h37v13h-37zM96 193h49v31h-49zM90 224h62v11h-62z" fill="#4c1b2b"/>
+  <path d="M99 235h17v35H99zM129 235h17v35h-17zM92 269h27v9H92zM125 269h27v9h-27z" fill="#211c1b"/>
+  <path d="M66 193h121v10H66zM72 203h109v8H72zM79 211h94v8H79z" fill="#778265"/>
+  <path d="M71 184h15v9H71zM161 183h18v10h-18z" fill="#cb8e3c"/>
+  <rect x="77" y="183" width="6" height="6" fill="#e4d2ad"/><path d="M164 177h10v7h-10z" fill="#4c1b2b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O MAGO</text>
+</svg>

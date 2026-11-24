@@ -139,16 +139,15 @@ Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes
 
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
 
-## 18/11/2026: S2, domínio de tiragem e diário local (issue #15)
 
-Implementação parcial estimada em 4/8 unidades da issue #15 (L), no [PR #103](https://github.com/PHnsilva/velumbra/pull/103), draft. O commit de implementação `c22387bf68a3ad460bb72c944f0cc0f7bf05cd7a` está empilhado no HEAD tecnicamente validado do PR #10; issue #7 segue em revisão, sem aceite.
+## 20/11/2026: RWS, primeiro lote editorial (issue #38)
 
-Validação local em Node.js 24.19.0/npm 11.17.0: `npm ci` (66 pacotes, 0 vulnerabilidades), `npm run build`, `npm run check` e `npm test` (27/27) passaram no worktree da branch de issue #15. Fixtures completas são sintéticas e exclusivas dos testes. O código falha fechado enquanto os catálogos completos e editorialmente revisados não existirem.
+Issue #38, S3, M (4 unidades): sete rascunhos textuais e vetoriais para as posições 1–7 foram registrados com proveniência separada, licença/revisão pendentes e artes mantidas em docs/, fora do runtime público. A entrega não declara cartas aceitas ou prontas para sorteio. Evidência detalhada, base provisória no PR #10/Next.js 16.4.5, validações e limites: [PROGRESS-2026-11-20-ISSUE-38.md](PROGRESS-2026-11-20-ISSUE-38.md).
 
-Limites: a tela e o armazenamento do navegador ainda não estão conectados aos módulos; faltam os dados editoriais das 270 cartas e a inspeção visual real desktop/celular. A issue #15 não está concluída nem aceita. Próximo passo: acompanhar CI/revisão do PR #103 e continuar a integração visual e a validação de recuperação com armazenamento real.
+Validação local: build, tipos/sintaxe, testes 23/23 e git diff --check passaram; sete SVGs XML válidos e prévias raster inspecionadas. Produzido: 4/4 unidades da issue; sujeito a revisão e aceite de Pedro.
 
-### Complemento de 18/11/2026: resiliência e recuperação do diário (issue #33)
+PR draft #105 aberto contra daily/2026-11-02-s01-validation; commit inicial do lote 5396c857b061588b732c223f94052460d5db59dd. CI remoto aguarda execução e a issue permanece sem aceite.
 
-Incremento M (4 unidades), no [PR #104](https://github.com/PHnsilva/velumbra/pull/104), baseado provisoriamente no artefato da issue #15 disponível no PR #103, HEAD `b563e8d895e2e6699a2c701ba73fae2aaec2babb`, tecnicamente validado em build, check, 27 testes e CI. O diário agora expõe resultados sem exceção para armazenamento indisponível, dados incompatíveis e recuperação; quatro novos cenários verificam leitura bloqueada, falha de quota sem sobrescrita, preservação de versão futura e exclusão limitada à chave própria. Relatório: [PROGRESS-2026-11-18-ISSUE-33.md](PROGRESS-2026-11-18-ISSUE-33.md).
+Atualização: o PR #105 (HEAD 1974779067939168e3914ccfefb1dd2c73de3dbe) passou Actions run 44817884148, Vercel e Preview. Continua draft e aguarda revisão/aceite de Pedro.
 
-Validação combinada no worktree da issue #33, com o PR #103 como predecessor: build Next.js 16.4.5, `npm run check` e `npm test` (31/31) passaram; instalação offline pelo lockfile auditou 67 pacotes sem vulnerabilidades. A integração à tela e os testes reais no navegador ainda faltam. O esquema desconhecido é preservado e exportável, sem migração automática. Sem aceite humano.
+PR #105 atualizado: HEAD 20940d920d1f10645458f0db8555d728321bb1c validado pelo Actions run 44818807287; Vercel e Preview passaram. Continua aberto/draft aguardando Pedro.
