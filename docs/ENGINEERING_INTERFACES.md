@@ -10,6 +10,6 @@ O Project #7 mantém os estados de trabalho e os atributos das issues. Issues e 
 
 ## Fronteira de integração do produto
 
-O acesso de engenharia ao GitHub é independente da integração MCP oferecida pelo produto. O Sofiie Agents hospeda sua interface de ferramentas; Velumbra pode atuar como consumidor conforme contrato e disponibilidade reais. Uma implantação hospedada na Vercel não alcança por suposição um servidor stdio executado no computador local. Perfis de implantação e respostas simuladas não comprovam conexão ou homologação.
+O acesso de engenharia ao GitHub é independente da integração MCP oferecida pelo produto. Os provedores especializados da linha Sofiee expõem suas ferramentas; Velumbra atua como consumidor conforme contrato e disponibilidade reais, sem exigir o antigo Sofiie Agents. Uma implantação hospedada na Vercel não alcança por suposição um servidor stdio executado no computador local. Perfis de implantação e respostas simuladas não comprovam conexão ou homologação.
 
 Velumbra não contém servidor MCP próprio. Um transporte, ferramenta ou serviço adicional requer uma capacidade de produto definida, contrato suficiente e evidência do ambiente alvo.

@@ -4,7 +4,7 @@
 
 Velumbra é uma aplicação Next.js com TypeScript. A interface apresenta a jornada e as animações; o domínio do produto mantém as regras de cada tradição, a seleção sem reposição, as posições das tiragens e o contexto editorial das cartas. A consulta guiada fornece uma modalidade de reserva quando a interpretação por IA não está disponível.
 
-A arquitetura de destino mantém o cliente de interpretação no lado servidor da aplicação. Velumbra atua como host e cliente das capacidades apropriadas do Sofiie Agents, conforme contrato e disponibilidade reais. O produto não contém um servidor MCP próprio. O transporte deve ser alcançável a partir do ambiente implantado; uma função da Vercel não alcança por suposição um processo stdio no computador local.
+A arquitetura de destino mantém o cliente de interpretação no lado servidor da aplicação. Velumbra atua como host e cliente das capacidades especializadas disponíveis na linha Sofiee, conforme contrato e disponibilidade reais. O produto não contém um servidor MCP próprio. O transporte deve ser alcançável a partir do ambiente implantado; uma função da Vercel não alcança por suposição um processo stdio no computador local.
 
 ## Fronteiras e dados
 
