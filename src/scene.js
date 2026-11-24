@@ -1,4 +1,8 @@
 // A deliberately small framebuffer keeps every animation on the same pixel grid.
+// Gesture names are hooks for the product flow; `deal` awaits the card-selection flow.
+const gestures = new Set(['reaction', 'shuffle', 'deal', 'reveal']);
+const gestureDuration = 1600;
+
 export function createScene({ getMotion, getSpeaking }) {
   const room = document.querySelector('#room');
   const elder = document.querySelector('#elder');
@@ -8,7 +12,7 @@ export function createScene({ getMotion, getSpeaking }) {
   body.width = 180; body.height = 240;
   const bodyContext = body.getContext('2d');
   const cabinImage = new Image(), elderImage = new Image();
-  let ready = false, frame = null, lastPaint = -Infinity, phase = 0;
+  let ready = false, frame = null, lastPaint = -Infinity, phase = 0, activeGesture = null;
   let pointer = { x: 0, y: 0 }, target = { x: 0, y: 0 };
   const motes = Array.from({length:24}, (_,i) => ({x:(i*.173)%1,y:(i*.317)%1,speed:.006+(i%5)*.002}));
   for (const context of [roomContext, elderContext, bodyContext]) if (context) context.imageSmoothingEnabled = false;
@@ -74,6 +78,8 @@ export function createScene({ getMotion, getSpeaking }) {
     const c=elderContext;
     c.clearRect(0,0,180,240);
     const speaking = moving && getSpeaking();
+    const gestureProgress = activeGesture ? Math.max(0, Math.min(1, (performance.now() - activeGesture.startedAt) / gestureDuration)) : 0;
+    const gestureStrength = Math.sin(Math.PI * gestureProgress);
     const breath = moving ? Math.sin(time*1.45) : 0;
     const turn = moving ? Math.sin(time*.63)*1.6 + pointer.x*.3 : 0;
     const nod = speaking ? Math.sin(time*12)*1.4 : 0;
@@ -83,8 +89,35 @@ export function createScene({ getMotion, getSpeaking }) {
       const handWeight = Math.max(0,(y-168)/72);
       const x = Math.round(turn*headWeight + Math.sin(time*1.1)*handWeight*(moving?1:0));
       const dy = Math.round((-breath*1.5+nod)*headWeight - breath*handWeight);
-      const spread = moving ? Math.round(breath*Math.max(0,1-Math.abs(y-155)/70)) : 0;
-      c.drawImage(body,0,y,180,1,x-spread,y+dy,180+spread*2,2);
+      const breathingSpread = moving ? Math.round(breath*Math.max(0,1-Math.abs(y-155)/70)) : 0;
+      const handRow = y >= 168;
+      let leftShift = 0, rightShift = 0, handDrop = 0;
+      if (handRow && activeGesture?.name === 'reaction') {
+        leftShift = Math.round(gestureStrength * 2);
+        handDrop = -Math.round(gestureStrength * 2);
+      } else if (handRow && activeGesture?.name === 'shuffle') {
+        const shuffle = Math.sin(gestureProgress * Math.PI * 8) * gestureStrength * 5;
+        leftShift = -Math.round(shuffle);
+        rightShift = Math.round(shuffle);
+        handDrop = Math.round(Math.abs(shuffle) * .3);
+      } else if (handRow && activeGesture?.name === 'deal') {
+        leftShift = Math.round(gestureStrength * 10);
+        rightShift = -Math.round(gestureStrength * 10);
+        handDrop = Math.round(gestureStrength * 8);
+      } else if (handRow && activeGesture?.name === 'reveal') {
+        leftShift = Math.round(gestureStrength * 5);
+        handDrop = -Math.round(gestureStrength * 9);
+      } else if (handRow && speaking) {
+        leftShift = Math.round(Math.sin(time * 8) * 2);
+        rightShift = -leftShift;
+        handDrop = Math.round(Math.sin(time * 12));
+      }
+      if (handRow && (leftShift || rightShift || handDrop)) {
+        c.drawImage(body,0,y,90,1,x-breathingSpread+leftShift,y+dy+handDrop,90,2);
+        c.drawImage(body,90,y,90,1,x+90+breathingSpread+rightShift,y+dy+handDrop,90,2);
+      } else {
+        c.drawImage(body,0,y,180,1,x-breathingSpread,y+dy,180+breathingSpread*2,2);
+      }
     }
     const headX=Math.round(turn), headY=Math.round(-breath*1.5+nod);
     // Eye positions are expressed in this 180x240 sprite, and follow its head.
@@ -101,13 +134,15 @@ export function createScene({ getMotion, getSpeaking }) {
     frame=null;
     if(!ready || document.hidden) return;
     const moving=getMotion()==='full';
+    if(!moving) activeGesture=null;
     if(timestamp-lastPaint>=1000/12 || !moving) {
       if(moving && Number.isFinite(lastPaint)) phase+=Math.min((timestamp-lastPaint)/1000,.25);
       lastPaint=timestamp;
       pointer.x+=(target.x-pointer.x)*.13;pointer.y+=(target.y-pointer.y)*.13;
       drawRoom(phase,moving);drawElder(phase,moving);
     }
-    if(moving) frame=requestAnimationFrame(paint);
+    if(activeGesture && performance.now() - activeGesture.startedAt >= gestureDuration) activeGesture = null;
+    if(moving || activeGesture) frame=requestAnimationFrame(paint);
   }
   function refresh() {
     if(frame) cancelAnimationFrame(frame);frame=null;lastPaint=-Infinity;
@@ -119,5 +154,16 @@ export function createScene({ getMotion, getSpeaking }) {
   document.addEventListener('pointerleave',()=>{target={x:0,y:0};});
   document.addEventListener('visibilitychange',refresh);
   refresh();
-  return {refresh};
+  function performGesture(name) {
+    if (!gestures.has(name)) return false;
+    if (getMotion() !== 'full') {
+      activeGesture = null;
+      refresh();
+      return true;
+    }
+    activeGesture = { name, startedAt: performance.now() };
+    refresh();
+    return true;
+  }
+  return {refresh, performGesture};
 }

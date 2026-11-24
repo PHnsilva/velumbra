@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Árvore — rascunho</title><desc id="desc">Uma árvore de copa em camadas mantém raízes visíveis no solo.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">V</text>
+  <path d="M110 207h20v50h-20zM119 211l-39 29-5-8 43-34zM121 211l39 29 5-8-43-34z" fill="#4c1b2b"/>
+  <path d="M110 257l-22 20 5 6 27-22zM130 257l22 20-5 6-27-22zM120 256v29h-6v-29z" fill="#4c1b2b"/>
+  <path d="M94 184H72v-22h22v-22h22v-23h20v23h22v22h22v22h-22v20h-64z" fill="#778265"/>
+  <rect x="104" y="151" width="8" height="8" fill="#cb8e3c"/><rect x="134" y="173" width="8" height="8" fill="#cb8e3c"/><rect x="84" y="184" width="8" height="8" fill="#cb8e3c"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">A ÁRVORE</text>
+</svg>

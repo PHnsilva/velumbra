@@ -1,6 +1,6 @@
 # Plano de entrega — cinco sprints + validação extra
 
-Cada sprint dura até uma semana de execução deste projeto. S1–S5 entregam funcionalidades e S6 concentra validação extra/mudanças; verificar desde S1. Números de sprint são locais: uma dependência entre projetos pode exigir espera e não se resolve apenas porque ambos estão na mesma S2. Início/pausas vigentes prevalecem; não há datas finais garantidas por documentação.
+O ciclo contém cinco sprints de entrega e uma sprint de validação extra e mudanças, cada uma com duração máxima de uma semana. A validação ocorre desde a primeira sprint. Números de sprint são locais ao projeto; dependências entre projetos são rastreadas separadamente e podem exigir uma ordem técnica distinta.
 
 | Sprint | Objetivo                                      | Unidades estimadas | Média diária para até 7 dias |
 | ------ | --------------------------------------------- | ------------------ | ---------------------------- |
@@ -9,11 +9,11 @@ Cada sprint dura até uma semana de execução deste projeto. S1–S5 entregam f
 | S3     | Produção editorial das quatro tradições       | 72                 | 10.29                        |
 | S4     | Catálogos, combinações e integração editorial | 58                 | 8.29                         |
 | S5     | Auditoria, integração e preparo do MVP        | 58                 | 8.29                         |
-| S6     | Validação extra e mudanças                    | 32                 | 4.57                         |
+| S6     | Validação extra e mudanças                    | 40                 | 5.71                         |
 
-A soma abaixo inclui entregas ainda em revisão, para rastrear o escopo total; não é esforço restante certificado. Conferir o que já foi produzido e aceito antes de selecionar nova implementação. A meta diária é 1 L equivalente por projeto ativo; não recontar issue/PR/agrupador como a mesma entrega.
+A soma abaixo representa o escopo planejado, incluindo entregas que podem estar em revisão. Não representa esforço restante nem estado de implementação. O progresso e o aceite de cada entrega são registrados separadamente.
 
-As 270 cartas e seus lotes foram preservados. Pedro autorizou em 06/11 acelerar o Velumbra até 24 unidades (3 L equivalentes) por dia. A maior sprint tem 72 unidades, três dias nominais a 24; isso é estimativa relativa, não medição de produtividade. Dependências, capacidade real e validação continuam obrigatórias, sem inflar tamanhos ou fingir conclusão.
+O escopo inclui 270 cartas e seus lotes editoriais, com issues de produção e aceite agregado rastreadas separadamente. As unidades da tabela são estimativas relativas; dependências e critérios de validação continuam associados a cada entrega.
 
 ## S1 — Fundação, ambientação e conteúdo inicial
 
@@ -126,13 +126,8 @@ As 270 cartas e seus lotes foram preservados. Pedro autorizou em 06/11 acelerar 
 | [velumbra#86](https://github.com/PHnsilva/velumbra/issues/86) | Revisar pertinência, contradições e tradição nas leituras finais | L (8)   | [velumbra#81](https://github.com/PHnsilva/velumbra/issues/81), [velumbra#80](https://github.com/PHnsilva/velumbra/issues/80)                                                                                                                               |
 | [velumbra#87](https://github.com/PHnsilva/velumbra/issues/87) | Medir carregamento, memória e animação no ambiente alvo          | M (4)   | [velumbra#83](https://github.com/PHnsilva/velumbra/issues/83)                                                                                                                                                                                              |
 | [velumbra#88](https://github.com/PHnsilva/velumbra/issues/88) | Entregar documentação e matriz final de aceite do ciclo          | M (4)   | [velumbra#30](https://github.com/PHnsilva/velumbra/issues/30), [velumbra#85](https://github.com/PHnsilva/velumbra/issues/85), [velumbra#86](https://github.com/PHnsilva/velumbra/issues/86), [velumbra#87](https://github.com/PHnsilva/velumbra/issues/87) |
+| [velumbra#101](https://github.com/PHnsilva/velumbra/issues/101) | Uniformizar públicos e conteúdo da documentação técnica         | L (8)   | —                                                                                                                                                                                                                                                          |
 
-## Continuidade e revisão
+## Escopo pós-ciclo
 
-Antes de cada entrega, ler a issue, dependências, PRs/comentários e quadro vivo. PR aberto não equivale a aceite; pode fornecer pré-requisito técnico provisório conforme WEEKLY_EXECUTION.md. Preservar artefatos corretos e branches já em revisão. Somente Pedro revisa/aprova PRs, aceita e fecha as issues. Sprints e estimativas são planejamento, não declaração de conclusão.
-
-Para agentes, depois do ciclo inicial continua o aperfeiçoamento por evidências: novas falhas/casos geram backlog real. Preparação/decisão de treino de pesos não é treino executado. Não prometer treinamento diário automático nem autopromover versão/lesson.
-
-Execução semanal: ler [WEEKLY_EXECUTION.md](WEEKLY_EXECUTION.md). Espera de revisão/merge não deve impedir PRs dependentes sobre artefatos já disponíveis e tecnicamente validados, com base/ordem explícitas.
-
-Cadência atual do Velumbra: avançar até 3 L equivalentes por dia (24 unidades), sem inflar estimativas ou dispensar validação.
+Após o ciclo inicial, novas melhorias são derivadas de falhas e casos observados. A preparação ou decisão de treinar pesos não constitui treinamento executado. O escopo de melhorias futuras depende de avaliação e priorização próprias.

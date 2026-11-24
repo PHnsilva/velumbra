@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">Os Pássaros — rascunho</title><desc id="desc">Duas aves pequenas conversam num galho sob sinais curtos de som.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">XII</text>
+  <path d="M50 225h140v8H50zM77 232h8v23h-8zM155 232h8v23h-8z" fill="#4c1b2b"/>
+  <path d="M64 155h33v29H64zM58 166H45v8h13zM97 163l14 7-14 7zM66 147h20v8H66zM135 145h33v29h-33zM129 156h-13v8h13zM168 153l14 7-14 7zM137 137h20v8h-20z" fill="#707b7b"/>
+  <rect x="89" y="160" width="4" height="4" fill="#cb8e3c"/><rect x="160" y="150" width="4" height="4" fill="#cb8e3c"/><path d="M100 121h17v5h-17zM108 108h5v13h-5zM177 127h17v5h-17zM185 114h5v13h-5z" fill="#4c1b2b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">OS PÁSSAROS</text>
+</svg>

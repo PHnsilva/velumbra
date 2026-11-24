@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Cavaleiro — rascunho</title><desc id="desc">Um cavalo e seu mensageiro atravessam um caminho iluminado por uma pequena vela.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">I</text>
+  <path d="M60 197h26v-18h45v12h24v18h-13v27h-12v-24h-34v24H84v-31H60zM128 166h20v-14h12v18h13v20h-25l-15 10zM50 186h10v7H50z" fill="#211c1b"/>
+  <path d="M136 148h14v8h-7v11h-9v-9h-7v-5h9zM140 134h12v12h-12zM137 130h18v5h-18zM156 154h13v8h-13z" fill="#4c1b2b"/>
+  <rect x="149" y="138" width="3" height="3" fill="#cb8e3c"/>
+  <path d="M40 257h160v5H40zM54 272h132v4H54z" fill="#778265"/><rect x="111" y="232" width="12" height="20" fill="#cb8e3c"/><rect x="115" y="222" width="4" height="10" fill="#cb8e3c"/>
+  <text x="120" y="298" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O CAVALEIRO</text>
+</svg>

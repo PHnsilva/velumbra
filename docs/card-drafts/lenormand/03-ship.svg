@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Navio — rascunho</title><desc id="desc">Um veleiro pequeno atravessa ondas escuras sob um horizonte âmbar.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">III</text>
+  <rect x="48" y="207" width="144" height="5" fill="#cb8e3c"/><path d="M55 219h130l-21 28H78z" fill="#4c1b2b"/>
+  <path d="M116 110h8v97h-8zM107 123h-36v70h36z" fill="#778265"/><path d="M133 135h45v58h-45z" fill="#cb8e3c"/>
+  <path d="M35 264h26v-8h24v8h26v-8h25v8h25v-8h24v8h20v6H35zM45 282h31v-7h26v7h27v-7h22v7h27v-7h23v7h19v5H45z" fill="#707b7b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O NAVIO</text>
+</svg>

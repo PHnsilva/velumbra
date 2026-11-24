@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Imperatriz — rascunho original</title><desc id="desc">Uma cuidadora rega canteiros em um pátio onde brotos crescem em diferentes estágios.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">III</text>
+  <path d="M50 99h42v8H50zM148 99h42v8h-42zM57 107h8v52h-8zM183 107h8v52h-8z" fill="#778265"/>
+  <path d="M65 155h110v8H65zM60 163h120v8H60z" fill="#211c1b"/>
+  <path d="M106 171h28v15h-28zM99 186h42v12h-42zM93 198h54v31h-54zM89 229h62v12h-62z" fill="#4c1b2b"/>
+  <path d="M95 241h18v30H95zM132 241h18v30h-18zM88 270h30v8H88zM128 270h30v8h-30z" fill="#211c1b"/>
+  <path d="M45 269h55v9H45zM130 268h64v10h-64zM49 280h57v8H49zM126 280h68v8h-68z" fill="#778265"/>
+  <path d="M71 253h7v16h-7zM151 252h7v16h-7z" fill="#778265"/>
+  <path d="M67 249h14v6H67zM147 248h14v6h-14zM107 249h16v7h-16z" fill="#cb8e3c"/>
+  <path d="M159 206h10v28h-10zM169 230h22v7h-22z" fill="#211c1b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">A IMPERATRIZ</text>
+</svg>
