@@ -17,6 +17,7 @@ export default function Cabin() {
     <header className="topbar">
       <h1 id="game-title" tabIndex={-1}>VELUMBRA</h1>
       <nav className="tools" aria-label="Controles da cabana">
+        <button className="tool play-tool" data-panel="play" aria-label="Consultar" title="Consultar com Petit Lenormand"><svg aria-hidden="true"><use href="#cards"/></svg><span>Consultar</span></button>
         <button className="tool" data-panel="decks" aria-label="Baralhos" title="Baralhos"><svg aria-hidden="true"><use href="#cards"/></svg><span>Baralhos</span></button>
         <button className="tool diary-tool" data-panel="journal" aria-label="Diário" title="Diário"><svg aria-hidden="true"><use href="#journal"/></svg><span>Diário</span></button>
         <button className="tool" data-panel="settings" aria-label="Som e movimento" title="Som e movimento"><svg aria-hidden="true"><use href="#tuning"/></svg><span>Ajustes</span></button>

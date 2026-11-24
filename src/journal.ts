@@ -8,6 +8,12 @@ export interface JournalEntry {
   readonly createdAt: string;
   readonly question: string;
   readonly spread: ReadingSpread;
+  /** Optional snapshot, backwards compatible with existing version-1 entries. */
+  readonly interpretation?: {
+    readonly mode: 'guided';
+    readonly links: readonly string[];
+    readonly verdict: string;
+  };
 }
 
 export interface JournalDocument {
@@ -41,6 +47,11 @@ function isJournalEntry(value: unknown): value is JournalEntry {
   if (!isRecord(value) || !isRecord(value.spread)) return false;
   const spread = value.spread;
   return typeof value.id === 'string' && value.id.length > 0
+    && (value.interpretation === undefined || (isRecord(value.interpretation)
+      && value.interpretation.mode === 'guided'
+      && typeof value.interpretation.verdict === 'string' && value.interpretation.verdict.length <= 10000
+      && Array.isArray(value.interpretation.links) && value.interpretation.links.length <= 2
+      && value.interpretation.links.every(link => typeof link === 'string' && link.length <= 10000)))
     && typeof value.createdAt === 'string' && !Number.isNaN(Date.parse(value.createdAt))
     && typeof value.question === 'string'
     && spread.schemaVersion === 1

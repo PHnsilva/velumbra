@@ -6,6 +6,15 @@ O nome reúne véu, vela e _umbra_ (sombra). A ambientação e as mecânicas est
 
 **[Abrir a experiência publicada](https://velumbra-hazel.vercel.app/)**
 
+## Como jogar agora
+
+1. Abra a experiência e entre com som ou em silêncio.
+2. Clique em **Consultar**, escolha a pergunta guiada e uma ou três cartas.
+3. Clique em **Embaralhar e tirar**, revele cada carta e leia **O Veredito**.
+4. Escolha **Guardar no diário** para conservar a consulta neste navegador.
+
+O Petit Lenormand está disponível com 36 cartas em **edição de teste**, com textos e ilustrações em revisão. Nome e conta não são obrigatórios. A biblioteca permite examinar e ampliar todas as cartas; as outras tradições continuam como amostras. A modalidade guiada não usa IA nem envia a consulta a serviços externos. [Escopo, publicação dos rascunhos e recuperação do diário](docs/PLAYTEST.md).
+
 ## Implementação e estado
 
 O repositório contém uma aplicação Next.js com TypeScript e módulos de compatibilidade para o prólogo. O estado de implementação, validações, limitações e decisões pendentes é mantido em [docs/PROGRESS.md](docs/PROGRESS.md). O plano de entregas descreve o escopo pretendido e não comprova, por si só, implementação ou aceite.
@@ -32,7 +41,7 @@ O desenvolvimento do produto está organizado em cinco sprints de entrega e uma 
 
 | Camada       | Tecnologia ou decisão                                                                              |
 | ------------ | -------------------------------------------------------------------------------------------------- |
-| Aplicação    | Next.js 16.4.3, React 19.3.1 e TypeScript 7.0.2, fixados no lockfile.
+| Aplicação    | Next.js 16.4.5, React 19.3.1 e TypeScript 7.0.2, fixados no lockfile.
 | Renderização | Cena em perspectiva e personagem em camadas; técnica validada nas sprints 2 e 3.                   |
 | Conteúdo     | Dados editoriais versionados e recursos estáticos.                                                 |
 | Backend      | Função de servidor da aplicação, hospedada na Vercel.                                              |
