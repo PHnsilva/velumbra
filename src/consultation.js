@@ -34,6 +34,7 @@ export function createConsultation({ document, setPanel, closePanel, scene, getM
     $('#reading-library').addEventListener('click', showLibrary);
     $('#reading-form').addEventListener('submit', event => {
       event.preventDefault();
+      if ($('#start-draw').disabled) return;
       const size = Number($('input[name="spread-size"]:checked')?.value);
       const questionId = $('#reading-question').value;
       if (![1, 3].includes(size) || !Object.hasOwn(guidedQuestions, questionId)) { status('Escolha uma tiragem e uma pergunta válidas.'); return; }
@@ -52,7 +53,11 @@ export function createConsultation({ document, setPanel, closePanel, scene, getM
   }
   function renderCard(card, parent) {
     const article = document.createElement('article'); article.className = 'reading-card'; parent.append(article);
-    const image = document.createElement('img'); image.src = card.assetPath; image.alt = `Ilustração de ${card.name}`; image.width = 180; image.height = 280; image.loading = 'lazy'; article.append(image);
+    // Imported journal data is text, never an authority to request arbitrary assets.
+    const known = lenormandPreview.records.find(record => record.id === card.id);
+    if (known && card.assetPath === known.art.assetPath) {
+      const image = document.createElement('img'); image.src = known.art.assetPath; image.alt = `Ilustração de ${card.name}`; image.width = 180; image.height = 280; image.loading = 'lazy'; article.append(image);
+    }
     text('p', card.numberLabel, article, 'card-number'); text('h3', card.name, article); text('p', card.summary ?? card.content.summary, article);
     return article;
   }
@@ -84,7 +89,7 @@ export function createConsultation({ document, setPanel, closePanel, scene, getM
     $('#save-reading').addEventListener('click', () => {
       if (!current || current.saved) return;
       const { id, createdAt, question, spread } = current;
-      const result = journal.tryAppend({ id, createdAt, question, spread });
+      const result = journal.tryAppend({ id, createdAt, question, spread, interpretation: { mode: 'guided', links: interpretation.links, verdict: interpretation.verdict } });
       if (result.status === 'saved') { current.saved = true; $('#save-reading').disabled = true; $('#save-reading').textContent = 'Guardada'; status('Consulta salva somente neste navegador.'); }
       else if (result.status === 'invalid-data') status('Seu diário contém dados incompatíveis. Abra o Diário para recuperar uma cópia antes de limpar; esta consulta continua na tela.');
       else status('Não foi possível salvar. O armazenamento pode estar bloqueado ou cheio. Sua leitura continua nesta tela; tente novamente.');
@@ -128,8 +133,13 @@ export function createConsultation({ document, setPanel, closePanel, scene, getM
   function backupActions(serialized) {
     $('#journal-actions').insertAdjacentHTML('afterbegin', button('journal-export', 'Exportar cópia', true) + button('journal-clear', 'Limpar diário', true));
     $('#journal-export').addEventListener('click', () => {
-      setPanel('Cópia do diário', `<p>Copie e guarde este conteúdo em um arquivo .json. Ele pode ser restaurado neste navegador.</p><label class="field" for="journal-backup">Dados do diário<textarea id="journal-backup" rows="8" readonly></textarea></label><div class="actions">${button('backup-return', 'Voltar ao diário', true)}</div>`);
+      setPanel('Cópia do diário', `<p>Copie e guarde este conteúdo em um arquivo .json. Ele pode ser restaurado neste navegador.</p><label class="field" for="journal-backup">Dados do diário<textarea id="journal-backup" rows="8" readonly></textarea></label><div class="actions">${typeof view.URL.createObjectURL === 'function' ? button('backup-download', 'Baixar arquivo .json') : ''}${button('backup-return', 'Voltar ao diário', true)}</div>`);
       $('#journal-backup').value = serialized; $('#journal-backup').select(); $('#backup-return').addEventListener('click', showJournal);
+      $('#backup-download')?.addEventListener('click', () => {
+        const url = view.URL.createObjectURL(new view.Blob([serialized], { type: 'application/json' }));
+        const link = document.createElement('a'); link.href = url; link.download = 'velumbra-diario.json'; link.click();
+        view.setTimeout(() => view.URL.revokeObjectURL(url), 1000);
+      });
     });
     $('#journal-clear').addEventListener('click', () => {
       setPanel('Limpar o diário?', `<p>Essa ação apaga todas as leituras deste navegador. Exporte uma cópia antes de continuar. Nome, som e outras preferências serão preservados.</p><p id="reading-status" role="status"></p><div class="actions">${button('confirm-clear', 'Apagar todas as leituras')}${button('cancel-clear', 'Cancelar', true)}</div>`);
@@ -153,6 +163,12 @@ export function createConsultation({ document, setPanel, closePanel, scene, getM
     setPanel('Leitura guardada', `<p id="entry-question" class="panel-lead"></p><p class="edition-label">Leitura simbólica guardada · edição de teste</p><div class="reading-cards" id="entry-cards"></div><div class="actions">${button('entry-back', 'Voltar ao diário', true)}</div>`);
     $('#entry-question').textContent = entry.question;
     for (const card of entry.spread.cards) renderCard(card, $('#entry-cards'));
+    if (entry.interpretation) {
+      const area = document.createElement('section'); area.id = 'entry-interpretation'; $('#entry-cards').after(area);
+      text('h3', 'Os símbolos em conjunto', area);
+      for (const line of entry.interpretation.links) text('p', line, area);
+      text('h3', 'O Veredito', area); text('p', entry.interpretation.verdict, area);
+    }
     $('#entry-back').addEventListener('click', showJournal);
   }
   return { showSetup, showJournal, showLibrary, cancelPending };

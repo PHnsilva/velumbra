@@ -18,9 +18,9 @@ O build compila o módulo de consulta com esbuild e copia somente 36 SVGs Lenorm
 
 ## Diário e recuperação
 
-Somente a ação Guardar no diário grava uma consulta. A chave versionada é `velumbra.reading-journal`, separada das preferências. Falha de cota ou permissão mantém a leitura na tela e permite tentar novamente; nenhum sucesso é anunciado sem confirmação da gravação.
+Somente a ação Guardar no diário grava uma consulta. Cartas, pergunta, ligações e veredito são conservados como snapshot; reabrir não recalcula a leitura. O campo opcional de interpretação mantém compatibilidade com registros anteriores do schema 1. A chave versionada é `velumbra.reading-journal`, separada das preferências. Falha de cota ou permissão mantém a leitura na tela e permite tentar novamente; nenhum sucesso é anunciado sem confirmação da gravação.
 
-Dados incompatíveis são preservados e podem ser exportados como conteúdo JSON. A restauração exige confirmação de substituição e uma cópia válida de até 1 MB; um diário atual incompatível deve ser copiado e limpo explicitamente antes da restauração. Limpar exige confirmação e remove somente a chave do diário. Não há conta nem sincronização entre dispositivos.
+Dados incompatíveis são preservados e podem ser exportados como arquivo .json ou conteúdo copiável. Imagens de registros importados só são carregadas se corresponderem ao catálogo Lenormand conhecido. A restauração exige confirmação de substituição e uma cópia válida de até 1 MB; um diário atual incompatível deve ser copiado e limpo explicitamente antes da restauração. Limpar exige confirmação e remove somente a chave do diário. Não há conta nem sincronização entre dispositivos.
 
 ## Rastreabilidade e limites
 

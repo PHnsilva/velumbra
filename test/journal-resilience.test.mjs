@@ -85,3 +85,17 @@ test('recuperação restaurada pode ser exportada de novo e exclusão integral r
   assert.equal(storage.getItem(JOURNAL_KEY), null);
   assert.equal(storage.getItem('other-local-feature'), 'keep');
 });
+
+test('interpretação guiada opcional preserva compatibilidade e recusa snapshots malformados', () => {
+  const storage = new FaultyStorage();
+  const journal = new ReadingJournal(storage);
+  const entry = sampleEntry();
+  entry.interpretation = { mode: 'guided', links: ['Ligação simbólica'], verdict: 'Texto exibido na consulta.' };
+  assert.equal(journal.tryAppend(entry).status, 'saved');
+  const raw = storage.getItem(JOURNAL_KEY);
+  assert.equal(journal.read().document.entries[0].interpretation.verdict, entry.interpretation.verdict);
+  for (const interpretation of [{ mode: 'remote', links: [], verdict: 'x' }, { mode: 'guided', links: [], verdict: { html: 'x' } }, { mode: 'guided', links: [null], verdict: 'x' }]) {
+    assert.equal(journal.tryRestore(JSON.stringify({ schemaVersion: 1, entries: [{ ...entry, interpretation }] })).status, 'invalid-data');
+    assert.equal(storage.getItem(JOURNAL_KEY), raw);
+  }
+});

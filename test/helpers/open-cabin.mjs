@@ -13,7 +13,7 @@ const root = new URL('../../', import.meta.url);
 
 // Exercise the actual page and controller. Only graphics, sound and browser timing
 // are excluded: these tests validate DOM flows, not visual or audio acceptance.
-export async function openCabin(t, { AudioContext = null, initialJournal = null, storageFailure = null } = {}) {
+export async function openCabin(t, { AudioContext = null, initialJournal = null, storageFailure = null, compiledConsultation = false } = {}) {
   const html = renderToStaticMarkup(createElement(Cabin));
   const dom = new JSDOM(html, { url: 'https://velumbra.test/', runScripts: 'outside-only' });
   const { window } = dom;
@@ -46,7 +46,9 @@ export async function openCabin(t, { AudioContext = null, initialJournal = null,
   }, { context });
   const deckSource = await readFile(new URL('src/decks.ts', root), 'utf8');
   const decks = new SourceTextModule(compileDeckCatalog(deckSource), {context});
-  const consultation = new SyntheticModule(['createConsultation'], function(){ this.setExport('createConsultation',createConsultation); }, {context});
+  const consultation = compiledConsultation
+    ? new SourceTextModule(await readFile(new URL('public/runtime/consultation.js',root),'utf8'), {context})
+    : new SyntheticModule(['createConsultation'], function(){ this.setExport('createConsultation',createConsultation); }, {context});
   const controller = new SourceTextModule(await readFile(new URL('src/prologue.js', root), 'utf8'), {context});
   await controller.link(specifier => {
     if (specifier === './scene.js') return scene;

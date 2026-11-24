@@ -50,6 +50,26 @@ test('jornada sem nome revela três cartas e salva uma única consulta recuperá
   reloaded.$('#journal-entries button').click();
   assert.equal(reloaded.$('#entry-cards').querySelectorAll('img').length, 3);
   assert.equal(reloaded.$('#entry-question').textContent, data.entries[0].question);
+  assert.equal(reloaded.$('#entry-interpretation p:last-child').textContent, data.entries[0].interpretation.verdict);
+});
+
+test('bundle publicado executa a jornada e ignora imagem arbitrária em diário importado', async t => {
+  const app = await openCabin(t, { compiledConsultation: true });
+  draw(app, 1); reveal(app, 1); app.$('#save-reading').click();
+  const data = JSON.parse(app.window.localStorage.getItem('velumbra.reading-journal'));
+  data.entries[0].spread.cards[0].assetPath = '/art/cards/untrusted.svg';
+  data.entries[0].spread.cards[0].name = '<img src=x onerror=alert(1)>';
+  const loaded = await openCabin(t, { initialJournal: JSON.stringify(data), compiledConsultation: true });
+  loaded.$('[data-panel="journal"]').click(); loaded.$('#journal-entries button').click();
+  assert.equal(loaded.$('#entry-cards img'), null);
+  assert.match(loaded.$('#entry-cards h3').textContent, /<img/);
+  assert.equal(loaded.$('#entry-interpretation p:last-child').textContent, data.entries[0].interpretation.verdict);
+});
+
+test('confirmação repetida durante embaralhamento mantém uma única tiragem', async t => {
+  const app = await openCabin(t);
+  app.$('[data-panel="play"]').click(); app.submit('#reading-form'); app.submit('#reading-form'); app.flushTimers();
+  assert.equal(app.sceneGestures.filter(name => name === 'shuffle').length, 1);
 });
 
 test('uma carta, biblioteca completa e retorno de foco funcionam sem trocar tradições', async t => {

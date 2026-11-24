@@ -156,3 +156,9 @@ Pedro solicitou revisar, corrigir e integrar os 21 PRs abertos. Escopo, correç�
 Pedido de Pedro: implementar um baralho jogável, ajustar issues, abrir PR, validar, revisar/corrigir e integrar. Lenormand escolhido por já possuir 36/36 rascunhos originais. A edição de teste publica somente esse conjunto, preservando metadados editoriais pendentes e mantendo drawReading estrito. Consulta sem nome/conta, uma/três cartas, revelação, leitura guiada, veredito, biblioteca completa e diário com cópia/restauração/limpeza confirmada implementados na branch feat/15-lenormand-playable. Escopo e autorização em [PLAYTEST.md](PLAYTEST.md).
 
 Validação inicial: Node 24.22.3/npm 11.19.1; npm run build e npm run check passaram; npm test passou 73/73, incluindo jornada de DOM, recarga simulada do armazenamento, falhas de cota/leitura, dados incompatíveis, movimento reduzido e HTTP de todos os 36 SVGs. Inspeção visual e áudio ainda não executados nesta etapa. PR e revisão técnica seguem nesta rodada; nenhum aceite editorial foi fabricado.
+
+### Revisão do PR #114
+
+A revisão detectou que a primeira versão guardava cartas, mas não o veredito exibido. Corrigido com snapshot opcional e validado no schema 1, mantendo compatibilidade com registros anteriores. Imagens importadas agora só carregam caminhos conhecidos do catálogo; nomes e textos continuam inseridos como texto. Envio repetido durante embaralhamento é ignorado. Cópia de segurança permite baixar JSON além de copiar texto. Um teste executa o bundle compilado real do navegador e reabre o diário; os 36 assets continuam cobertos por HTTP.
+
+As issues #15, #33 e #34 foram movidas no Project #7 para Em revisão após a abertura do PR. Os metadados editoriais e o aceite integral das demais tradições continuam pendentes.
