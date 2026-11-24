@@ -1,3 +1,5 @@
+> As 20 entregas históricas foram reconciliadas no ciclo atual em [docs/DELIVERY_PLAN.md](docs/DELIVERY_PLAN.md), sem remover conteúdo. Cadência autorizada: até 3 L equivalentes/dia. O texto descreve o produto alvo, não funcionalidades já aceitas.
+
 # Velumbra — o jogo
 
 Velumbra é uma experiência de cartomancia em uma cabana de horror, conduzida por uma velha misteriosa. O nome mistura véu, vela e umbra (sombra). O jogador escolhe seu nome, forma de tratamento e baralho, examina as cartas se desejar e recebe uma consulta explicada pela personagem.
@@ -10,7 +12,7 @@ A direção visual usa papel envelhecido, madeira escura, luz de velas e aparên
 
 Entrar na cabana → informar nome e tratamento → escolher um dos quatro baralhos → examinar cartas, se desejar → escolher tiragem e pergunta → selecionar cartas → assistir à distribuição e revelação → ouvir/ler a velha → receber O Veredito → salvar a consulta no diário local.
 
-## Conteúdo do MVP — sprint 19
+## Conteúdo do MVP — ciclo vigente
 
 - Quatro baralhos completos: 78 Rider–Waite–Smith, 78 Marselha, 78 Thoth e 36 Lenormand.
 - Biblioteca acessível antes da consulta, com ampliação e descrição individual.
