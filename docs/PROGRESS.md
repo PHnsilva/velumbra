@@ -93,53 +93,9 @@ Limites e pendências:
 
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
 
-## 02/11/2026: validação atual da fundação
 
-Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). PR: [#10](https://github.com/PHnsilva/velumbra/pull/10). Branch: `daily/2026-11-02-s01-validation`. Base: `daily/2026-10-31-s01-deck-types` (PR #3), ainda aberto e sujeito à revisão dos PRs #1 e #2. A verificação foi executada na cópia ativa em `C:\Users\peecs\Documents\ChatGPT\velumbra`, no commit local `c767028`; os arquivos de aplicação, testes, scripts e lockfile conferem com o HEAD do PR #3, `14fc529e8dd355afeb66afb01d6a7c67734f41e1`. O incremento de hoje registra somente a evidência.
+## 11/11/2026: S1, rascunho autoral do lote Petit Lenormand 1–7 (issue #74)
 
-Validação em Node.js 24.19.0 e npm 11.17.0:
+Foram preparados sete registros editoriais e sete desenhos SVG de rascunho para as primeiras posições do Petit Lenormand, com resumos originais em contexto e sem inversões. A proveniência distingue conteúdo/arte e mantém licença e revisão pendentes. Os desenhos ficam em `docs/card-drafts/lenormand/`, fora do caminho público; não foram conectados ao catálogo do runtime. PR [#95](https://github.com/PHnsilva/velumbra/pull/95) está aberto como rascunho no commit de implementação `96b7e256139ce2d6b7a97d10ae818979d78abae6`. O relatório completo, limites e decisão necessária estão em [PROGRESS-2026-11-11-ISSUE-74.md](PROGRESS-2026-11-11-ISSUE-74.md).
 
-- `npm ci`: 66 pacotes instalados; 67 auditados, sem vulnerabilidades encontradas.
-- `npm run build`: aprovado; Next.js compilou, verificou TypeScript e gerou as rotas estáticas.
-- `npm run check`: aprovado; tipos e sintaxe dos controladores conferidos.
-- `npm test`: 10 testes aprovados, incluindo preparação restrita do runtime, quatro estruturas tipadas, amostras e servidor HTTP do build real.
-- O MCP do GitHub confirmou checks verdes nos HEADs de #1, #2 e #3. Nenhum dos três PRs tem review submetido; todos seguem abertos na ordem #1 → #2 → #3.
-
-Limites e pendências:
-
-- A revisão visual em computador e celular não foi executada. A ferramenta de navegador/automação não inicializou (`failed to write kernel assets`, erro 3) nas duas tentativas. A inspeção por Pedro e o aceite da sprint continuam pendentes; build, testes e CI não substituem essa revisão.
-- O teste exercita a aplicação em DOM simulado e o servidor HTTP local. Não valida qualidade de áudio, renderização de animações ou integração externa de interpretação.
-- A preparação gerou somente a saída `public/runtime/` e o build `.next/`, ambos artefatos locais; não houve alteração de produto ou deploy.
-
-Próxima ação: concluir a revisão visual de #1–#3 em desktop/celular, conferir o preview autenticado com Pedro e resolver qualquer lacuna antes de aceitar a sprint 1 ou avançar para a sprint 2. A integração MCP #9 continua bloqueada pelo aceite da fundação #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
-
-
-
-## 03/11/2026: roteiro para revisão da fundação
-
-Issue: [#7](https://github.com/PHnsilva/velumbra/issues/7). Atualização no [PR #10](https://github.com/PHnsilva/velumbra/pull/10), branch `daily/2026-11-02-s01-validation`, base `daily/2026-10-31-s01-deck-types` (PR #3). O trabalho partiu do HEAD anterior do PR #10, `fab689f8e69646fd41f5a1cb5f5aedad509317ee`; o novo roteiro foi criado no commit `5579564777cbc5639e31c3acc623d6c71d0856d9`.
-
-Entrega: `docs/REVIEW_CHECKLIST_S01.md` descreve passos concretos para a revisão manual em desktop (1000 × 597) e celular (390 × 844), usando dados sintéticos. Cobre entrada silenciosa, foco/teclado, erros de nome, preservação ou descarte de rascunho, quatro tradições e três amostras, som, movimento reduzido, diário local, layout e limpeza dos dados de teste. Foi cruzado com os critérios atuais das issues #6/#7 e com os seletores/fluxos já existentes no HEAD #3.
-
-Validação: GitHub Actions do PR #10 no HEAD `4406b9377b5553fbb0eb1abb613f48e87a3011b8` (run `41642203579`) aprovou `npm ci`, `npm run build`, `npm run check` e `npm test`; 10 testes passaram. Isto verifica o estado do código, não oferece evidência visual nem comportamento novo de produto. O roteiro propõe verificações para Pedro executar e não registra resultado visual. A revisão visual segue pendente após a ferramenta de navegador falhar ao iniciar na sessão anterior; preview autenticado, aparência, áudio, animações e comportamento real continuam sem evidência nova.
-
-Próxima ação: Pedro executar o roteiro no preview e registrar Passou/Falhou/Não executada por dispositivo. Corrigir falhas comprovadas antes do aceite da sprint 1; preservar a ordem #1 → #2 → #3. O cliente MCP #9 segue bloqueado por #7 e pelo contrato `PHnsilva/sofiie-agents#16`.
-
-## 08/11/2026: S1, ampliação acessível da biblioteca (issue #14)
-
-Branch `codex/2026-11-08-14-library-enlargement`, baseada provisoriamente no HEAD do PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`), que por sua vez depende de #2 e #1. A biblioteca mantém as três amostras por tradição e agora permite abrir uma carta ampliada com símbolo e descrição. O botão de ampliação tem nome acessível; o retorno restaura a tradição, a lista e o foco na amostra acionada. Nenhum conteúdo de carta ou arte nova foi criado. A implementação e as verificações deste incremento estão em [PROGRESS-2026-11-08-ISSUE-14.md](PROGRESS-2026-11-08-ISSUE-14.md).
-
-Validação em Node 24.19.0/npm 11.17.0: instalação offline pelo lockfile; `npm run check`, `npm run build` e `npm test` passaram (12/12). Os testes novos cobrem rótulo do botão, amostra Lenormand XXXII, descrição, retorno, foco e preservação do rascunho após escolha explícita. A inspeção visual real em desktop/celular não foi concluída porque o controle do navegador encerrou por não conseguir determinar a URL ativa; não se declara aprovação visual. PR [#92](https://github.com/PHnsilva/velumbra/pull/92) aberto para revisão e CI passou no HEAD registrado; sem integração ou aceite de Pedro.
-
-## 09/11/2026: S1, validação da cabana, som e movimento (issue #11)
-
-Issue L (8 unidades), sobre assets e comportamento já existentes. A rodada acrescenta teste do controlador de som/volume/movimento reduzido, fallback acessível sem AudioContext, execução do renderizador com movimento reduzido e checagem dos quatro WAV no servidor. Nenhum asset ou código de produto foi refeito. O incremento foi empilhado sobre o PR #92 para preservar o diário cronológico; a base combinada é documentada em [PROGRESS-2026-11-09-ISSUE-11.md](PROGRESS-2026-11-09-ISSUE-11.md).
-
-A árvore combinada parte do PR #92, cujo predecessor é PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`). Os resultados finais locais estão no relatório diário. A cena, CSS e assets de áudio/arte continuam sem alterações desde a evidência visual histórica do PR #2. Não é uma inspeção visual/escuta nova em 09/11. Revisão e aceite de Pedro continuam pendentes.
-
-
-## 10/11/2026: S1, estados e gestos da personagem (issue #13)
-
-Issue L (8 unidades), com avanço parcial no controlador da personagem: repouso continua como estado base; fala move mãos/rosto durante a voz; clique na personagem aciona reação; `performGesture` oferece preparação, distribuição e revelação com transições de baixa resolução. A chamada de distribuição ainda não está ligada à consulta, que não existe nesta etapa. Detalhes, dependência, validações e limites em [PROGRESS-2026-11-10-ISSUE-13.md](PROGRESS-2026-11-10-ISSUE-13.md).
-
-Em árvore combinada com PRs #93 → #92 → #3, `npm run check`, `npm run build`, `npm test` (15/15) e `git diff --check` passaram localmente. A revisão visual em Edge foi tentada, mas o controle do navegador encerrou por não conseguir determinar a URL ativa; nenhuma validação visual/sonora real nova é alegada. PR incremental [#94](https://github.com/PHnsilva/velumbra/pull/94), aberto como rascunho; CI/preview passaram no HEAD `8161492`. A issue permanece incompleta até esclarecer o gatilho da entrega e integrar a animação ao fluxo de tiragem. Contagem da meta diária por issue completa: 0/8; sem aceite por agente.
+Na base provisória PR #90 → #89 → #3 → #2 → #1, `npm run check`, `npm run build`, `npm test` (18/18) e `git diff --check` passaram; Actions, Vercel e Vercel Preview Comments passaram no HEAD `7633159`. A montagem local dos SVGs foi inspecionada, sem afirmar teste visual no aplicativo. Issue #74 M segue incompleta: licença/atribuição de distribuição e revisão humana pendentes; pontuação diária contada nesta issue 0/4.
