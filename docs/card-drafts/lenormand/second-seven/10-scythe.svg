@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Foice — rascunho</title><desc id="desc">Uma ferramenta de colheita corta talos maduros num campo, sem pessoa ou ameaça.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">X</text>
+  <path d="M82 232l67-88 9 7-67 88z" fill="#4c1b2b"/><path d="M149 146q34-34 48-8-10 34-43 24l-7-5q23-2 35-18-15 9-31 7z" fill="#707b7b"/>
+  <path d="M55 253h131v7H55zM73 241h5v-24h7v24zM101 241h5v-33h7v33zM165 241h5v-28h7v28z" fill="#778265"/><rect x="59" y="266" width="122" height="5" fill="#cb8e3c"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">A FOICE</text>
+</svg>
