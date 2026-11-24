@@ -93,15 +93,15 @@ Limites e pendências:
 
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
 
-## 08/11/2026: S1, ampliação acessível da biblioteca (issue #14)
 
-Branch `codex/2026-11-08-14-library-enlargement`, baseada provisoriamente no HEAD do PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`), que por sua vez depende de #2 e #1. A biblioteca mantém as três amostras por tradição e agora permite abrir uma carta ampliada com símbolo e descrição. O botão de ampliação tem nome acessível; o retorno restaura a tradição, a lista e o foco na amostra acionada. Nenhum conteúdo de carta ou arte nova foi criado. A implementação e as verificações deste incremento estão em [PROGRESS-2026-11-08-ISSUE-14.md](PROGRESS-2026-11-08-ISSUE-14.md).
+## 11/11/2026: S1, rascunho autoral do lote Petit Lenormand 1–7 (issue #74)
 
-Validação em Node 24.19.0/npm 11.17.0: instalação offline pelo lockfile; `npm run check`, `npm run build` e `npm test` passaram (12/12). Os testes novos cobrem rótulo do botão, amostra Lenormand XXXII, descrição, retorno, foco e preservação do rascunho após escolha explícita. A inspeção visual real em desktop/celular não foi concluída porque o controle do navegador encerrou por não conseguir determinar a URL ativa; não se declara aprovação visual. PR [#92](https://github.com/PHnsilva/velumbra/pull/92) aberto para revisão e CI passou no HEAD registrado; sem integração ou aceite de Pedro.
+Foram preparados sete registros editoriais e sete desenhos SVG de rascunho para as primeiras posições do Petit Lenormand, com resumos originais em contexto e sem inversões. A proveniência distingue conteúdo/arte e mantém licença e revisão pendentes. Os desenhos ficam em `docs/card-drafts/lenormand/`, fora do caminho público; não foram conectados ao catálogo do runtime. PR [#95](https://github.com/PHnsilva/velumbra/pull/95) está aberto como rascunho no commit de implementação `96b7e256139ce2d6b7a97d10ae818979d78abae6`. O relatório completo, limites e decisão necessária estão em [PROGRESS-2026-11-11-ISSUE-74.md](PROGRESS-2026-11-11-ISSUE-74.md).
 
-## 09/11/2026: S1, validação da cabana, som e movimento (issue #11)
+Na base provisória PR #90 → #89 → #3 → #2 → #1, `npm run check`, `npm run build`, `npm test` (18/18) e `git diff --check` passaram; Actions, Vercel e Vercel Preview Comments passaram no HEAD `7633159`. A montagem local dos SVGs foi inspecionada, sem afirmar teste visual no aplicativo. Issue #74 M segue incompleta: licença/atribuição de distribuição e revisão humana pendentes; pontuação diária contada nesta issue 0/4.
 
-Issue L (8 unidades), sobre assets e comportamento já existentes. A rodada acrescenta teste do controlador de som/volume/movimento reduzido, fallback acessível sem AudioContext, execução do renderizador com movimento reduzido e checagem dos quatro WAV no servidor. Nenhum asset ou código de produto foi refeito. O incremento foi empilhado sobre o PR #92 para preservar o diário cronológico; a base combinada é documentada em [PROGRESS-2026-11-09-ISSUE-11.md](PROGRESS-2026-11-09-ISSUE-11.md).
+## 15/11/2026: S1, rascunho do lote Petit Lenormand 8–14 (issue #75)
+
 
 A árvore combinada parte do PR #92, cujo predecessor é PR #3 (`14fc529e8dd355afeb66afb01d6a7c67734f41e1`). Os resultados finais locais estão no relatório diário. A cena, CSS e assets de áudio/arte continuam sem alterações desde a evidência visual histórica do PR #2. Não é uma inspeção visual/escuta nova em 09/11. Revisão e aceite de Pedro continuam pendentes.
 
