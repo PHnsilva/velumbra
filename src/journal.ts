@@ -24,7 +24,12 @@ export interface KeyValueStorage {
 export type JournalReadResult =
   | { readonly status: 'ready'; readonly document: JournalDocument }
   | { readonly status: 'empty'; readonly document: JournalDocument }
-  | { readonly status: 'invalid'; readonly raw: string };
+  | { readonly status: 'invalid'; readonly raw: string }
+  | { readonly status: 'unavailable' };
+
+export type JournalOperationResult =
+  | { readonly status: 'saved' | 'removed' | 'cleared' | 'restored'; readonly document: JournalDocument }
+  | { readonly status: 'invalid-data' | 'invalid-entry' | 'duplicate' | 'unavailable' };
 
 const emptyDocument = (): JournalDocument => ({ schemaVersion: JOURNAL_SCHEMA_VERSION, entries: [] });
 
@@ -48,6 +53,7 @@ function isJournalEntry(value: unknown): value is JournalEntry {
       && typeof card.numberLabel === 'string' && typeof card.name === 'string' && card.name.length > 0
       && typeof card.summary === 'string' && Array.isArray(card.symbols) && card.symbols.every(symbol => typeof symbol === 'string')
       && typeof card.assetPath === 'string' && card.assetPath.startsWith('/art/cards/')
+      && !/[\\?#]/.test(card.assetPath) && !card.assetPath.split('/').includes('..')
       && (card.orientation === 'upright' || (spread.deckId !== 'lenormand' && card.orientation === 'reversed')))
     && new Set(spread.cards.map(card => isRecord(card) ? card.id : null)).size === spread.cards.length;
 }
@@ -73,44 +79,100 @@ export class ReadingJournal {
   constructor(private readonly storage: KeyValueStorage, private readonly key = JOURNAL_KEY) {}
 
   read(): JournalReadResult {
-    const raw = this.storage.getItem(this.key);
+    let raw: string | null;
+    try {
+      raw = this.storage.getItem(this.key);
+    } catch {
+      return { status: 'unavailable' };
+    }
     if (raw === null) return { status: 'empty', document: emptyDocument() };
     const document = parseDocument(raw);
     return document ? { status: 'ready', document } : { status: 'invalid', raw };
   }
 
   append(entry: JournalEntry): JournalDocument {
-    if (!isJournalEntry(entry)) throw new TypeError('Registro de diário inválido.');
+    const result = this.tryAppend(entry);
+    if (result.status === 'saved') return result.document;
+    if (result.status === 'invalid-entry') throw new TypeError('Registro de diário inválido.');
+    if (result.status === 'invalid-data') throw new Error('Diário incompatível; exporte ou remova os dados antes de substituir.');
+    if (result.status === 'duplicate') throw new Error('ID de registro já existe.');
+    throw new Error(`Não foi possível salvar o diário (${result.status}).`);
+  }
+
+  tryAppend(entry: JournalEntry): JournalOperationResult {
+    if (!isJournalEntry(entry)) return { status: 'invalid-entry' };
     const current = this.read();
-    if (current.status === 'invalid') throw new Error('Diário incompatível; exporte ou remova os dados antes de substituir.');
-    if (current.document.entries.some(existing => existing.id === entry.id)) throw new Error('ID de registro já existe.');
+    if (current.status === 'invalid') return { status: 'invalid-data' };
+    if (current.status === 'unavailable') return { status: 'unavailable' };
+    if (current.document.entries.some(existing => existing.id === entry.id)) return { status: 'duplicate' };
     const next: JournalDocument = { schemaVersion: JOURNAL_SCHEMA_VERSION, entries: [...current.document.entries, entry] };
-    this.storage.setItem(this.key, JSON.stringify(next));
-    return next;
+    try {
+      this.storage.setItem(this.key, JSON.stringify(next));
+      return { status: 'saved', document: next };
+    } catch {
+      return { status: 'unavailable' };
+    }
   }
 
   remove(id: string): JournalDocument {
+    const result = this.tryRemove(id);
+    if (result.status === 'removed') return result.document;
+    if (result.status === 'invalid-data') throw new Error('Diário incompatível; não foi alterado.');
+    throw new Error(`Não foi possível remover o registro (${result.status}).`);
+  }
+
+  tryRemove(id: string): JournalOperationResult {
     const current = this.read();
-    if (current.status === 'invalid') throw new Error('Diário incompatível; não foi alterado.');
+    if (current.status === 'invalid') return { status: 'invalid-data' };
+    if (current.status === 'unavailable') return { status: 'unavailable' };
     const next: JournalDocument = { schemaVersion: JOURNAL_SCHEMA_VERSION, entries: current.document.entries.filter(entry => entry.id !== id) };
-    this.storage.setItem(this.key, JSON.stringify(next));
-    return next;
+    try {
+      this.storage.setItem(this.key, JSON.stringify(next));
+      return { status: 'removed', document: next };
+    } catch {
+      return { status: 'unavailable' };
+    }
   }
 
   clear(): void {
-    this.storage.removeItem(this.key);
+    const result = this.tryClear();
+    if (result.status !== 'cleared') throw new Error(`Não foi possível excluir o diário (${result.status}).`);
+  }
+
+  tryClear(): JournalOperationResult {
+    try {
+      this.storage.removeItem(this.key);
+      return { status: 'cleared', document: emptyDocument() };
+    } catch {
+      return { status: 'unavailable' };
+    }
   }
 
   export(): string {
     const current = this.read();
     if (current.status === 'invalid') throw new Error('Diário incompatível; conteúdo bruto disponível para recuperação.');
+    if (current.status === 'unavailable') throw new Error('Armazenamento local indisponível.');
     return JSON.stringify(current.document, null, 2);
   }
 
   restore(serialized: string): JournalDocument {
+    const result = this.tryRestore(serialized);
+    if (result.status === 'restored') return result.document;
+    if (result.status === 'invalid-data') throw new TypeError('Arquivo de diário inválido ou de versão incompatível.');
+    throw new Error(`Não foi possível restaurar o diário (${result.status}).`);
+  }
+
+  tryRestore(serialized: string): JournalOperationResult {
     const document = parseDocument(serialized);
-    if (!document) throw new TypeError('Arquivo de diário inválido ou de versão incompatível.');
-    this.storage.setItem(this.key, JSON.stringify(document));
-    return document;
+    if (!document) return { status: 'invalid-data' };
+    const current = this.read();
+    if (current.status === 'invalid') return { status: 'invalid-data' };
+    if (current.status === 'unavailable') return { status: 'unavailable' };
+    try {
+      this.storage.setItem(this.key, JSON.stringify(document));
+      return { status: 'restored', document };
+    } catch {
+      return { status: 'unavailable' };
+    }
   }
 }
