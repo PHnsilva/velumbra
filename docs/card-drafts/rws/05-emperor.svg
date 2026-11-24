@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Imperador — rascunho original</title><desc id="desc">Uma pessoa responsável mede uma praça planejada com limites claros e um portão aberto.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">IV</text>
+  <path d="M47 92h146v9H47zM48 101h8v87h-8zM184 101h8v87h-8z" fill="#211c1b"/>
+  <path d="M57 116h35v8H57zM146 116h37v8h-37zM59 132h26v7H59zM155 132h27v7h-27z" fill="#778265"/>
+  <path d="M101 157h36v8h-36zM98 165h43v16h-43zM103 181h33v30h-33zM96 211h48v13h-48z" fill="#4c1b2b"/>
+  <path d="M104 224h14v36h-14zM130 224h14v36h-14zM98 260h24v9H98zM126 260h24v9h-24z" fill="#211c1b"/>
+  <path d="M57 193h126v9H57zM63 202h114v8H63zM70 210h100v8H70z" fill="#778265"/>
+  <path d="M64 219h20v7H64zM157 219h18v7h-18zM59 237h28v8H59zM153 236h32v8h-32z" fill="#211c1b"/>
+  <path d="M91 226h3v34h-3zM89 226h7v3h-7zM88 257h9v4h-9z" fill="#cb8e3c"/>
+  <path d="M47 276h146v8H47zM55 284h130v7H55z" fill="#4c1b2b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O IMPERADOR</text>
+</svg>

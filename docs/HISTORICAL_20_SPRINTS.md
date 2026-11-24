@@ -1,8 +1,8 @@
-# Registro histórico — não é a programação vigente
+# Registro histórico das vinte entregas
 
-Preservado para rastreabilidade. O ciclo vigente de até seis sprints e suas issues estão em DELIVERY_PLAN.md. Instruções antigas de calendário/execução não reativam tarefas.
+Este documento preserva a decomposição inicial do escopo em vinte entregas. A correspondência com o ciclo atual está em [DELIVERY_PLAN.md](DELIVERY_PLAN.md) e [SPRINTS.md](SPRINTS.md). Conteúdo e critérios abaixo descrevem o plano histórico, não o estado atual de implementação; evidências vigentes estão em [PROGRESS.md](PROGRESS.md) e nas issues vinculadas.
 
-# Plano de execução — 20 sprints
+# Decomposição original do escopo
 
 ## Regras do ciclo
 
@@ -12,7 +12,6 @@ Preservado para rastreabilidade. O ciclo vigente de até seis sprints e suas iss
 - Sprints **18 e 20** concentram testes amplos e mudanças.
 - O **MVP é a sprint 19**, a penúltima.
 - A integração da IA será validada cedo, com cartas de exemplo, antes da produção de todo o catálogo.
-- Ciclo autorizado em 29/10/2026: PR diário com revisão conjunta no fim de semana. A manutenção de 29/10 não inicia a sprint 1; a progressão começa em 30/10. Ver [PROGRESS.md](PROGRESS.md). PR aberto ou CI verde não representa aceite ou integração.
 
 ## Preparação anterior à sprint 1
 
@@ -42,23 +41,6 @@ Prólogo estático funcional: abertura com ícone e nome, transição para menu,
 | 18     | Testes e mudanças 1.                                                                            | Fluxos completos, conteúdo, contexto, animação, acessibilidade e desempenho revisados; bloqueadores corrigidos.            |
 | 19     | MVP integrado e publicado na Vercel.                                                            | Jornada completa com quatro baralhos, biblioteca, personagem animada, explicações e veredito disponível para experimentar. |
 | 20     | Testes e mudanças 2 da versão publicada.                                                        | Retorno do usuário analisado, correções verificadas e versão final deste ciclo entregue.                                   |
-
-## Checklist por sprint
-
-1. Revisar dependências e estado anterior.
-2. Implementar a entrega prevista.
-3. Verificar o critério de conclusão.
-4. Registrar arquivos alterados, verificações e limitações reais.
-5. Atualizar este plano com o estado correto e publicar o trabalho no GitHub.
-
-## Estado em 31/10/2026
-
-| Sprint | Implementação                                                                                                                                                                                                                                                                        | Revisão e aceite                                                                            |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| 01     | Em execução: fundação Next.js/TypeScript, preview e modelo tipado que separa Rider–Waite–Smith, Marselha, Thoth e Lenormand. As três cartas da interface estão identificadas como amostras; catálogos completos e motor ainda pendentes. Revisão dos limites entre módulos continua. | PRs #2 e #3 propostos em sequência, dependentes da manutenção #1; sem integração ou aceite. |
-| 02–20  | Pendentes.                                                                                                                                                                                                                                                                           | Não iniciadas como sprints.                                                                 |
-
-Os recursos já existentes do prólogo não encerram os critérios das sprints futuras. As verificações e pendências de cada incremento ficam em [PROGRESS.md](PROGRESS.md).
 
 ## Cobertura das sprints de testes
 

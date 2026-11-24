@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Sacerdotisa — rascunho original</title><desc id="desc">Uma guardiã observa uma sala de arquivos onde apenas parte de um livro recebe luz.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/>
+  <text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">II</text>
+  <path d="M53 85h134v8H53zM57 93h8v104h-8zM175 93h8v104h-8z" fill="#4c1b2b"/>
+  <path d="M75 105h90v70h-90z" fill="#778265"/><path d="M81 111h78v58h-78z" fill="#211c1b"/>
+  <path d="M112 111h15v58h-15z" fill="#cb8e3c"/><path d="M117 121h6v38h-6z" fill="#e4d2ad"/>
+  <path d="M99 178h42v8H99zM104 186h32v8h-32z" fill="#211c1b"/>
+  <path d="M107 181h26v18h-26zM100 199h40v14h-40zM94 213h53v39h-53zM89 251h63v12h-63z" fill="#4c1b2b"/>
+  <path d="M98 263h17v21H98zM129 263h17v21h-17zM92 282h27v7H92zM125 282h27v7h-27z" fill="#211c1b"/>
+  <path d="M68 199h28v7H68zM151 199h24v7h-24zM79 210h16v5H79zM150 210h15v5h-15z" fill="#778265"/>
+  <path d="M46 91h8v193h-8zM185 91h8v193h-8z" fill="#211c1b"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="11">A SACERDOTISA</text>
+</svg>

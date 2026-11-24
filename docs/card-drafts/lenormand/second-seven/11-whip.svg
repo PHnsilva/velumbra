@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">O Chicote — rascunho</title><desc id="desc">Dois bastões cruzados e uma trança em laço representam repetição e debate.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">XI</text>
+  <path d="M75 214l79-81 9 9-79 81zM157 214l-81-81-9 9 81 81z" fill="#4c1b2b"/>
+  <path d="M107 146h26v12h-26zM114 158h12v11h-12zM101 169h38v12h-38zM114 181h12v11h-12zM107 193h26v12h-26z" fill="#cb8e3c"/>
+  <path d="M54 240h132v6H54zM77 255h86v5H77zM105 269h30v5h-30z" fill="#778265"/><text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">O CHICOTE</text>
+</svg>

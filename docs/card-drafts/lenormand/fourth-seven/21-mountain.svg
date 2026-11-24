@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc">
+  <title id="title">A Montanha — rascunho original</title><desc id="desc">Caminho estreito diante de uma montanha rochosa.</desc>
+  <rect width="240" height="336" fill="#e5d6b8"/><rect x="13" y="13" width="214" height="310" rx="8" fill="#30251f"/><rect x="22" y="22" width="196" height="292" fill="#a99a7b"/>
+  <path d="M33 256 91 104l36 69 28-49 52 132z" fill="#51483e" stroke="#302822" stroke-width="7"/><path d="m75 146 16 19 15-8m23 31 13-9 15 12m-84 37 18-11 15 9m61 23 17-12 13 6" fill="none" stroke="#c0ad8b" stroke-width="6"/><path d="M110 281q20-35 17-63t17-46" fill="none" stroke="#bd8150" stroke-width="8"/><path d="M41 281h158" stroke="#30251f" stroke-width="8"/><text x="120" y="302" text-anchor="middle" fill="#f0dfbd" font-family="serif" font-size="17">XXI · MONTANHA</text>
+</svg>
