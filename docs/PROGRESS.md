@@ -93,6 +93,7 @@ Limites e pendências:
 
 Próxima ação: revisar os PRs encadeados e continuar a separação dos contratos do domínio antes de iniciar as entregas da sprint 2.
 
+
 ## 11/11/2026: S1, rascunho autoral do lote Petit Lenormand 1–7 (issue #74)
 
 Foram preparados sete registros editoriais e sete desenhos SVG de rascunho para as primeiras posições do Petit Lenormand, com resumos originais em contexto e sem inversões. A proveniência distingue conteúdo/arte e mantém licença e revisão pendentes. Os desenhos ficam em `docs/card-drafts/lenormand/`, fora do caminho público; não foram conectados ao catálogo do runtime. PR [#95](https://github.com/PHnsilva/velumbra/pull/95) está aberto como rascunho no commit de implementação `96b7e256139ce2d6b7a97d10ae818979d78abae6`. O relatório completo, limites e decisão necessária estão em [PROGRESS-2026-11-11-ISSUE-74.md](PROGRESS-2026-11-11-ISSUE-74.md).
