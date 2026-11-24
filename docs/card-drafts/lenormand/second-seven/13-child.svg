@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc" shape-rendering="crispEdges">
+  <title id="title">A Criança — rascunho</title><desc id="desc">Um brinquedo de madeira e uma muda representam curiosidade e começo pequeno.</desc>
+  <rect x="8" y="8" width="224" height="320" fill="#211c1b"/><rect x="14" y="14" width="212" height="308" fill="#e4d2ad"/><rect x="22" y="22" width="196" height="292" fill="none" stroke="#4c1b2b" stroke-width="4"/><text x="120" y="49" text-anchor="middle" fill="#4c1b2b" font-family="monospace" font-size="18">XIII</text>
+  <path d="M66 228h108v38H66zM79 218h83v10H79z" fill="#4c1b2b"/><rect x="89" y="236" width="24" height="20" fill="#cb8e3c"/><rect x="127" y="236" width="24" height="20" fill="#778265"/><rect x="80" y="266" width="17" height="17" fill="#211c1b"/><rect x="143" y="266" width="17" height="17" fill="#211c1b"/>
+  <path d="M114 215h12v-50h-12zM120 176l-23-18 5-7 22 16zM121 177l24-19-5-7-23 17z" fill="#778265"/><path d="M106 153h13v-12h13v12h12v13h-12v12h-13v-12h-13z" fill="#cb8e3c"/>
+  <text x="120" y="305" text-anchor="middle" fill="#211c1b" font-family="monospace" font-size="13">A CRIANÇA</text>
+</svg>

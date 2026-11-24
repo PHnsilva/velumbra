@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 336" role="img" aria-labelledby="title desc">
+  <title id="title">Os Caminhos — rascunho original</title><desc id="desc">Uma trilha se divide em três rumos entre árvores.</desc>
+  <rect width="240" height="336" fill="#e5d6b8"/><rect x="13" y="13" width="214" height="310" rx="8" fill="#30251f"/><rect x="22" y="22" width="196" height="292" fill="#a99a7b"/>
+  <path d="M32 108h176M31 168h177M32 228h176" stroke="#716149" stroke-width="4"/><path d="M119 281 119 220 68 154 54 92m65 128 50-66 16-66m-66 132 0-96" fill="none" stroke="#e1d0ad" stroke-width="20" stroke-linejoin="round"/><path d="M119 281 119 220 68 154 54 92m65 128 50-66 16-66m-66 132 0-96" fill="none" stroke="#bd8150" stroke-width="4" stroke-linejoin="round"/><circle cx="119" cy="211" r="10" fill="#30251f"/><g fill="#4a4435"><path d="m40 113 18-42 18 42zM157 113l18-42 18 42z"/><path d="m32 182 18-40 18 40zM173 182l18-40 18 40z"/></g><text x="120" y="302" text-anchor="middle" fill="#f0dfbd" font-family="serif" font-size="17">XXII · CAMINHOS</text>
+</svg>

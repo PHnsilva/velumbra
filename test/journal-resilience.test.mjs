@@ -52,8 +52,26 @@ test('versão desconhecida fica recuperável e não é sobrescrita por gravaçã
   assert.deepEqual(journal.tryAppend(sampleEntry()), { status: 'invalid-data' });
   assert.deepEqual(journal.tryRemove('local-1'), { status: 'invalid-data' });
   assert.deepEqual(journal.tryRestore('{ malformed'), { status: 'invalid-data' });
+  assert.deepEqual(journal.tryRestore(JSON.stringify({ schemaVersion: 1, entries: [sampleEntry()] })), { status: 'invalid-data' });
   assert.equal(journal.read().raw, futureDocument);
   assert.equal(storage.getItem(JOURNAL_KEY), futureDocument);
+});
+
+test('restauração exige leitura disponível e recusa caminhos de arte fora do catálogo', () => {
+  const storage = new FaultyStorage();
+  const journal = new ReadingJournal(storage);
+  const backup = JSON.stringify({ schemaVersion: 1, entries: [sampleEntry()] });
+  storage.failure = 'read';
+  assert.deepEqual(journal.tryRestore(backup), { status: 'unavailable' });
+  assert.equal(storage.values.size, 0);
+  storage.failure = null;
+  for (const assetPath of ['/art/cards/../../private.svg', '/art/cards/lenormand/test.svg?external=1', '/art/cards/lenormand/..\\private.svg']) {
+    const entry = sampleEntry();
+    entry.spread.cards[0].assetPath = assetPath;
+    assert.deepEqual(journal.tryAppend(entry), { status: 'invalid-entry' });
+    assert.deepEqual(journal.tryRestore(JSON.stringify({ schemaVersion: 1, entries: [entry] })), { status: 'invalid-data' });
+  }
+  assert.equal(storage.values.size, 0);
 });
 
 test('recuperação restaurada pode ser exportada de novo e exclusão integral remove só a chave local', () => {

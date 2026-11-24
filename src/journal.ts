@@ -53,6 +53,7 @@ function isJournalEntry(value: unknown): value is JournalEntry {
       && typeof card.numberLabel === 'string' && typeof card.name === 'string' && card.name.length > 0
       && typeof card.summary === 'string' && Array.isArray(card.symbols) && card.symbols.every(symbol => typeof symbol === 'string')
       && typeof card.assetPath === 'string' && card.assetPath.startsWith('/art/cards/')
+      && !/[\\?#]/.test(card.assetPath) && !card.assetPath.split('/').includes('..')
       && (card.orientation === 'upright' || (spread.deckId !== 'lenormand' && card.orientation === 'reversed')))
     && new Set(spread.cards.map(card => isRecord(card) ? card.id : null)).size === spread.cards.length;
 }
@@ -164,6 +165,9 @@ export class ReadingJournal {
   tryRestore(serialized: string): JournalOperationResult {
     const document = parseDocument(serialized);
     if (!document) return { status: 'invalid-data' };
+    const current = this.read();
+    if (current.status === 'invalid') return { status: 'invalid-data' };
+    if (current.status === 'unavailable') return { status: 'unavailable' };
     try {
       this.storage.setItem(this.key, JSON.stringify(document));
       return { status: 'restored', document };
