@@ -140,14 +140,10 @@ Validação limpa em Node.js 24.19.0 e npm 11.17.0: `npm ci` instalou 66 pacotes
 A inspeção visual em navegador continua pendente pela restrição da sessão integrada em abrir uma nova aba; não houve revisão em desktop/celular nem aceite. GitHub Actions passou no HEAD `3ebdceb426eaaab35154a88dfb893203a68a22a0` (run `44149487946`), executando `npm ci`, build, tipos e os 20 testes. O preview Vercel do mesmo HEAD ficou pronto. A inspeção visual e o aceite humano continuam pendentes.
 
 
-## 20/11/2026: RWS, primeiro lote editorial (issue #38)
+## 20/11/2026: RWS, segundo lote editorial (issue #39)
 
-Issue #38, S3, M (4 unidades): sete rascunhos textuais e vetoriais para as posições 1–7 foram registrados com proveniência separada, licença/revisão pendentes e artes mantidas em docs/, fora do runtime público. A entrega não declara cartas aceitas ou prontas para sorteio. Evidência detalhada, base provisória no PR #10/Next.js 16.4.5, validações e limites: [PROGRESS-2026-11-20-ISSUE-38.md](PROGRESS-2026-11-20-ISSUE-38.md).
+Issue #39, S3, M (4 unidades): sete rascunhos de cartas para posições 8–14, com textos e arte originais, proveniência e licença/revisão pendentes; assets mantidos fora do runtime. Evidência, base provisória no PR #10/Next.js 16.4.5, testes e limites: [PROGRESS-2026-11-20-ISSUE-39.md](PROGRESS-2026-11-20-ISSUE-39.md). Build e check passaram; testes 23/23; SVGs analisados como XML e prévia raster inspecionada. A issue permanece aberta para revisão e aceite de Pedro.
 
-Validação local: build, tipos/sintaxe, testes 23/23 e git diff --check passaram; sete SVGs XML válidos e prévias raster inspecionadas. Produzido: 4/4 unidades da issue; sujeito a revisão e aceite de Pedro.
+PR draft #106 aberto para a issue #39 contra daily/2026-11-02-s01-validation; commit inicial do lote edda3ee1dbf4e14d3a70bbb667109acc1b1061da. CI remoto aguarda execução e aceite de Pedro.
 
-PR draft #105 aberto contra daily/2026-11-02-s01-validation; commit inicial do lote 5396c857b061588b732c223f94052460d5db59dd. CI remoto aguarda execução e a issue permanece sem aceite.
-
-Atualização: o PR #105 (HEAD 1974779067939168e3914ccfefb1dd2c73de3dbe) passou Actions run 44817884148, Vercel e Preview. Continua draft e aguarda revisão/aceite de Pedro.
-
-PR #105 atualizado: HEAD 20940d920d1f10645458f0db8555d728321bb1c validado pelo Actions run 44818807287; Vercel e Preview passaram. Continua aberto/draft aguardando Pedro.
+PR #106: HEAD 9329de2ab5dff7e51975745fc91c6be3ae9bb2ae validado pelo Actions run 44818805264; Vercel e Preview passaram. Continua aberto/draft aguardando Pedro.
